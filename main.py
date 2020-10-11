@@ -464,7 +464,7 @@ async def kick(ctx, member: discord.Member, *, reason=None):
 @bot.command(name="softban")  # bans and immediately unbans the user mentioned
 @commands.has_permissions(ban_members=True)
 async def softban(ctx, member: discord.Member, *, reason=None):
-    if member == ctx.message.author:
+    if member == ctx.author:
         await ctx.send("You can't softban yourself, derp!")
         return
     if reason is None:
@@ -473,11 +473,11 @@ async def softban(ctx, member: discord.Member, *, reason=None):
     else:
         messageok = f"You have been softbanned from **{ctx.guild.name}** | Reason: `{reason}`"
         await member.send(messageok)
-        await member.ban(reason=f"{ctx.message.author}: {reason}")
+        await member.ban(reason=f"{ctx.author}: {reason}")
         await member.unban()
         embed = discord.Embed(title=f"{member} has been softcasted from {ctx.guild.name}!", color=config.color)
         embed.set_image(url="https://media1.tenor.com/images/b90428d4fbe48cc19ef950bd85726bba/tenor.gif?itemid=17178338")
-        embed.set_footer(text=f"Reason: {reason}\nModerator: {ctx.message.author}")
+        embed.set_footer(text=f"Reason: {reason}\nModerator: {ctx.author}")
         await ctx.send(embed=embed)
         await functions.logging(ctx, "softban", bot)
 
