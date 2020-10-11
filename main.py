@@ -507,7 +507,7 @@ async def poll(ctx, *, arg):
 async def decide(ctx, *, arg):
     await ctx.message.delete()
     embed = discord.Embed(title=arg, color=config.color)
-    embed.set_footer(text=f"Asked by {ctx.message.author}")
+    embed.set_footer(text=f"Asked by {ctx.author}")
     botmsg = await ctx.send(embed=embed)
     await botmsg.add_reaction("✅")
     await botmsg.add_reaction("❌")
