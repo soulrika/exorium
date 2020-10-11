@@ -156,7 +156,7 @@ async def links(ctx):
     embed = discord.Embed(title='exorium Links', color=config.color)
     embed.add_field(name="Github", value="[Repo](https://github.com/ThePawKingdom/exorium)\n[Organisation](https://github.com/ThePawKingdom)", inline=True)
     embed.set_thumbnail(url="https://www.dropbox.com/s/yx7z6iefnx0q576/Icon.jpg?dl=1")
-    embed.set_footer(text="Thank you, " + ctx.message.author.name + ", for using exorium!")
+    embed.set_footer(text="Thank you, " + ctx.author.name + ", for using exorium!")
     await ctx.send(embed=embed)
     await functions.logging(ctx, "links", bot)
 
