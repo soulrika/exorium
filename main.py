@@ -492,7 +492,7 @@ async def poll(ctx, *, arg):
     for x in choice:
         embed.add_field(name="Option " + reactionlist[n-1], value=f"{x}", inline=False)
         n = n+1
-    embed.set_footer(text=f"Poll cast by {ctx.message.author}")
+    embed.set_footer(text=f"Poll cast by {ctx.author}")
     botmsg = await ctx.send(embed=embed)
     en = 1
     for emoji in reactionlist:
