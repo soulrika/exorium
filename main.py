@@ -123,16 +123,23 @@ async def animal(ctx):
 @bot.command()
 async def e621(ctx, *, tags=''):
     if(ctx.channel.is_nsfw() or ctx.channel.id in config.nsfwexceptions):
+        tagurl = tags.replace(' ', '+')
+        print(tagurl)
+        delmsg = await ctx.send("Waiting for results... <a:loadingbounce:753173725263822858>")
         response = requests.get(
-            'https://e621.net/posts.json',
-            params={'tags': tags},
+            f'https://e621.net/posts.json?tags={tagurl}',
             headers={'User-Agent': config.e621agent},
             auth=HTTPBasicAuth(config.e621username, config.e621key)
         )
+        if not response.json()["posts"]:
+            await delmsg.delete()
+            await ctx.send(f"Sadly, we couldn't get you `{tags}` - weirdo")
+            return
         finalimg = random.choice(response.json()["posts"])["file"]["url"]
         embed = discord.Embed(title='Random yiff', color=config.color)
         embed.set_image(url=finalimg)
         embed.set_footer(text='Powered by e621.')
+        await delmsg.delete()
         await ctx.send(embed=embed)
         await functions.logging(ctx, "e621", bot)
     else:
