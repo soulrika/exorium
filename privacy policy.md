@@ -26,10 +26,11 @@ If a command is executed on exorium it will log the following:
 - The guild it was executed in
 - The channel it was executed in
 
-Guild joins and command executions do **not** get saved. Only **logged**, these are only visible to members of the exorium team.
+Guild joins and command executions do **not** get saved. Only **logged**, these are only visible to members of the exorium team and happen only once everytime.
 
 ## third party sharing
 We do **not** share anything with third parties, any data saved is only visible to (certain members of) the exorium team.
 
+
 ## questions and concerns
-You can ask any questions or concerns in an issue, or you can join our [support server](https://discord.gg/CEHkNky) and ask, or DM NeoGames#5108 on discord.
+You can ask any questions or concerns in an issue, or you can join our [support server](https://discord.gg/CEHkNky) and ask, or DM NeoGames#4612 on discord.
