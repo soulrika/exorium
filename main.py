@@ -125,7 +125,7 @@ async def e621(ctx, *, tags=''):
     if(ctx.channel.is_nsfw() or ctx.channel.id in config.nsfwexceptions):
         tagurl = tags.replace(' ', '+')
         print(tagurl)
-        delmsg = await ctx.send("Waiting for results... <a:loadingbounce:753173725263822858>")
+        delmsg = await ctx.send("Waiting for results <a:loadingbounce:753173725263822858>")
         response = requests.get(
             f'https://e621.net/posts.json?tags={tagurl}',
             headers={'User-Agent': config.e621agent},
