@@ -444,7 +444,7 @@ async def _unban(ctx, id: int):
 @bot.command(name="kick")  # Kicks the mentioned user from the guild
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member, *, reason=None):
-    if member == ctx.message.author:
+    if member == ctx.author:
         await ctx.send("You can't kick yourself, derp!")
         return
     if reason is None:
@@ -453,10 +453,10 @@ async def kick(ctx, member: discord.Member, *, reason=None):
     else:
         messageok = f"You have been kicked from **{ctx.guild.name}** | Reason: `{reason}`"
         await member.send(messageok)
-        await member.kick(reason=f"{ctx.message.author}: {reason}")
+        await member.kick(reason=f"{ctx.author}: {reason}")
         embed = discord.Embed(title=f"{member} has been kicked from {ctx.guild.name}!", color=config.color)
         embed.set_image(url="https://media1.tenor.com/images/b90428d4fbe48cc19ef950bd85726bba/tenor.gif?itemid=17178338")
-        embed.set_footer(text=f"Reason: {reason}\nModerator: {ctx.message.author}")
+        embed.set_footer(text=f"Reason: {reason}\nModerator: {ctx.author}")
         await ctx.send(embed=embed)
         await functions.logging(ctx, "kick", bot)
 
