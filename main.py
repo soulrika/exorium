@@ -526,7 +526,7 @@ async def revive(ctx):
 async def say(ctx, *, sentence):
     await ctx.message.delete()
     embed = discord.Embed(color=config.color)
-    embed.add_field(name=sentence, value=f'by {ctx.message.author}')
+    embed.add_field(name=sentence, value=f'by {ctx.author}')
     await ctx.send(embed=embed)
     await functions.logging(ctx, "say", bot)
 
