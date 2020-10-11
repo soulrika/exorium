@@ -435,9 +435,8 @@ async def ban(ctx, member: discord.Member, *, reason=None):
 async def _unban(ctx, id: int):
     user = await bot.fetch_user(id)
     await ctx.guild.unban(user)
-    clearname = str(user).split("#")
-    embed = discord.Embed(title=f"Unbanned {clearname[0]}", color=config.color)
-    embed.set_footer(text=user)
+    embed = discord.Embed(title=f"Unbanned {user.name}", color=config.color)
+    embed.set_footer(text=f"{user}, ID: {user.id}")
     await ctx.send(embed=embed)
     await functions.logging(ctx, "unban", bot)
 
