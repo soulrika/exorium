@@ -370,9 +370,8 @@ async def kill(ctx, members: commands.Greedy[discord.Member], *, reason="not pay
 
 
 @bot.command(name='random', brief='Randomness!')  # Let exorium choose for you!
-async def randomchoice(ctx, arg1, arg2):
-    Arglist = [arg1, arg2]
-    await ctx.send(random.choice(Arglist))
+async def randomchoice(ctx, *args):
+    await ctx.send(random.choice(args))
     await functions.logging(ctx, "random", bot)
 
 
