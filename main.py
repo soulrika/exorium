@@ -10,7 +10,6 @@ import discord.ext
 from discord.ext import commands
 from outsources import functions, util
 from requests.auth import HTTPBasicAuth
-from datetime import datetime
 
 
 mydb = config.DBdata
@@ -45,6 +44,13 @@ async def on_ready():
             js = await r.json()
             if js['error']:
                 print(f'Failed to post to discordextremelist.xyz\n{js}')
+    async with aiohttp.ClientSession() as session:
+        async with session.post("https://discordbotlist.com/api/v1/bots/620990340630970425/stats",
+                                headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
+                                data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r:
+            js = await r.json()
+            if js['error']:
+                print(f'Failed to post to discordbotlist.com\n{js}')
 
 
 @bot.event
@@ -56,6 +62,13 @@ async def on_guild_join(guild):
             js = await r.json()
             if js['error']:
                 print(f'Failed to post to discordextremelist.xyz\n{js}')
+    async with aiohttp.ClientSession() as session:
+        async with session.post("https://discordbotlist.com/api/v1/bots/620990340630970425/stats",
+                                headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
+                                data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r:
+            js = await r.json()
+            if js['error']:
+                print(f'Failed to post to discordbotlist.com\n{js}')
     print(f"I just joined {guild.name}, ID: {guild.id}")
 
 
