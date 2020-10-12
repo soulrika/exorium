@@ -56,14 +56,14 @@ async def on_ready():
 @bot.event
 async def on_guild_join(guild):
     async with aiohttp.ClientSession() as session:
-        async with session.post("https://api.discordextremelist.xyz/v2/bot/620990340630970425/stats",
+        async with session.post(f"https://api.discordextremelist.xyz/v2/bot/{bot.id}/stats",
                                 headers={'Authorization': config.DELTOKEN, "Content-Type": 'application/json'},
                                 data=json.dumps({'guildCount': len(bot.guilds)})) as r:
             js = await r.json()
             if js['error']:
                 print(f'Failed to post to discordextremelist.xyz\n{js}')
     async with aiohttp.ClientSession() as session:
-        async with session.post("https://discordbotlist.com/api/v1/bots/620990340630970425/stats",
+        async with session.post(f"https://discordbotlist.com/api/v1/bots/{bot.id}/stats",
                                 headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
                                 data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r:
             js = await r.json()
