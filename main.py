@@ -49,10 +49,8 @@ async def on_ready():
                                 headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
                                 data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r2:
             js = await r2.json()
-            if js['success'] == "false":
+            if hasattr(js, 'success') and js['success'] == "false":
                 print(f'Failed to post to discordbotlist.com\n{js}')
-            else:
-                print("Happy!")
 
 
 @bot.event
