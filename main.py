@@ -222,8 +222,12 @@ async def userinfo(ctx, *, user: discord.Member = None):
     while createday > 7:
         createday -= 7
     embed = discord.Embed(color=user.color, description=f"{user.mention} {util.statusemoji.get(str(user.status))}")
-    embed.set_author(name=user, icon_url=user.avatar_url)
-    embed.set_thumbnail(url=user.avatar_url)
+    if str(user.avatar_url).endswith(".gif?size=1024"):
+        embed.set_author(url=user.avatar_url_as(format="gif", size=1024))
+        embed.set_thumbnail(url=user.avatar_url_as(format="gif", size=1024))
+    else:
+        embed.set_author(url=user.avatar_url_as(format="png", size=1024))
+        embed.set_thumbnail(url=user.avatar_url_as(format="png", size=1024))
     embed.add_field(name="Joined:", value=f"{util.weekdays[joinday]} {user.joined_at.strftime('%d.%m.%Y %H:%M')}", inline=True)
     embed.add_field(name="Created At:", value=f"{util.weekdays[createday]} {user.created_at.strftime('%d.%m.%Y %H:%M')}", inline=True)
     if roles:
