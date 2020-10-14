@@ -170,7 +170,10 @@ async def avatar(ctx, *, user: discord.Member = None):
         user = ctx.author
     eA = discord.Embed(title='Avatar', color=config.color)
     eA.set_author(name=user, icon_url=user.avatar_url)
-    eA.set_image(url=user.avatar_url_as(format="png", size=1024))
+    if str(user.avatar_url).endswith(".gif?size=1024"):
+        eA.set_image(url=user.avatar_url_as(format="gif", size=1024))
+    else:
+        eA.set_image(url=user.avatar_url_as(format="png", size=1024))
     await ctx.send(embed=eA)
     await functions.logging(ctx, "avatar", bot)
 
