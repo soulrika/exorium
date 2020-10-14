@@ -65,9 +65,9 @@ async def on_guild_join(guild):
     async with aiohttp.ClientSession() as session:
         async with session.post(f"https://discordbotlist.com/api/v1/bots/{bot.id}/stats",
                                 headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
-                                data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r:
-            js = await r.json()
-            if js['error']:
+                                data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r2:
+            js = await r2.json()
+            if hasattr(js, 'success') and js['success'] == "false":
                 print(f'Failed to post to discordbotlist.com\n{js}')
     print(f"I just joined {guild.name}, ID: {guild.id}")
 
