@@ -202,8 +202,12 @@ async def serverinfo(ctx):
     if ctx.guild.features:
         embed.add_field(name="Server Features", value=str(gu.features), inline=True)
     embed.add_field(name="AFK Channel", value=f"`{gu.afk_channel}`\nTimeout {gu.afk_timeout}s", inline=False)
-    embed.set_author(name=ctx.guild.name + " information", url=gu.icon_url_as(format="png", size=1024), icon_url=gu.icon_url_as(format="png", size=1024))
-    embed.set_thumbnail(url=gu.icon_url_as(format="png", size=1024))
+    if str(gu.icon_url).endswith(".gif?size=1024"):
+        embed.set_author(name=ctx.guild.name + " information", url=gu.icon_url_as(format="gif", size=1024), icon_url=gu.icon_url_as(format="gif", size=1024))
+        embed.set_thumbnail(url=gu.icon_url_as(format="gif", size=1024))
+    else:
+        embed.set_author(name=ctx.guild.name + " information", url=gu.icon_url_as(format="png", size=1024), icon_url=gu.icon_url_as(format="png", size=1024))
+        embed.set_thumbnail(url=gu.icon_url_as(format="png", size=1024))
     await ctx.send(embed=embed)
     await functions.logging(ctx, "serverinfo", bot)
 
@@ -224,10 +228,10 @@ async def userinfo(ctx, *, user: discord.Member = None):
         createday -= 7
     embed = discord.Embed(color=user.color, description=f"{user.mention} {util.statusemoji.get(str(user.status))}")
     if str(user.avatar_url).endswith(".gif?size=1024"):
-        embed.set_author(url=user.avatar_url_as(format="gif", size=1024))
+        embed.set_author(name=user, icon_url=user.avatar_url_as(format="gif", size=1024), url=user.avatar_url_as(format="gif", size=1024))
         embed.set_thumbnail(url=user.avatar_url_as(format="gif", size=1024))
     else:
-        embed.set_author(url=user.avatar_url_as(format="png", size=1024))
+        embed.set_author(name=user, icon_url=user.avatar_url_as(format="png", size=1024), url=user.avatar_url_as(format="png", size=1024))
         embed.set_thumbnail(url=user.avatar_url_as(format="png", size=1024))
     embed.add_field(name="Joined:", value=f"{util.weekdays[joinday]} {user.joined_at.strftime('%d.%m.%Y %H:%M')}", inline=True)
     embed.add_field(name="Created At:", value=f"{util.weekdays[createday]} {user.created_at.strftime('%d.%m.%Y %H:%M')}", inline=True)
