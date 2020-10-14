@@ -47,10 +47,12 @@ async def on_ready():
     async with aiohttp.ClientSession() as session:
         async with session.post("https://discordbotlist.com/api/v1/bots/620990340630970425/stats",
                                 headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
-                                data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r:
-            js = await r.json()
-            if js['error']:
+                                data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r2:
+            js = await r2.json()
+            if js['success'] == "false":
                 print(f'Failed to post to discordbotlist.com\n{js}')
+            else:
+                print("Happy!")
 
 
 @bot.event
