@@ -220,12 +220,8 @@ async def userinfo(ctx, *, user: discord.Member = None):
     for role in reversed(user.roles):
         if role.name != "@everyone":
             roles += f" {role.mention}"
-    createday = user.created_at.day
-    joinday = user.joined_at.day
-    while joinday > 7:
-        joinday -= 7
-    while createday > 7:
-        createday -= 7
+    createday = user.created_at.weekday()
+    joinday = user.joined_at.weekday()
     embed = discord.Embed(color=user.color, description=f"{user.mention} {util.statusemoji.get(str(user.status))}")
     if str(user.avatar_url).endswith(".gif?size=1024"):
         embed.set_author(name=user, icon_url=user.avatar_url_as(format="gif", size=1024), url=user.avatar_url_as(format="gif", size=1024))

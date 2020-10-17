@@ -1,5 +1,5 @@
 
-weekdays = ['', "Mon,", "Tue,", "Wed,", "Thu,", "Fri,", "Sat,", "Sun,"]
+weekdays = ["Mon,", "Tue,", "Wed,", "Thu,", "Fri,", "Sat,", "Sun,"]
 
 statusemoji = {
     "online": "<:online:764099989558657035>",
