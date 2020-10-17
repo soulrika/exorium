@@ -256,7 +256,6 @@ async def snuggle(ctx, members: commands.Greedy[discord.Member], *, reason="bein
     await functions.logging(ctx, "snuggle", bot)
 
 
-
 @bot.command(name='hug', brief='Fandom hug!')  # interaction command - hug someone. gifs are random!
 async def hug(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
     await functions.interactions(ctx, members, reason, "hug", "how lovely", "hugged")
