@@ -260,6 +260,7 @@ async def snuggle(ctx, members: commands.Greedy[discord.Member], *, reason="bein
     await functions.logging(ctx, "snuggle", bot)
 
 
+
 @bot.command(name='hug', brief='Fandom hug!')  # interaction command - hug someone. gifs are random!
 async def hug(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
     await functions.interactions(ctx, members, reason, "hug", "how lovely", "hugged")
@@ -277,9 +278,14 @@ async def boop(ctx, members: commands.Greedy[discord.Member], *, reason="being a
     await functions.interactions(ctx, members, reason, "boop", "so soft", "booped")
     await functions.logging(ctx, "boop", bot)
 
+@bot.command(name='bonk', brief='bonking, that's mean!')  # interaction command - snuggle someone. gifs are random!
+async def bonk(ctx, members: commands.Greedy[discord.Member], *, reason="being bad"):
+    await functions.interactions(ctx, members, reason, "bonk", "how rude", "bonked")
+    await functions.logging(ctx, "snuggle", bot)
+
 
 @bot.command(name='kiss', aliases=['smooch'], brief='Smooch!')  # interaction command - kiss someone. gifs are random!
-async def kiss(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
+async def kiss(ctx, members: commands.Greedy[discord.Member], *, reason="being lovely"):
     await functions.interactions(ctx, members, reason, "smooch", "lovely", "smooched")
     await functions.logging(ctx, "kiss", bot)
 
