@@ -53,16 +53,17 @@ Askexorium = ["yes",
               "certainly",
               "unlikely",
               "absolutely",
-              "the answer to that question may be beyond the knowledge of any of us, even Proto...",
-              "What?? Proto is a Bot, not Einstein...",
+              "the answer to that question may be beyond the knowledge of any of us, even exorium...",
+              "What?? exorium is a Bot, not Einstein...",
               "of course",
               "you know already ;)",
-              "don't ask Proto that!",
+              "don't ask exorium that!",
               "never.",
-              "that is an Area 51 level secret; Proto knows, but Proto can't tell...",
+              "that is an Area 51 level secret; exo knows, but exo can't tell...",
               "okay",
               "sure",
-              "that this is an example of a stupid question"]
+              "this is an example of a stupid question"
+              "Everyone is cute"]
 
 cuddle = ["https://thumbs.gfycat.com/WaterloggedFabulousIbis-small.gif",
           "https://media3.giphy.com/media/h4BprYiFYNxRe/giphy.gif",
