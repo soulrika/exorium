@@ -46,25 +46,6 @@ lick = ["https://i.kym-cdn.com/photos/images/original/001/099/490/e82.gif",
         "https://media1.tenor.com/images/cd4f8199d49badf7b90277f8b13f5186/tenor.gif?itemid=12816950",
         "https://media1.tenor.com/images/cd45350c528cc577cbe0eb754e6e8241/tenor.gif?itemid=12181805"]
 
-Askexorium = ["yes",
-              "no",
-              "maybe",
-              "probably",
-              "certainly",
-              "unlikely",
-              "absolutely",
-              "the answer to that question may be beyond the knowledge of any of us, even exorium...",
-              "What?? exorium is a Bot, not Einstein...",
-              "of course",
-              "you know already ;)",
-              "don't ask exorium that!",
-              "never.",
-              "that is an Area 51 level secret; exo knows, but exo can't tell...",
-              "okay",
-              "sure",
-              "this is an example of a stupid question"
-              "Everyone is cute"]
-
 cuddle = ["https://thumbs.gfycat.com/WaterloggedFabulousIbis-small.gif",
           "https://media3.giphy.com/media/h4BprYiFYNxRe/giphy.gif",
           "https://media1.tenor.com/images/304d8bf0315c3096603afd7e6562833c/tenor.gif?itemid=12304006",
@@ -147,3 +128,22 @@ kill = ["https://i.pinimg.com/originals/1f/ae/2e/1fae2e8c39a27592d1de5bd2f694866
 
 
 votechannels = [731848766327619586, 731829759146721320]
+
+Askexorium = ["yes",
+              "no",
+              "maybe",
+              "probably",
+              "certainly",
+              "unlikely",
+              "absolutely",
+              "the answer to that question may be beyond the knowledge of any of us, even exorium...",
+              "What?? exorium is a Bot, not Einstein...",
+              "of course",
+              "you know already ;)",
+              "don't ask exorium that!",
+              "never.",
+              "that is an Area 51 level secret; exo knows, but exo can't tell...",
+              "okay",
+              "sure",
+              "this is an example of a stupid question",
+              "Everyone is cute"]
