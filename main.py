@@ -231,7 +231,7 @@ async def serverinfo(ctx):
 
 
     for feature in gu.features:
-    featuresText += f"\n{features[feature]}"
+        featuresText += f"\n{features[feature]}"
 
     if ctx.guild.features:
         embed.add_field(name="Server Features", value=featuresText, inline=True)
