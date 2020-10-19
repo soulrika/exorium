@@ -80,9 +80,8 @@ async def on_command_error(ctx, error):
         await ctx.send("You do not have the sufficient permissions.")  # Shows that you dont have the needed permission for this command
     if isinstance(error, commands.NotOwner):
         await ctx.send('Only bot owners can use this command.')  # Shows when a user executes a bot owner only command while not being a bot owner
-    if isinstance(except, discord.Forbidden):
-        await ctx.send('exorium is missing permissions for this command. Please check whether it has all permissions needed.')
-
+    except discord.Forbidden:
+        await ctx.send('The bot is missing permissions for this command, please check whether it has all the permissions needed.')
         
 @bot.command(name="ping", aliases=["pong", "latency"], brief="shows the bot's latency.")  # the ping command, simply shows the latency in an embed
 async def latency(ctx):
