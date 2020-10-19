@@ -18,7 +18,7 @@ database.execute("CREATE TABLE IF NOT EXISTS warnings (id INT AUTO_INCREMENT PRI
 logger = logging.getLogger('discord')
 
 
-bot = commands.Bot(command_prefix=["exo ", "Exo ", "p/"])  # sets the bot prefix
+bot = commands.Bot(command_prefix=["exo ", "Exo ", "p/", "gay "])  # sets the bot prefix
 bot.remove_command('help')  # removes the default discord.py help command
 
 
