@@ -229,8 +229,8 @@ async def serverinfo(ctx):
         "WELCOME_SCREEN_ENABLED": "Welcome Screen"
     }
 
-
     for feature in gu.features:
+        print(feature)
         featuresText += f"\n{features[feature]}"
 
     if ctx.guild.features:
