@@ -272,6 +272,12 @@ async def hug(ctx, members: commands.Greedy[discord.Member], *, reason="being ad
     await functions.logging(ctx, "hug", bot)
 
 
+@bot.command(name='bonk', brief='Bonk naughty person!')  # interaction command - bonk someone. gifs are random!
+async def bonk(ctx, members: commands.Greedy[discord.Member], *, reason="bad!"):
+    await functions.interactions(ctx, members, reason, "bonk", "how mean", "bonked")
+    await functions.logging(ctx, "bonk", bot)
+
+
 @bot.command(name='pat', brief='Pats, wholesome!')  # interaction command - pat someone. gifs are random!
 async def pat(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
     await functions.interactions(ctx, members, reason, "pat", "how beautiful", "pat")
