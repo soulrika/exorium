@@ -7,14 +7,10 @@ exorium started off as a small bot named Protogen, which was created by [BluewyD
 
 ---
 ### exorium team
-**main developers:**
-- [ChosenFate](https://github.com/Chosen-Fate/)
-
-**LTD. developers**
-- [Bench](https://github.com/Bench182/)
-
-**Host & provider:**
-- [Etile](https://github.com/Etile0/)
+- [BluewyDev](https://github.com/BluewyDev) - Creator, main developer and social media manager
+- [ChosenFate](https://github.com/Chosen-Fate) - Main developer
+- [Bench](https://github.com/Bench182) - Limited developer
+- [Etile](https://github.com/Etile0) - Host and provider
 ---
 ### contributions
 Anyone is free to contribute to exorium as long as they follow the [Contribution guidelines](https://github.com/ThePawKingdom/exorium/blob/master/CONTRIBUTING.md). Contributions can be done through [forks](https://github.com/ThePawKingdom/exorium/network/members). In your fork you can edit, add and remove code. After you did that, you are always free to make a [pull request](https://github.com/ThePawKingdom/exorium/pulls/). They will then be reviewed by one of the [main developers](https://github.com/ThePawKingdom/exorium#exorium-team).
@@ -36,15 +32,16 @@ Please report this in an issue if it's not complete, or make a [pull request](ht
 Commands, suggestions or features we still plan to add can be seen in our [TO DO project](https://github.com/ThePawKingdom/exorium/projects/1). If a command doesn't work, please make an [issue](https://github.com/ThePawKingdom/exorium/issues/). Furthermore, if you require support with something within exorium, please join our [support server](https://discord.gg/CEHkNky) and ask for support in it's support channel. 
 
 #### Social commands
-|Command                                                                      |Syntax                |
-| :-------------------------------------------------------------------------: | :------------------: |
-|[hug](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L179)     |`?hug <@user>...`     |
-|[snuggle](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L173) |`?snuggle <@user>...` |
-|[boop](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L191)    |`?boop <@user>...`    |
-|[kiss](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L197)    |`?kiss <@user>...`    |
-|[pat](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L185)     |`?pat <@user>...`     |
-|[cuddle](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L215)  |`?cuddle <@user>...`  |
-|[askproto](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L355)|`?askproto <arg>...`  |
+|Command                                                                      |Syntax                  |
+| :-------------------------------------------------------------------------: | :--------------------: |
+|[hug](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L179)     |`exo hug <@user>...`    |
+|[snuggle](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L173) |`exo snuggle <@user>...`|
+|[boop](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L191)    |`exo boop <@user>...`   |
+|[kiss](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L197)    |`exo kiss <@user>...`   |
+|[pat](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L185)     |`exo pat <@user>...`    |
+|[cuddle](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L215)  |`exo cuddle <@user>...` |
+|[askproto](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L355)|`exo askexo <arg>...`   |
+|[bonk](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L275)    |`exo bonk <@user>...`   |
 
 |Command                                                                      |Syntax                |  
 | :-------------------------------------------------------------------------: | :------------------: |
@@ -75,7 +72,6 @@ Commands, suggestions or features we still plan to add can be seen in our [TO DO
 |[random](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L328)    |`?random <arg1> <arg2>...`   |Randomly picks one from the given args           |
 |[decide](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L458)    |`?decide <arg>...`           |Lets people choose with :white_check_mark:	or :x:|
 |[poll](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L437)      |`?poll <arg1>... (arg10)`    |Host a poll with up to 10 things to pick from    |
-|[say2](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L486)      |`?say2 <args>...`            |Repeats what you said without an embed           |
 |[say](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L477)       |`?say <args>...`             |Repeats what you said in an embed                |
 |[id](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L92)         |`?id <@user/ID/name>`        |Shows the ID of the provided user                |
 
