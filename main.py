@@ -565,7 +565,7 @@ async def say(ctx, *, sentence):
     try:
         await ctx.message.delete()
     except discord.Forbidden:
-        await ctx.send('I am missing permissions to delete the command. Please make sure you gave me `manage_messages` permissions.')    
+        await ctx.send('')    
     embed = discord.Embed(color=config.color)
     embed.add_field(name=sentence, value=f'by {ctx.author}')
     await ctx.send(embed=embed)
