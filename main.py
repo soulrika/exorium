@@ -80,7 +80,7 @@ async def on_command_error(ctx, error):
         await ctx.send("You do not have the sufficient permissions.")  # Shows that you dont have the needed permission for this command
     if isinstance(error, commands.NotOwner):
         await ctx.send('Only bot owners can use this command.')  # Shows when a user executes a bot owner only command while not being a bot owner
-    if isinstance(error, commands.Forbidden):
+    if isinstance(exception, commands.Forbidden):
         await ctx.send('exorium is missing permissions for this command. Please check whether it has all permissions needed.')
 
 
@@ -558,10 +558,7 @@ async def revive(ctx):
 
 @bot.command()  # In an embed repeats what you said and deletes the original command
 async def say(ctx, *, sentence):
-    try:
-        await ctx.message.delete()
-    except discord.Forbidden:
-        await ctx.send('I am missing permissions to delete the command. Please make sure you gave me `manage_messages` permissions.')
+    await ctx.message.delete()
     embed = discord.Embed(color=config.color)
     embed.add_field(name=sentence, value=f'by {ctx.author}')
     await ctx.send(embed=embed)
