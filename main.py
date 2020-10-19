@@ -201,24 +201,24 @@ async def links(ctx):
 @bot.command(name="serverinfo", aliases=["servinfo", "sinfo"])  # shows info about the server the command was executed, in an embed. Still being worked on.
 async def serverinfo(ctx):
     gu = ctx.guild
-        features = {
-            "VIP_REGIONS": "VIP Voice Servers",
-            "VANITY_URL": "Vanity Invite",
-            "INVITE_SPLASH": "Invite Splash",
-            "VERIFIED": "Verified",
-            "PARTNERED": "Partnered",
-            "MORE_EMOJI": "More Emoji",
-            "DISCOVERABLE": "Server Discovery",
-            "FEATURABLE": "Featurable",
-            "COMMUNITY": "Community server",
-            "COMMERCE": "Commerce",
-            "PUBLIC": "Public",
-            "NEWS": "News Channels",
-            "BANNER": "Banner",
-            "ANIMATED_ICON": "Animated Icon",
-            "PUBLIC_DISABLED": "Public Disabled",
-            "WELCOME_SCREEN_ENABLED": "Welcome Screen"
-        }
+    features = {
+        "VIP_REGIONS": "VIP Voice Servers",
+        "VANITY_URL": "Vanity Invite",
+        "INVITE_SPLASH": "Invite Splash",
+        "VERIFIED": "Verified",
+        "PARTNERED": "Partnered",
+        "MORE_EMOJI": "More Emoji",
+        "DISCOVERABLE": "Server Discovery",
+        "FEATURABLE": "Featurable",
+        "COMMUNITY": "Community server",
+        "COMMERCE": "Commerce",
+        "PUBLIC": "Public",
+        "NEWS": "News Channels",
+        "BANNER": "Banner",
+        "ANIMATED_ICON": "Animated Icon",
+        "PUBLIC_DISABLED": "Public Disabled",
+        "WELCOME_SCREEN_ENABLED": "Welcome Screen"
+    }
     embed = discord.Embed(color=config.color)
     embed.add_field(name="Server Name", value=str(gu.name), inline=True)
     embed.add_field(name="Membercount", value=len(gu.members), inline=True)
