@@ -209,8 +209,32 @@ async def serverinfo(ctx):
     embed.add_field(name="Server ID", value=str(gu.id), inline=True)
     embed.add_field(name="Region", value=str(gu.region), inline=True)
     embed.add_field(name="Verification Level", value=str(gu.verification_level), inline=True)
+    
+    features = {
+        "VIP_REGIONS": "VIP Voice Servers",
+        "VANITY_URL": "Vanity Invite",
+        "INVITE_SPLASH": "Invite Splash",
+        "VERIFIED": "Verified",
+        "PARTNERED": "Partnered",
+        "MORE_EMOJI": "More Emoji",
+        "DISCOVERABLE": "Server Discovery",
+        "FEATURABLE": "Featurable",
+        "COMMUNITY": "Community server",
+        "COMMERCE": "Commerce",
+        "PUBLIC": "Public",
+        "NEWS": "News Channels",
+        "BANNER": "Banner",
+        "ANIMATED_ICON": "Animated Icon",
+        "PUBLIC_DISABLED": "Public Disabled",
+        "WELCOME_SCREEN_ENABLED": "Welcome Screen"
+    }
+
+
+    for feature in gu.features:
+    featuresText += f"\n{features[feature]}"
+
     if ctx.guild.features:
-        embed.add_field(name="Server Features", value=str(gu.features), inline=True)
+        embed.add_field(name="Server Features", value=featuresText, inline=True)
     embed.add_field(name="AFK Channel", value=f"`{gu.afk_channel}`\nTimeout {gu.afk_timeout}s", inline=False)
     if str(gu.icon_url).endswith(".gif?size=1024"):
         embed.set_author(name=ctx.guild.name + " information", url=gu.icon_url_as(format="gif", size=1024), icon_url=gu.icon_url_as(format="gif", size=1024))
