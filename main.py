@@ -72,6 +72,18 @@ async def on_guild_join(guild):
     print(f"I just joined {guild.name}, ID: {guild.id}")
 
 
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send('Please fill in all the required arguments (use exo info <command> for usage).')  # Shows the command isn't completed
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send("You do not have the sufficient permissions.")  # Shows that you dont have the needed permission for this command
+    if isinstance(error, commands.NotOwner):
+        await ctx.send('Only bot owners can use this command.')  # Shows when a user executes a bot owner only command while not being a bot owner
+    if isinstance(error, commands.Forbidden):
+        await ctx.send('exorium is missing permissions for this command. Please check whether it has all permissions needed.')
+
+
 @bot.command(name="ping", aliases=["pong", "latency"], brief="shows the bot's latency.")  # the ping command, simply shows the latency in an embed
 async def latency(ctx):
     embed = discord.Embed(color=config.color)
@@ -417,16 +429,6 @@ async def info(ctx, arg):
     embed.set_footer(text="Thank you, " + ctx.author.name + ", for using exorium!")
     await ctx.send(embed=embed)
     await functions.logging(ctx, "info", bot)
-
-
-@bot.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('Please fill in all the required arguments (use exo info <command> for usage).')  # Shows the command isn't completed
-    if isinstance(error, commands.MissingPermissions):
-        await ctx.send("You do not have the sufficient permissions.")  # Shows that you dont have the needed permission for this command
-    if isinstance(error, commands.NotOwner):
-        await ctx.send('Only bot owners can use this command.')  # Shows when a user executes a bot owner only command while not being a bot owner
 
 
 @bot.command(name="askexo", aliases=["askexorium"])  # Lets you ask something to exorium, he will answer with a random answer listed in gifs.py
