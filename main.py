@@ -100,7 +100,7 @@ async def help(ctx):
     embed.add_field(name="**<a:Toothlessuhmwhat:753170277915164672> NSFW**", value="`e621`", inline=True)
     embed.add_field(name="**<a:TPK_ProtoBoop:740828362045653073> Team**", value="[Azymondias#4612](https://github.com/FireGamingYT)\n[ChosenFate#5108](https://github.com/Chosen-Fate)\n[Bench182#3166](https://github.com/Bench182/)\n[Etile#3166](https://github.com/Etile0/)", inline=True)
     embed.set_thumbnail(url="https://www.dropbox.com/s/yx7z6iefnx0q576/Icon.jpg?dl=1")
-    embed.set_footer(text="Do exo info {command} for command info/usage")
+    embed.set_footer(text=f"Do {ctx.prefix} info <command> for command info/usage")
     await ctx.send(embed=embed)
     await functions.logging(ctx, "help", bot)
 
