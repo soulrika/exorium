@@ -80,7 +80,7 @@ async def on_command_error(ctx, error):
         await ctx.send("You do not have the sufficient permissions.")  # Shows that you dont have the needed permission for this command
     if isinstance(error, commands.NotOwner):
         await ctx.send('Only bot owners can use this command.')  # Shows when a user executes a bot owner only command while not being a bot owner
-    if isinstance(exception, commands.Forbidden):
+    if isinstance(except, commands.Forbidden):
         await ctx.send('exorium is missing permissions for this command. Please check whether it has all permissions needed.')
 
 
