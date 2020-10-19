@@ -209,7 +209,6 @@ async def serverinfo(ctx):
     embed.add_field(name="Server ID", value=str(gu.id), inline=True)
     embed.add_field(name="Region", value=str(gu.region), inline=True)
     embed.add_field(name="Verification Level", value=str(gu.verification_level), inline=True)
-    
     features = {
         "VIP_REGIONS": "VIP Voice Servers",
         "VANITY_URL": "Vanity Invite",
@@ -228,8 +227,7 @@ async def serverinfo(ctx):
         "PUBLIC_DISABLED": "Public Disabled",
         "WELCOME_SCREEN_ENABLED": "Welcome Screen"
     }
-
-    print('successfully made it to the loop, i will now stop working.')
+    featuresText = ''
     for feature in gu.features:
         featuresText += f"\n{features[feature]}"
 
