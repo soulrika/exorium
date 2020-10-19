@@ -126,6 +126,10 @@ kill = ["https://i.pinimg.com/originals/1f/ae/2e/1fae2e8c39a27592d1de5bd2f694866
         "https://thumbs.gfycat.com/FinishedMemorableChital-max-1mb.gif",
         "https://miro.medium.com/max/1100/1*hQiZTx6k7ll-pInvNtS4yg.gif"]
 
+bonk = ["https://media1.tenor.com/images/c7db074a1f169d09f037e4a1695ce8ab/tenor.gif?itemid=18746295",
+        "https://media1.tenor.com/images/c658ef8183c978dd6fb528d4c06632c2/tenor.gif?itemid=17177822",
+        "https://media1.tenor.com/images/c70e5c67f32b126e8d62bb1ee099aec4/tenor.gif?itemid=17872492",
+        "https://media1.tenor.com/images/5be9d9780f7f36146eef8ec6716493a5/tenor.gif?itemid=17119858"]
 
 votechannels = [731848766327619586, 731829759146721320]
 
