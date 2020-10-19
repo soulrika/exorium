@@ -572,16 +572,6 @@ async def say(ctx, *, sentence):
     await functions.logging(ctx, "say", bot)
 
 
-@bot.command()  # Repeats what you said and deletes the original command
-async def say2(ctx, *, sentence2):
-    try:
-        await ctx.message.delete()
-    except discord.Forbidden:
-        await ctx.send('I am missing permissions to delete the command. Please make sure you gave me `manage_messages` permissions.')
-    await ctx.send(f"{ctx.author.mention} said:\n{sentence2}")
-    await functions.logging(ctx, "say2", bot)
-
-
 @bot.command()
 @commands.has_permissions(manage_messages=True)
 async def purge(ctx, amount=0):
