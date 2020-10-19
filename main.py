@@ -563,7 +563,9 @@ async def revive(ctx):
 @bot.command()  # In an embed repeats what you said and deletes the original command
 async def say(ctx, *, sentence):
     try:
-        await ctx.message.delete() 
+        await ctx.message.delete()
+    except discord.Forbidden:
+        print('Failed to delete message in say command, likely missing manage_messages permission')
     embed = discord.Embed(color=config.color)
     embed.add_field(name=sentence, value=f'by {ctx.author}')
     await ctx.send(embed=embed)
