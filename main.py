@@ -80,9 +80,8 @@ async def on_command_error(ctx, error):
         await ctx.send("You do not have the sufficient permissions.")  # Shows that you dont have the needed permission for this command
     if isinstance(error, commands.NotOwner):
         await ctx.send('Only bot owners can use this command.')  # Shows when a user executes a bot owner only command while not being a bot owner
-    except discord.Forbidden:
-        await ctx.send('The bot is missing permissions for this command, please check whether it has all the permissions needed.')
-        
+
+
 @bot.command(name="ping", aliases=["pong", "latency"], brief="shows the bot's latency.")  # the ping command, simply shows the latency in an embed
 async def latency(ctx):
     embed = discord.Embed(color=config.color)
@@ -557,7 +556,10 @@ async def revive(ctx):
 
 @bot.command()  # In an embed repeats what you said and deletes the original command
 async def say(ctx, *, sentence):
-    await ctx.message.delete()
+    try:
+        await ctx.message.delete()
+    except discord.Forbidden:
+        await ctx.send('I am missing permissions to delete the command. Please make sure you gave me `manage_messages` permissions.')    
     embed = discord.Embed(color=config.color)
     embed.add_field(name=sentence, value=f'by {ctx.author}')
     await ctx.send(embed=embed)
@@ -566,7 +568,10 @@ async def say(ctx, *, sentence):
 
 @bot.command()  # Repeats what you said and deletes the original command
 async def say2(ctx, *, sentence2):
-    await ctx.message.delete()
+    try:
+        await ctx.message.delete()
+    except discord.Forbidden:
+        await ctx.send('I am missing permissions to delete the command. Please make sure you gave me `manage_messages` permissions.')
     await ctx.send(f"{ctx.author.mention} said:\n{sentence2}")
     await functions.logging(ctx, "say2", bot)
 
