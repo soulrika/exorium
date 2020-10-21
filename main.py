@@ -166,15 +166,13 @@ async def animal(ctx, *args):
 
 
 @bot.command(name='image', help='Generates a random image!')
-async def animal(ctx, *args):
+async def image(ctx, *args):
     delmsg = await ctx.send("Awaiting API results...")
     query = ''
     for thing in args:
         query += f"{thing}+"
     if query.endswith('+'):
         query = query[:-1]
-    else:
-        query = ''
     r = requests.get(
         'https://pixabay.com/api/',
         params={'key': config.pixabaykey, 'q': query, "image_type": 'photo'}
