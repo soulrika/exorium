@@ -141,23 +141,14 @@ async def animal(ctx, *args):
         query = "animal"
     r = requests.get(
         'https://pixabay.com/api/',
-        params={'key': config.pixabaykey, 'q': query, "image_type": 'photo'}
+        params={'key': config.pixabaykey, 'q': query, "image_type": 'photo', 'category': 'animals'}
     )
     if r.json()["total"] == 0:
         await delmsg.delete()
         await ctx.send("Sadly, no results were found")
         return
-    random_img = random.choice(r.json()["hits"])
-    i = 0
-    while "animal" not in random_img["tags"]:
-        random_img = random.choice(r.json()["hits"])
-        i += 1
-        if i == 100:
-            await delmsg.delete()
-            await ctx.send("Sadly, no results were found!")
-            return
     await delmsg.delete()
-    finalimg = random_img["webformatURL"]
+    finalimg = random.choice(r.json()["hits"])["webformatURL"]
     embed = discord.Embed(title='Random animal', color=config.color)
     embed.set_image(url=finalimg)
     embed.set_footer(text='Powered by pixabay.')
@@ -175,7 +166,7 @@ async def image(ctx, *args):
         query = query[:-1]
     r = requests.get(
         'https://pixabay.com/api/',
-        params={'key': config.pixabaykey, 'q': query, "image_type": 'photo'}
+        params={'key': config.pixabaykey, 'q': query, "image_type": 'photo', 'safesearch': 'true'}
     )
     if r.json()["total"] == 0:
         await delmsg.delete()
