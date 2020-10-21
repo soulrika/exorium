@@ -131,6 +131,7 @@ async def get_id(ctx, member: discord.Member):
 
 @bot.command(name='animal', help='Generates a random animal!')
 async def animal(ctx, *args):
+    delmsg = await ctx.send("Awaiting API results...")
     query = ''
     for thing in args:
         query += f"{thing}+"
@@ -143,14 +144,52 @@ async def animal(ctx, *args):
         params={'key': config.pixabaykey, 'q': query, "image_type": 'photo'}
     )
     if r.json()["total"] == 0:
+        await delmsg.delete()
         await ctx.send("Sadly, no results were found")
         return
-    finalimg = random.choice(r.json()["hits"])["webformatURL"]
+    random_img = random.choice(r.json()["hits"])
+    i = 0
+    while "animal" not in random_img["tags"]:
+        random_img = random.choice(r.json()["hits"])
+        i += 1
+        if i == 100:
+            await delmsg.delete()
+            await ctx.send("Sadly, no results were found!")
+            return
+    await delmsg.delete()
+    finalimg = random_img["webformatURL"]
     embed = discord.Embed(title='Random animal', color=config.color)
     embed.set_image(url=finalimg)
     embed.set_footer(text='Powered by pixabay.')
     await ctx.send(embed=embed)
     await functions.logging(ctx, "animal", bot)
+
+
+@bot.command(name='image', help='Generates a random image!')
+async def animal(ctx, *args):
+    delmsg = await ctx.send("Awaiting API results...")
+    query = ''
+    for thing in args:
+        query += f"{thing}+"
+    if query.endswith('+'):
+        query = query[:-1]
+    else:
+        query = ''
+    r = requests.get(
+        'https://pixabay.com/api/',
+        params={'key': config.pixabaykey, 'q': query, "image_type": 'photo'}
+    )
+    if r.json()["total"] == 0:
+        await delmsg.delete()
+        await ctx.send("Sadly, no results were found")
+        return
+    await delmsg.delete()
+    finalimg = random.choice(r.json()["hits"])["webformatURL"]
+    embed = discord.Embed(title='Random image', color=config.color)
+    embed.set_image(url=finalimg)
+    embed.set_footer(text='Powered by pixabay.')
+    await ctx.send(embed=embed)
+    await functions.logging(ctx, "image", bot)
 
 
 @bot.command()
