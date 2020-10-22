@@ -470,12 +470,6 @@ async def wag(ctx, members: commands.Greedy[discord.Member], *, reason="Rawr!"):
     await functions.logging(ctx, "wag", bot)
 
 
-@bot.command(name="kill")  # interaction command - highfive someone. Gifs are random
-async def kill(ctx, members: commands.Greedy[discord.Member], *, reason="not paying attention"):
-    await functions.interactions(ctx, members, reason, "kill", "gruesome!", "killed")
-    await functions.logging(ctx, "kill", bot)
-
-
 @bot.command(name='random', brief='Randomness!')  # Let exorium choose for you!
 async def randomchoice(ctx, *args):
     await ctx.send(random.choice(args))
