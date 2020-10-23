@@ -640,7 +640,7 @@ async def suggest(ctx, * , suggestion):
         await ctx.send(embed=ee)
     elif len(suggestion) < 400:
         e = discord.Embed(color=config.green)
-        e.add_field(name='Suggestion recorded:', value=f'{suggestion}\n\nJoin [the support server](https://discord.gg/CEHkNky) to see your suggestion status.')
+        e.add_field(name='Suggestion recorded:', value=f'```txt{suggestion}```\n\nJoin [the support server](https://discord.gg/CEHkNky) to see your suggestion status.')
         e.set_footer(text=f'Suggestion sent to support server')
         await ctx.send(embed=e)
         
