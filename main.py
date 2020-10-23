@@ -635,6 +635,11 @@ async def suggest(ctx, * , suggestion):
     e.add_field(name='Suggestion recorded:', value=suggestion)
     e.set_footer(text=f'Suggested by {ctx.author}')
     await ctx.send(embed=e)
+    es = discord.Embed(color=config.color)
+    es.add_field(name='Test #1', value=suggestion)
+    es.set_footer(text=f'suggested by {ctx.author}')
+    channel = bot.get_channel(755089656676220938)
+    await channel.send(embed=es)
     await functions.logging(ctx, "suggest", bot)
 
 
