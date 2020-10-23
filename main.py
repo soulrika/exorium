@@ -248,14 +248,12 @@ async def avatar(ctx, *, user: discord.Member = None):
     await functions.logging(ctx, "avatar", bot)
 
 
-@bot.command(name='links', brief='Discord related links')  # shows the links related to exorium in an embed
+@bot.command()  # shows the links related to exorium in an embed
 async def links(ctx):
-    embed = discord.Embed(title='exorium Links', color=config.color)
-    embed.add_field(name="Github", value="[Repo](https://github.com/ThePawKingdom/exorium)\n[Organisation](https://github.com/ThePawKingdom)", inline=True)
-    embed.set_thumbnail(url="https://www.dropbox.com/s/yx7z6iefnx0q576/Icon.jpg?dl=1")
-    embed.set_footer(text="Thank you, " + ctx.author.name + ", for using exorium!")
-    await ctx.send(embed=embed)
-    await functions.logging(ctx, "links", bot)
+    e = discord.Embed(color=config.color)
+    e.add_field(name='Github', value='- [Repository](https://github.com/ThePawKingdom/exorium)', inline=True)
+    e.add_field(name='Bot lists', value='- [Discordextremelist](https://discordextremelist.xyz/en-US/bots/exorium)\n- [Discordbotlist](https://top.gg/bot/620990340630970425)', inline=True)
+    await ctx.send(embed=e)
 
 
 @bot.command(name="serverinfo", aliases=["servinfo", "sinfo"])  # shows info about the server the command was executed, in an embed. Still being worked on.
