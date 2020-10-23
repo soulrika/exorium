@@ -632,11 +632,13 @@ async def suggest(ctx, * , suggestion):
     except discord.Forbidden:
         print('Bot missing manage_messages permission in {ctx.guild.name}')
     if len(suggestion) > 400:
-        await ctx.send('Your suggestion exceeded 400 characters. Please shorten it.')
+        ee = discord.Embed(color=config.red)
+        ee.add_field(name='error while processing', value='Suggestion exceeds the 400 character limit')
+        await ctx.send(embed=ee)
     elif len(suggestion) < 400:
-        e = discord.Embed(color=config.color)
+        e = discord.Embed(color=config.green)
         e.add_field(name='Suggestion recorded:', value=suggestion)
-        e.set_footer(text=f'Suggested by {ctx.author}')
+        e.set_footer(text=f'Suggestion sent to support server')
         await ctx.send(embed=e)
         es = discord.Embed(color=config.color)
         es.add_field(name='Test #1', value=suggestion)
