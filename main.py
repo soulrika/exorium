@@ -122,7 +122,7 @@ async def statistics(ctx):
     await ctx.send(embed=embed)
     await functions.logging(ctx, "stats", bot)
 
-
+ 
 @bot.command()  # retrieves the ID of a member. Argument can be an ID, just the user's name or the user mention
 async def get_id(ctx, member: discord.Member):
     await ctx.send(f'The user ID of {member} is **{member.id}**.')
@@ -623,6 +623,18 @@ async def say(ctx, *, sentence):
     embed.add_field(name=sentence, value=f'by {ctx.author}')
     await ctx.send(embed=embed)
     await functions.logging(ctx, "say", bot)
+
+
+@bot.command()
+async def suggest(ctx, * , suggestion):
+    try:
+        await ctx.message.delete()
+    except discord.Forbidden:
+        print('Bot missing manage_messages permission in {ctx.guild.name}')
+    e = discord.Embed(color=config.color)
+    e.add_field(name='Suggestion recorded:', value=suggestion)
+    await ctx.send(embed=e)
+    await functions.logging(ctx, "suggest", bot)
 
 
 @bot.command()
