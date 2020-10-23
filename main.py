@@ -251,8 +251,8 @@ async def avatar(ctx, *, user: discord.Member = None):
 @bot.command()  # shows the links related to exorium in an embed
 async def links(ctx):
     e = discord.Embed(color=config.color)
-    e.add_field(name='Github', value='- [Repository](https://github.com/ThePawKingdom/exorium)', inline=True)
     e.add_field(name='Bot lists', value='- [Discordextremelist](https://discordextremelist.xyz/en-US/bots/exorium)\n- [Discordbotlist](https://top.gg/bot/620990340630970425)', inline=True)
+    e.add_field(name='Github', value='- [Repository](https://github.com/ThePawKingdom/exorium)', inline=True)
     await ctx.send(embed=e)
 
 
