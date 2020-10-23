@@ -10,6 +10,7 @@ import discord.ext
 from discord.ext import commands
 from outsources import functions, util
 from requests.auth import HTTPBasicAuth
+import asyncio
 
 
 mydb = config.DBdata
@@ -37,38 +38,10 @@ async def on_ready():
     print('version:')
     print(discord.__version__)
     print('-----------')
-    async with aiohttp.ClientSession() as session:
-        async with session.post("https://api.discordextremelist.xyz/v2/bot/620990340630970425/stats",
-                                headers={'Authorization': config.DELTOKEN, "Content-Type": 'application/json'},
-                                data=json.dumps({'guildCount': len(bot.guilds)})) as r:
-            js = await r.json()
-            if js['error']:
-                print(f'Failed to post to discordextremelist.xyz\n{js}')
-    async with aiohttp.ClientSession() as session:
-        async with session.post("https://discordbotlist.com/api/v1/bots/620990340630970425/stats",
-                                headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
-                                data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r2:
-            js = await r2.json()
-            if hasattr(js, 'success') and js['success'] == "false":
-                print(f'Failed to post to discordbotlist.com\n{js}')
 
 
 @bot.event
 async def on_guild_join(guild):
-    async with aiohttp.ClientSession() as session:
-        async with session.post(f"https://api.discordextremelist.xyz/v2/bot/{bot.id}/stats",
-                                headers={'Authorization': config.DELTOKEN, "Content-Type": 'application/json'},
-                                data=json.dumps({'guildCount': len(bot.guilds)})) as r:
-            js = await r.json()
-            if js['error']:
-                print(f'Failed to post to discordextremelist.xyz\n{js}')
-    async with aiohttp.ClientSession() as session:
-        async with session.post(f"https://discordbotlist.com/api/v1/bots/{bot.id}/stats",
-                                headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
-                                data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r2:
-            js = await r2.json()
-            if hasattr(js, 'success') and js['success'] == "false":
-                print(f'Failed to post to discordbotlist.com\n{js}')
     print(f"I just joined {guild.name}, ID: {guild.id}")
     e = discord.Embed(title='New server', color=config.green)
     e.add_field(name="Guild", value=ctx.guild, inline=True)
@@ -83,12 +56,12 @@ async def on_command_error(ctx, error):
         ie = discord.Embed(color=config.orange)
         ie.add_field(name='error while processing', value='Please fill in all the required arguments.\nUse `exo info <command`> for usage.')
         await ctx.send(embed=ie)
-    
+
     if isinstance(error, commands.MissingPermissions):
         ie = discord.Embed(color=config.red)
         ie.add_field(name='error while processing', value='You do not have the sufficient permissions.')
         await ctx.send(embed=ie)
-    
+
     if isinstance(error, commands.NotOwner):
         ie = discord.Embed(color=config.orange)
         ie.add_field(name='error while processing', value='Only bot owners can use this command.')
@@ -144,7 +117,7 @@ async def statistics(ctx):
     await ctx.send(embed=embed)
     await functions.logging(ctx, "stats", bot)
 
- 
+
 @bot.command()  # retrieves the ID of a member. Argument can be an ID, just the user's name or the user mention
 async def get_id(ctx, member: discord.Member):
     await ctx.send(f'The user ID of {member} is **{member.id}**.')
@@ -650,12 +623,12 @@ async def say(ctx, *, sentence):
 
 @bot.command()
 async def suggest(ctx, * , suggestion):
-    
+
     try:
         await ctx.message.delete()
     except Exception:
         pass
-                    
+
     if len(suggestion) > 400:
         ee = discord.Embed(color=config.red)
         ee.add_field(name='error while processing', value='Suggestion exceeds the 400 character limit')
@@ -664,7 +637,7 @@ async def suggest(ctx, * , suggestion):
         e = discord.Embed(color=config.green)
         e.add_field(name='Suggestion recorded:', value=f'```{suggestion}```\nJoin [the support server](https://discord.gg/CEHkNky) to see your suggestion status.')
         await ctx.send(embed=e)
-        
+
         es = discord.Embed(color=config.color)
         es.add_field(name='Suggestion', value=suggestion)
         es.set_footer(text=f'suggested by {ctx.author}')
@@ -731,6 +704,28 @@ async def warnings(ctx, member: discord.Member):
 
     embed = discord.Embed(title='Warnings for ' + member.name, description=totalwarns, color=config.color)
     await ctx.send(embed=embed)
+
+
+async def api():
+    while True:
+        if bot.is_ready() is False:
+            await asyncio.sleep(5)
+        async with aiohttp.ClientSession() as session:
+            async with session.post(f"https://api.discordextremelist.xyz/v2/bot/{bot.user.id}/stats",
+                                    headers={'Authorization': config.DELTOKEN, "Content-Type": 'application/json'},
+                                    data=json.dumps({'guildCount': len(bot.guilds)})) as r:
+                js = await r.json()
+                if js['error']:
+                    print(f'Failed to post to discordextremelist.xyz\n{js}')
+        async with aiohttp.ClientSession() as session:
+            async with session.post(f"https://discordbotlist.com/api/v1/bots/{bot.user.id}/stats",
+                                    headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
+                                    data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r2:
+                js = await r2.json()
+                if hasattr(js, 'success') and js['success'] == "false":
+                    print(f'Failed to post to discordbotlist.com\n{js}')
+        await asyncio.sleep(300)
+bot.loop.create_task(api())
 
 
 @bot.command()
