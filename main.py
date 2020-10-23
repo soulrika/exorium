@@ -633,6 +633,7 @@ async def suggest(ctx, * , suggestion):
         print('Bot missing manage_messages permission in {ctx.guild.name}')
     e = discord.Embed(color=config.color)
     e.add_field(name='Suggestion recorded:', value=suggestion)
+    e.set_footer(f'Suggested by {ctx.author}')
     await ctx.send(embed=e)
     await functions.logging(ctx, "suggest", bot)
 
