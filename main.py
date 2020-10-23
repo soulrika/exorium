@@ -705,8 +705,8 @@ async def warnings(ctx, member: discord.Member):
 #  This stuff is broken and we cba to fix it right now
 async def api():
     while True:
-        if bot.is_ready() is False:
-            await asyncio.sleep(5)
+#        if bot.is_ready() is False:
+#            await asyncio.sleep(5)
         async with aiohttp.ClientSession() as session:
             async with session.post(f"https://api.discordextremelist.xyz/v2/bot/{bot.user.id}/stats",
                                     headers={'Authorization': config.DELTOKEN, "Content-Type": 'application/json'},
@@ -726,8 +726,8 @@ async def api():
 #                                    data=json.dumps({'server_count': len(bot.guilds)})) as r3:
 #                if r3.status not 200:
 #                    print(f'Failed to post to top.gg')
-       await asyncio.sleep(300)
-bot.loop.create_task(api())
+#       await asyncio.sleep(300)
+#bot.loop.create_task(api())
 
 
 @bot.command()
