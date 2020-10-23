@@ -3,6 +3,11 @@ import mysql.connector
 token = 'AUTHTOKEN'
 
 color = (COLOR)
+red = (REDCOLOR)
+green = (GREENCOLOR)
+yellow = (YELLOWCOLOR)
+#  Color codes must be in hex, for example: 
+#  red = (c93838)
 
 pixabaykey = 'pixabay api key'
 
