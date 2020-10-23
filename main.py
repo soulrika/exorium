@@ -94,7 +94,6 @@ async def help(ctx):
 async def invite(ctx):
     embed = discord.Embed(color=config.color)
     embed.add_field(name="Invites", value="[Add exorium to your server](https://discord.com/api/oauth2/authorize?client_id=620990340630970425&permissions=806218999&scope=bot)\n[Join the support server](https://discord.gg/CEHkNky)")
-    embed.add_field(name="Advertisement", value="Check out [The Paw Kingdom](https://discord.gg/k64tAer). The first support server for exorium.\nNow a furry community server for anyone to join and chat in!", inline=False)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "invite", bot)
 
@@ -107,6 +106,14 @@ async def support(ctx):
     e.set_footer(text='Thank you for using exorium!')
     await ctx.send(embed=e)
     await functions.logging(ctx, "support", bot)
+
+
+@bot.command()  # shows the links related to exorium in an embed
+async def links(ctx):
+    e = discord.Embed(color=config.color)
+    e.add_field(name='Bot lists', value='- [Discordextremelist](https://discordextremelist.xyz/en-US/bots/exorium)\n- [Discordbotlist](https://top.gg/bot/620990340630970425)', inline=True)
+    e.add_field(name='Github', value='- [Repository](https://github.com/ThePawKingdom/exorium)', inline=True)
+    await ctx.send(embed=e)
 
 
 @bot.command(name="stats", aliases=["statistics"], brief="shows bot statistics.")  # shows the bot statistics (total amount of users in total amount of guilds) in an embed
@@ -219,16 +226,6 @@ async def avatar(ctx, *, user: discord.Member = None):
         eA.set_image(url=user.avatar_url_as(format="png", size=1024))
     await ctx.send(embed=eA)
     await functions.logging(ctx, "avatar", bot)
-
-
-@bot.command(name='links', brief='Discord related links')  # shows the links related to exorium in an embed
-async def links(ctx):
-    embed = discord.Embed(title='exorium Links', color=config.color)
-    embed.add_field(name="Github", value="[Repo](https://github.com/ThePawKingdom/exorium)\n[Organisation](https://github.com/ThePawKingdom)", inline=True)
-    embed.set_thumbnail(url="https://www.dropbox.com/s/yx7z6iefnx0q576/Icon.jpg?dl=1")
-    embed.set_footer(text="Thank you, " + ctx.author.name + ", for using exorium!")
-    await ctx.send(embed=embed)
-    await functions.logging(ctx, "links", bot)
 
 
 @bot.command(name="serverinfo", aliases=["servinfo", "sinfo"])  # shows info about the server the command was executed, in an embed. Still being worked on.
