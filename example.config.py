@@ -5,7 +5,7 @@ token = 'AUTHTOKEN'
 color = (COLOR)
 red = (REDCOLOR)
 green = (GREENCOLOR)
-yellow = (YELLOWCOLOR)
+orange = (YELLOWCOLOR)
 #  Color codes must be in hex, for example: 
 #  red = (c93838)
 
