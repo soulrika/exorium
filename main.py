@@ -762,6 +762,8 @@ class cmds:
     poll = "Cast a poll if you can't agree about something!"
     decide = "Casts a simple yes / no poll"
     cuddle = "Cuddles the pinged people, kyoot!"
+    support = "Get information on where/how to get support"
+    suggest = "suggest something for exorium!"
 
 
 class syntax:
@@ -783,6 +785,7 @@ class syntax:
     poll = "`exo poll choice1, choice2, choice3 [...]`"
     decide = "`exo decide <question>"
     cuddle = "exo cuddle @user1 @user2... reason`"
-
-
+    support = "`exo support`"
+    suggest = "`exo suggestion`"
+                    
 bot.run(config.token)
