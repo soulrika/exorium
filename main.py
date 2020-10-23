@@ -135,6 +135,14 @@ async def support(ctx):
     await functions.logging(ctx, "support", bot)
 
 
+@bot.command()  # shows the links related to exorium in an embed
+async def links(ctx):
+    e = discord.Embed(color=config.color)
+    e.add_field(name='Bot lists', value='- [Discordextremelist](https://discordextremelist.xyz/en-US/bots/exorium)\n- [Discordbotlist](https://top.gg/bot/620990340630970425)', inline=True)
+    e.add_field(name='Github', value='- [Repository](https://github.com/ThePawKingdom/exorium)', inline=True)
+    await ctx.send(embed=e)
+
+
 @bot.command(name="stats", aliases=["statistics"], brief="shows bot statistics.")  # shows the bot statistics (total amount of users in total amount of guilds) in an embed
 async def statistics(ctx):
     embed = discord.Embed(title="exorium statistics", color=config.color)
@@ -245,14 +253,6 @@ async def avatar(ctx, *, user: discord.Member = None):
         eA.set_image(url=user.avatar_url_as(format="png", size=1024))
     await ctx.send(embed=eA)
     await functions.logging(ctx, "avatar", bot)
-
-
-@bot.command()  # shows the links related to exorium in an embed
-async def links(ctx):
-    e = discord.Embed(color=config.color)
-    e.add_field(name='Bot lists', value='- [Discordextremelist](https://discordextremelist.xyz/en-US/bots/exorium)\n- [Discordbotlist](https://top.gg/bot/620990340630970425)', inline=True)
-    e.add_field(name='Github', value='- [Repository](https://github.com/ThePawKingdom/exorium)', inline=True)
-    await ctx.send(embed=e)
 
 
 @bot.command(name="serverinfo", aliases=["servinfo", "sinfo"])  # shows info about the server the command was executed, in an embed. Still being worked on.
