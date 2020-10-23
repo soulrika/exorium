@@ -126,6 +126,16 @@ async def invite(ctx):
     await functions.logging(ctx, "invite", bot)
 
 
+@bot.command()
+async def support(ctx):
+    e = discord.Embed(color=config.color)
+    e.add_field(name='Get support', value='You can get support [through our support server](https://discord.gg/CEHkNky) or [by making an issue in the repo](https://github.com/ThePawKingdom/exorium/issues).\nYou can also DM [Azymondias#4612](https://discord.com/users/698080201158033409). 
+    e.add_field(name='Related commands', value='```exo invite\nexo links```', inline=False)
+    e.set_footer(text='Thank you for using exorium!')
+    await ctx.send(embed=e)
+    await functions.logging(ctx, "support", bot)
+
+
 @bot.command(name="stats", aliases=["statistics"], brief="shows bot statistics.")  # shows the bot statistics (total amount of users in total amount of guilds) in an embed
 async def statistics(ctx):
     embed = discord.Embed(title="exorium statistics", color=config.color)
