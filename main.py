@@ -627,10 +627,12 @@ async def say(ctx, *, sentence):
 
 @bot.command()
 async def suggest(ctx, * , suggestion):
+    
     try:
         await ctx.message.delete()
-    except discord.Forbidden:
-        print('Bot missing manage_messages permission in {ctx.guild.name}')
+    except Exception:
+        pass
+                    
     if len(suggestion) > 400:
         ee = discord.Embed(color=config.red)
         ee.add_field(name='error while processing', value='Suggestion exceeds the 400 character limit')
