@@ -70,13 +70,6 @@ async def on_guild_join(guild):
             if hasattr(js, 'success') and js['success'] == "false":
                 print(f'Failed to post to discordbotlist.com\n{js}')
     print(f"I just joined {guild.name}, ID: {guild.id}")
-    
-    e = discord.Embed(title='New server', color=config.green)
-    e.add_field(name='Guild', value=ctx.guild, inline=True)
-    e.add_field(name='Members', value=ctx.guild.member_count, inline=True)
-    e.add_field(name='Guild ID', value=ctx.guild.id, inline=False)
-    channel = bot.get_channel(762203326519181312)
-    await channel.send(embed=e)
 
 
 @bot.event
