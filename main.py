@@ -718,9 +718,14 @@ async def api():
             async with session.post(f"https://discordbotlist.com/api/v1/bots/{bot.user.id}/stats",
                                     headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
                                     data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r2:
-                js = await r2.json()
-                if hasattr(js, 'success') and js['success'] == "false":
-                    print(f'Failed to post to discordbotlist.com\n{js}')
+                if r2.status not 200:
+                    print(f'Failed to post to discordbotlist.com')
+        async with aiohttp.ClientSession() as session:
+            async with session.post(f"https://top.gg/api/bots/{bot.user.id}/stats",
+                                    headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
+                                    data=json.dumps({'server_count': len(bot.guilds)})) as r3:
+                if r3.status not 200:
+                    print(f'Failed to post to top.gg')
         await asyncio.sleep(300)
 bot.loop.create_task(api())
 
