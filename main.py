@@ -54,7 +54,7 @@ async def on_ready():
 
 
 @bot.event
-async def on_guild_join(guild, ctx, bot):
+async def on_guild_join(guild):
     async with aiohttp.ClientSession() as session:
         async with session.post(f"https://api.discordextremelist.xyz/v2/bot/{bot.id}/stats",
                                 headers={'Authorization': config.DELTOKEN, "Content-Type": 'application/json'},
