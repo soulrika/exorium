@@ -25,7 +25,7 @@ bot.remove_command('help')  # removes the default discord.py help command
 
 @bot.event  # sets the bot status and prints when it has started in console with stats, stats include: The amount of users that are in the total amount of guilds and the discord.py version
 async def on_ready():
-    activity = discord.Game(name=f'with {len(bot.users)} furs', type=1)
+    activity = discord.Game(name=f'exo help | {bot.guilds} guilds', type=1)
     await bot.change_presence(status=discord.Status.online, activity=activity)
     print('exorium has started successfully')
     print('-----------')
@@ -720,12 +720,12 @@ async def api():
                                     data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r2:
                 if r2.status not 200:
                     print(f'Failed to post to discordbotlist.com')
-        async with aiohttp.ClientSession() as session:
-            async with session.post(f"https://top.gg/api/bots/{bot.user.id}/stats",
-                                    headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
-                                    data=json.dumps({'server_count': len(bot.guilds)})) as r3:
-                if r3.status not 200:
-                    print(f'Failed to post to top.gg')
+#        async with aiohttp.ClientSession() as session:
+#            async with session.post(f"https://top.gg/api/bots/{bot.user.id}/stats",
+#                                    headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
+#                                    data=json.dumps({'server_count': len(bot.guilds)})) as r3:
+#                if r3.status not 200:
+#                    print(f'Failed to post to top.gg')
         await asyncio.sleep(300)
 bot.loop.create_task(api())
 
