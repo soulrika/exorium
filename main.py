@@ -83,8 +83,12 @@ async def on_command_error(ctx, error):
         ie = discord.Embed(color=config.orange)
         ie.add_field(name='error while processing', value='Please fill in all the required arguments.\nUse `exo info <command`> for usage.')
         await ctx.send(embed=ie)
+    
     if isinstance(error, commands.MissingPermissions):
-        await ctx.send("You do not have the sufficient permissions.")  # Shows that you dont have the needed permission for this command
+        ie = discord.Embed(color=config.red)
+        ie.add_field(name='error while processing', value='You do not have the sufficient permissions.')
+        await ctx.send(embed=ie)
+    
     if isinstance(error, commands.NotOwner):
         await ctx.send('Only bot owners can use this command.')  # Shows when a user executes a bot owner only command while not being a bot owner
 
