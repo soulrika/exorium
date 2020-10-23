@@ -54,7 +54,7 @@ async def on_ready():
 
 
 @bot.event
-async def on_guild_join(guild):
+async def on_guild_join(guild, ctx):
     async with aiohttp.ClientSession() as session:
         async with session.post(f"https://api.discordextremelist.xyz/v2/bot/{bot.id}/stats",
                                 headers={'Authorization': config.DELTOKEN, "Content-Type": 'application/json'},
@@ -70,7 +70,12 @@ async def on_guild_join(guild):
             if hasattr(js, 'success') and js['success'] == "false":
                 print(f'Failed to post to discordbotlist.com\n{js}')
     print(f"I just joined {guild.name}, ID: {guild.id}")
-
+    e = discord.Embed(title='New server', color=config.green)
+    e.add_field(name="Guild", value=ctx.guild, inline=True)
+    e.add_field(name="Members", value=ctx.guild.member_count, inline=True)
+    e.add_field(name="Guild ID", value=ctx.guild.id, inline=False)
+    channel = bot.get_channel(762203326519181312)
+    await channel.send(embed=e)
 
 @bot.event
 async def on_command_error(ctx, error):
