@@ -76,14 +76,15 @@ Commands, suggestions or features we still plan to add can be seen in our [TO DO
 |[id](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L92)         |`exo id <@user/ID/name>`        |Shows the ID of the provided user                 |
 
 #### Bot related
-|Command                                                                        |Syntax                       |Description                                      |
-| :-------------------------------------------------------------------------:   | :-------------------------: | :---------------------------------------------: |
+|Command                                                                        |Syntax                       |Description                                         |
+| :-------------------------------------------------------------------------:   | :-------------------------: | :------------------------------------------------: |
 |[invite](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L75)     |`exo invite`                    |Invite Protopaw through the given invite link    |
 |[stats](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L83)      |`exo stats`                     |The statistics of Protopaw (guilds & total users)|
 |[links](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L143)     |`exo links`                     |Links to things related to Protopaw & TPK        |
 |[pings](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L44)      |`exo ping`                      |Shows the bot's latency in seconds               |
 |[help](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L60)       |`exo help`                      |Shows all the commands and the Protopaw team     |
 |[info](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L335)      |`exo info <command>`            |Shows information about an individual command    |
+|[suggest](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L629)   |`exo suggest <suggestion>`      |Send in a suggestion for exorium                 |
 
 ---
 #### Selfhosting
