@@ -90,8 +90,9 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=ie)
     
     if isinstance(error, commands.NotOwner):
-        await ctx.send('Only bot owners can use this command.')  # Shows when a user executes a bot owner only command while not being a bot owner
-
+        ie = discord.Embed(color=config.orange)
+        ie.add_field(name='error while processing', value='Only bot owners can use this command.')
+        await ctx.send(embed=ie)
 
 @bot.command(name="ping", aliases=["pong", "latency"], brief="shows the bot's latency.")  # the ping command, simply shows the latency in an embed
 async def latency(ctx):
