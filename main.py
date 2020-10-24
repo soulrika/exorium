@@ -39,7 +39,7 @@ async def on_ready():
     print(discord.__version__)
     print('-----------')
 
-bot.load_extension('jishaku') 
+bot.load_extension('jishaku')
 
 @bot.event
 async def on_guild_join(guild):
@@ -703,32 +703,32 @@ async def warnings(ctx, member: discord.Member):
     embed = discord.Embed(title='Warnings for ' + member.name, description=totalwarns, color=config.color)
     await ctx.send(embed=embed)
 
-#  This stuff is broken and we cba to fix it right now
-#async def api():
-#    while True:
-#        if bot.is_ready() is False:
-#            await asyncio.sleep(5)
-#        async with aiohttp.ClientSession() as session:
-#            async with session.post(f"https://api.discordextremelist.xyz/v2/bot/{bot.user.id}/stats",
-#                                    headers={'Authorization': config.DELTOKEN, "Content-Type": 'application/json'},
-#                                    data=json.dumps({'guildCount': len(bot.guilds)})) as r:
-#                js = await r.json()
-#                if js['error']:
-#                    print(f'Failed to post to discordextremelist.xyz\n{js}')
-#        async with aiohttp.ClientSession() as session:
-#            async with session.post(f"https://discordbotlist.com/api/v1/bots/{bot.user.id}/stats",
-#                                    headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
-#                                    data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r2:
-#                if r2.status not 200:
-#                    print(f'Failed to post to discordbotlist.com')
-#        async with aiohttp.ClientSession() as session:
-#            async with session.post(f"https://top.gg/api/bots/{bot.user.id}/stats",
-#                                    headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
-#                                    data=json.dumps({'server_count': len(bot.guilds)})) as r3:
-#                if r3.status not 200:
-#                    print(f'Failed to post to top.gg')
-#       await asyncio.sleep(300)
-#bot.loop.create_task(api())
+
+async def api():
+    while True:
+        if bot.is_ready() is False:
+            await asyncio.sleep(5)
+        async with aiohttp.ClientSession() as session:
+            async with session.post(f"https://api.discordextremelist.xyz/v2/bot/{bot.user.id}/stats",
+                                    headers={'Authorization': config.DELTOKEN, "Content-Type": 'application/json'},
+                                    data=json.dumps({'guildCount': len(bot.guilds)})) as r:
+                js = await r.json()
+                if js['error']:
+                    print(f'Failed to post to discordextremelist.xyz\n{js}')
+        async with aiohttp.ClientSession() as session:
+            async with session.post(f"https://discordbotlist.com/api/v1/bots/{bot.user.id}/stats",
+                                    headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
+                                    data=json.dumps({'guilds': len(bot.guilds), 'users': len(bot.users)})) as r2:
+                if r2.status not 200:
+                    print(f'Failed to post to discordbotlist.com')
+        async with aiohttp.ClientSession() as session:
+            async with session.post(f"https://top.gg/api/bots/{bot.user.id}/stats",
+                                    headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
+                                    data=json.dumps({'server_count': len(bot.guilds)})) as r3:
+                if r3.status not 200:
+                    print(f'Failed to post to top.gg')
+       await asyncio.sleep(300)
+bot.loop.create_task(api())
 
 
 @bot.command()
@@ -788,5 +788,5 @@ class syntax:
     cuddle = "exo cuddle @user1 @user2... reason`"
     support = "`exo support`"
     suggest = "`exo suggestion`"
-                    
+
 bot.run(config.token)
