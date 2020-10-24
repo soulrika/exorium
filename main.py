@@ -727,7 +727,7 @@ async def api():
                                     data=json.dumps({'server_count': len(bot.guilds)})) as r3:
                 if not r3.status == "200":
                     print(f'Failed to post to top.gg')
-       await asyncio.sleep(300)
+        await asyncio.sleep(300)
 bot.loop.create_task(api())
 
 
