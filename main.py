@@ -723,7 +723,7 @@ async def api():
                     print(f'Failed to post to discordbotlist.com')
         async with aiohttp.ClientSession() as session:
             async with session.post(f"https://top.gg/api/bots/{bot.user.id}/stats",
-                                    headers={'Authorization': config.DBLTOKEN, "Content-Type": 'application/json'},
+                                    headers={'Authorization': config.TOPTOKEN, "Content-Type": 'application/json'},
                                     data=json.dumps({'server_count': len(bot.guilds)})) as r3:
                 if not r3.status == "200":
                     print(f'Failed to post to top.gg')
