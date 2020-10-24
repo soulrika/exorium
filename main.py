@@ -25,7 +25,7 @@ bot.remove_command('help')  # removes the default discord.py help command
 
 @bot.event  # sets the bot status and prints when it has started in console with stats, stats include: The amount of users that are in the total amount of guilds and the discord.py version
 async def on_ready():
-    activity = discord.Game(name=f'exo help | {bot.guilds} guilds', type=1)
+    activity = discord.Game(name=f'exo help | (len{bot.guilds}) guilds', type=1)
     await bot.change_presence(status=discord.Status.online, activity=activity)
     print('exorium has started successfully')
     print('-----------')
