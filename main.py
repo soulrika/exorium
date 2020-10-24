@@ -10,6 +10,7 @@ import discord.ext
 from discord.ext import commands
 from outsources import functions, util
 from requests.auth import HTTPBasicAuth
+bot.load_extension('jishaku')
 import asyncio
 
 
