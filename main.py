@@ -471,9 +471,9 @@ async def randomchoice(ctx, *args):
 
 @bot.command(name="info")  # Gives information about the mentioned command
 async def info(ctx, arg):
-    embed = discord.Embed(color=config.color)
-    embed.add_field(name=arg, value=getattr(cmds, arg), inline=True)
-    embed.add_field(name="Syntax of " + arg, value=getattr(syntax, arg), inline=True)
+    embed = discord.Embed(title=arg, color=config.color)
+    embed.add_field(name="Information", value=getattr(cmds, arg), inline=False)
+    embed.add_field(name="Syntax", value=getattr(syntax, arg), inline=False)
     embed.set_footer(text="Do exo help for all available commands.")
     await ctx.send(embed=embed)
     await functions.logging(ctx, "info", bot)
