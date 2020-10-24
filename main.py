@@ -41,15 +41,17 @@ async def on_ready():
 
 bot.load_extension('jishaku')
 
+
 @bot.event
 async def on_guild_join(guild):
     print(f"I just joined {guild.name}, ID: {guild.id}")
     e = discord.Embed(title='New server', color=config.green)
-    e.add_field(name="Guild", value=ctx.guild, inline=True)
-    e.add_field(name="Members", value=ctx.guild.member_count, inline=True)
-    e.add_field(name="Guild ID", value=ctx.guild.id, inline=False)
+    e.add_field(name="Guild", value=guild, inline=True)
+    e.add_field(name="Members", value=guild.member_count, inline=True)
+    e.add_field(name="Guild ID", value=guild.id, inline=False)
     channel = bot.get_channel(762203326519181312)
     await channel.send(embed=e)
+
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -67,6 +69,7 @@ async def on_command_error(ctx, error):
         ie = discord.Embed(color=config.orange)
         ie.add_field(name='error while processing', value='Only bot owners can use this command.')
         await ctx.send(embed=ie)
+
 
 @bot.command(name="ping", aliases=["pong", "latency"], brief="shows the bot's latency.")  # the ping command, simply shows the latency in an embed
 async def latency(ctx):
@@ -120,8 +123,8 @@ async def links(ctx):
 @bot.command(name="stats", aliases=["statistics"], brief="shows bot statistics.")  # shows the bot statistics (total amount of users in total amount of guilds) in an embed
 async def statistics(ctx):
     embed = discord.Embed(title="exorium statistics", color=config.color)
-    embed.add_field(name="Total Guilds", value=len(bot.guilds), inline=False)
-    embed.add_field(name="Total Users", value=len(bot.users), inline=False)
+    embed.add_field(name="Total Guilds", value=str(len(bot.guilds)), inline=False)
+    embed.add_field(name="Total Users", value=str(len(bot.users)), inline=False)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "stats", bot)
 
@@ -186,7 +189,7 @@ async def image(ctx, *args):
 
 @bot.command()
 async def e621(ctx, *, tags=''):
-    if(ctx.channel.is_nsfw() or ctx.channel.id in config.nsfwexceptions):
+    if ctx.channel.is_nsfw() or ctx.channel.id in config.nsfwexceptions:
         tagurl = tags.replace(' ', '+')
         delmsg = await ctx.send("Waiting for results <a:loadingbounce:753173725263822858>")
         response = requests.get(
@@ -219,13 +222,13 @@ async def e621(ctx, *, tags=''):
 async def avatar(ctx, *, user: discord.Member = None):
     if not user:
         user = ctx.author
-    eA = discord.Embed(title='Avatar', color=config.color)
-    eA.set_author(name=user, icon_url=user.avatar_url)
+    ea = discord.Embed(title='Avatar', color=config.color)
+    ea.set_author(name=user, icon_url=user.avatar_url)
     if str(user.avatar_url).endswith(".gif?size=1024"):
-        eA.set_image(url=user.avatar_url_as(format="gif", size=1024))
+        ea.set_image(url=user.avatar_url_as(format="gif", size=1024))
     else:
-        eA.set_image(url=user.avatar_url_as(format="png", size=1024))
-    await ctx.send(embed=eA)
+        ea.set_image(url=user.avatar_url_as(format="png", size=1024))
+    await ctx.send(embed=ea)
     await functions.logging(ctx, "avatar", bot)
 
 
@@ -252,17 +255,17 @@ async def serverinfo(ctx):
     }
     embed = discord.Embed(color=config.color)
     embed.add_field(name="Server Name", value=str(gu.name), inline=True)
-    embed.add_field(name="Membercount", value=len(gu.members), inline=True)
+    embed.add_field(name="Membercount", value=str(len(gu.members)), inline=True)
     embed.add_field(name="Owner", value=str(gu.owner), inline=True)
     embed.add_field(name="Creation Date", value=f"{gu.created_at.strftime('%d.%m.%Y %H:%M')}", inline=True)
     embed.add_field(name="Server ID", value=str(gu.id), inline=True)
     embed.add_field(name="Region", value=str(gu.region), inline=True)
     embed.add_field(name="Verification Level", value=str(gu.verification_level), inline=True)
-    featuresText = ''
+    featurestext = ''
     for feature in gu.features:
-        featuresText += f"\n{features[feature]}"
+        featurestext += f"\n{features[feature]}"
     if ctx.guild.features:
-        embed.add_field(name="Server Features", value=featuresText, inline=True)
+        embed.add_field(name="Server Features", value=featurestext, inline=True)
     embed.add_field(name="AFK Channel", value=f"`{gu.afk_channel}`\nTimeout {gu.afk_timeout}s", inline=False)
     if str(gu.icon_url).endswith(".gif?size=1024"):
         embed.set_author(name=ctx.guild.name + " information", url=gu.icon_url_as(format="gif", size=1024), icon_url=gu.icon_url_as(format="gif", size=1024))
@@ -368,45 +371,45 @@ async def cuddle(ctx, members: commands.Greedy[discord.Member], *, reason="being
 
 @bot.command(name="rawr")  # interaction command - rawr at someone. gifs are random!
 async def rawr(ctx, members: commands.Greedy[discord.Member], *, reason="Rawr!"):
-    GIFlist = gifs.rawr
-    GIF = random.choice(GIFlist)
-    if not (members):
+    giflist = gifs.rawr
+    gif = random.choice(giflist)
+    if not members:
         embed = discord.Embed(title="", color=config.color, description=(ctx.message.author.mention + " " + "**rawred, cute!**\nFor: " + reason))
-        embed.set_image(url=GIF)
+        embed.set_image(url=gif)
         await ctx.send(embed=embed)
         return
     embed = discord.Embed(title="", color=config.color, description=(ctx.message.author.mention + " " + "**rawred at**" + " " + '**,** '.join(x.mention for x in members) + "**, cute!**\nFor: " + reason))
-    embed.set_image(url=GIF)
+    embed.set_image(url=gif)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "rawr", bot)
 
 
 @bot.command(name="awoo")  # interaction command - awoo at someone. gifs are random!
 async def awoo(ctx, members: commands.Greedy[discord.Member], *, reason="Awoo!"):
-    GIFlist = gifs.awoo
-    GIF = random.choice(GIFlist)
-    if not (members):
+    giflist = gifs.awoo
+    gif = random.choice(giflist)
+    if not members:
         embed = discord.Embed(title="", color=config.color, description=(ctx.message.author.mention + " " + "**awoo'd, chilling!**\nFor: " + reason))
-        embed.set_image(url=GIF)
+        embed.set_image(url=gif)
         await ctx.send(embed=embed)
         return
     embed = discord.Embed(title="", color=config.color, description=(ctx.message.author.mention + " " + "**awoo'd at**" + " " + '**,** '.join(x.mention for x in members) + "**, chilling!**\nFor: " + reason))
-    embed.set_image(url=GIF)
+    embed.set_image(url=gif)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "awoo", bot)
 
 
 @bot.command(name="blush")  # interaction command - blush (because of) someone. gifs are random!
 async def blush(ctx, members: commands.Greedy[discord.Member], *, reason="Makes them kyooter!"):
-    GIFlist = gifs.blush
-    GIF = random.choice(GIFlist)
-    if not (members):
+    giflist = gifs.blush
+    gif = random.choice(giflist)
+    if not members:
         embed = discord.Embed(title="", color=config.color, description=(ctx.message.author.mention + " " + "**blushed**\nFor: " + reason))
-        embed.set_image(url=GIF)
+        embed.set_image(url=gif)
         await ctx.send(embed=embed)
         return
     embed = discord.Embed(title="", color=config.color, description=(ctx.message.author.mention + " " + "**blushed because of**" + " " + '**,** '.join(x.mention for x in members) + "**, kyoot!**\nFor: " + reason))
-    embed.set_image(url=GIF)
+    embed.set_image(url=gif)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "blush", bot)
 
@@ -419,25 +422,25 @@ async def feed(ctx, members: commands.Greedy[discord.Member], *, reason="Hungwy"
 
 @bot.command(name="glomp")  # interaction command - glomp someone. gifs are random!
 async def glomp(ctx, members: commands.Greedy[discord.Member], *, reason="Love!"):
-    GIFlist = gifs.glomp
-    GIF = random.choice(GIFlist)
+    giflist = gifs.glomp
+    gif = random.choice(giflist)
     embed = discord.Embed(title="", color=config.color, description=(ctx.message.author.mention + " " + "**glomped on**" + " " + '**,** '.join(x.mention for x in members) + "**, chilling!**\nFor: " + reason))
-    embed.set_image(url=GIF)
+    embed.set_image(url=gif)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "glomp", bot)
 
 
 @bot.command(name="happy")  # interaction command - be happy (because of someone). gifs are random!
 async def happy(ctx, members: commands.Greedy[discord.Member], *, reason="Vibing"):
-    GIFlist = gifs.happy
-    GIF = random.choice(GIFlist)
-    if not (members):
+    giflist = gifs.happy
+    gif = random.choice(giflist)
+    if not members:
         embed = discord.Embed(title="", color=config.color, description=(ctx.message.author.mention + " " + "**Is happy**\nFor: " + reason))
-        embed.set_image(url=GIF)
+        embed.set_image(url=gif)
         await ctx.send(embed=embed)
         return
     embed = discord.Embed(title="", color=config.color, description=(ctx.message.author.mention + " " + "**Is happy because of**" + " " + '**,** '.join(x.mention for x in members) + "**, kyoot!**\nFor: " + reason))
-    embed.set_image(url=GIF)
+    embed.set_image(url=gif)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "happy", bot)
 
@@ -450,15 +453,15 @@ async def highfive(ctx, members: commands.Greedy[discord.Member], *, reason="bei
 
 @bot.command(name="wag")  # interaction command - wag (because of someone). gifs are random!
 async def wag(ctx, members: commands.Greedy[discord.Member], *, reason="Rawr!"):
-    GIFlist = gifs.wag
-    GIF = random.choice(GIFlist)
-    if not (members):
+    giflist = gifs.wag
+    gif = random.choice(giflist)
+    if not members:
         embed = discord.Embed(title="", color=config.color, description=(ctx.message.author.mention + " " + "**wags their tail, kyoot!**\nFor: " + reason))
-        embed.set_image(url=GIF)
+        embed.set_image(url=gif)
         await ctx.send(embed=embed)
         return
     embed = discord.Embed(title="", color=config.color, description=(ctx.message.author.mention + " " + "**wags their tail because of**" + " " + '**,** '.join(x.mention for x in members) + "**, cute!**\nFor: " + reason))
-    embed.set_image(url=GIF)
+    embed.set_image(url=gif)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "wag", bot)
 
@@ -472,8 +475,8 @@ async def randomchoice(ctx, *args):
 @bot.command(name="info")  # Gives information about the mentioned command
 async def info(ctx, arg):
     embed = discord.Embed(title=arg, color=config.color)
-    embed.add_field(name="Information", value=getattr(cmds, arg), inline=False)
-    embed.add_field(name="Syntax", value=getattr(syntax, arg), inline=False)
+    embed.add_field(name="Information", value=getattr(CommandInfo, arg), inline=False)
+    embed.add_field(name="Syntax", value=getattr(CommandSyntax, arg), inline=False)
     embed.set_footer(text="Do exo help for all available commands.")
     await ctx.send(embed=embed)
     await functions.logging(ctx, "info", bot)
@@ -582,7 +585,7 @@ async def poll(ctx, *, arg):
         en = en+1
         if en >= n:
             break
-            await functions.logging(ctx, "poll", bot)
+    await functions.logging(ctx, "poll", bot)
 
 
 @bot.command(name="decide")  # Let people vote for something
@@ -608,9 +611,10 @@ async def revive(ctx):
 async def say(ctx, *, sentence):
     try:
         await ctx.message.delete()
-    except Exception:
+    except discord.Forbidden:
+        await ctx.send("I don't have enough permissions to delete your message!")
+    except discord.NotFound:
         pass
-
     embed = discord.Embed(color=config.color)
     embed.add_field(name=sentence, value=f'by {ctx.author}')
     await ctx.send(embed=embed)
@@ -618,11 +622,12 @@ async def say(ctx, *, sentence):
 
 
 @bot.command()
-async def suggest(ctx, * , suggestion):
-
+async def suggest(ctx, *, suggestion):
     try:
         await ctx.message.delete()
-    except Exception:
+    except discord.Forbidden:
+        await ctx.send("I don't have enough permissions to delete your message!")
+    except discord.NotFound:
         pass
 
     if len(suggestion) > 400:
@@ -647,13 +652,13 @@ async def suggest(ctx, * , suggestion):
 @bot.command()
 @commands.has_permissions(manage_messages=True)
 async def purge(ctx, amount=0):
-    if (amount <= 0):
+    if amount <= 0:
         return await ctx.send("You can't grow younger either, so neither can I purge negative amounts of messages.")
-    if (amount <= 1500):
+    if amount <= 1500:
         await ctx.channel.purge(limit=amount + 1)
         await ctx.send(f'{ctx.author} deleted **{amount}** messages using the purge command.')
         await functions.logging(ctx, f"purge ({amount})", bot)
-    if (amount >= 1500):
+    if amount >= 1500:
         await ctx.send("You can only purge 1500 messages at a time.")
 
 
@@ -670,13 +675,13 @@ async def warn(ctx, member: discord.Member, *, reason="No reason provided"):
 
 @bot.command()
 @commands.has_permissions(ban_members=True)
-async def delwarn(ctx, caseID):
-    database.execute("SELECT * FROM warnings WHERE id = %s AND serverid = %s", [caseID, ctx.message.guild.id])
+async def delwarn(ctx, caseid):
+    database.execute("SELECT * FROM warnings WHERE id = %s AND serverid = %s", [caseid, ctx.message.guild.id])
     results = database.fetchall()
     if results:
-        database.execute("DELETE FROM warnings WHERE id = %s AND serverid = %s", [caseID, ctx.message.guild.id])
+        database.execute("DELETE FROM warnings WHERE id = %s AND serverid = %s", [caseid, ctx.message.guild.id])
         mydb.commit()
-        await ctx.send(f"Removed warning #{caseID}")
+        await ctx.send(f"Removed warning #{caseid}")
         await functions.logging(ctx, "delwarn", bot)
         return
     await ctx.send("No warning with such an ID exists here. Please check again!")
@@ -737,7 +742,7 @@ async def exoinfo(ctx):
     await ctx.send(embed=e)
 
 
-class cmds:
+class CommandInfo:
     hug = "Hugs the pinged people, kyoot!"
     snuggle = "Snuggles the pinged people, kyoot!"
     boop = "Boops the pinged people, boop!"
@@ -765,7 +770,7 @@ class cmds:
     suggest = "suggest something for exorium!"
 
 
-class syntax:
+class CommandSyntax:
     hug = "`exo hug @user1 @user2... reason`"
     snuggle = "`exo snuggle @user1 @user2... reason`"
     boop = "`exo boop @user1 @user2... reason`"
@@ -786,5 +791,6 @@ class syntax:
     cuddle = "exo cuddle @user1 @user2... reason`"
     support = "`exo support`"
     suggest = "`exo suggestion`"
+
 
 bot.run(config.token)
