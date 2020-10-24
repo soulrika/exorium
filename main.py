@@ -10,7 +10,6 @@ import discord.ext
 from discord.ext import commands
 from outsources import functions, util
 from requests.auth import HTTPBasicAuth
-bot.load_extension('jishaku')
 import asyncio
 
 
@@ -40,6 +39,7 @@ async def on_ready():
     print(discord.__version__)
     print('-----------')
 
+bot.load_extension('jishaku') 
 
 @bot.event
 async def on_guild_join(guild):
