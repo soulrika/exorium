@@ -730,6 +730,8 @@ async def api():
                                     data=json.dumps({'server_count': len(bot.guilds)})) as r3:
                 if not r3.status == "200":
                     print(f'Failed to post to top.gg')
+                activity = discord.Game(name=f'exo help | {len(bot.guilds)} guilds', type=1)
+                await bot.change_presence(status=discord.Status.online, activity=activity)
         await asyncio.sleep(300)
 bot.loop.create_task(api())
 
