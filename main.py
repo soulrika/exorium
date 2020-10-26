@@ -119,6 +119,9 @@ async def links(ctx):
     e.add_field(name='Github', value='- [Repository](https://github.com/ThePawKingdom/exorium)', inline=True)
     await ctx.send(embed=e)
 
+@bot.command()
+async def source(ctx):
+    await ctx.send('You can see my source code here: <https://github.com/ThePawKingdom/exorium>')
 
 @bot.command(name="stats", aliases=["statistics"], brief="shows bot statistics.")  # shows the bot statistics (total amount of users in total amount of guilds) in an embed
 async def statistics(ctx):
@@ -626,7 +629,7 @@ async def suggest(ctx, *, suggestion):
     try:
         await ctx.message.delete()
     except discord.Forbidden:
-        await ctx.send("I don't have enough permissions to delete your message!")
+        pass
     except discord.NotFound:
         pass
 
