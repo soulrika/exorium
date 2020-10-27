@@ -424,9 +424,9 @@ async def feed(ctx, members: commands.Greedy[discord.Member], *, reason="Hungwy"
 
 
 @bot.command()
-async def cookie(ctx, *, member: discord.Member)
-    e un ,j4hi59b8grjex 5zklbnj5imhk8lr4 ije
-
+async def cookie(ctx, *, member: discord.Member):
+    e = discord.Embed(title=f'{ctx.author} gave {ctx.mention} a cookie', color=config.green)
+    await ctx.send(embed=e)
 
 @bot.command(name="glomp")  # interaction command - glomp someone. gifs are random!
 async def glomp(ctx, members: commands.Greedy[discord.Member], *, reason="Love!"):
