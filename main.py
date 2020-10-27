@@ -481,7 +481,7 @@ async def randomchoice(ctx, *args):
 
 
 @bot.command(name="info")  # Gives information about the mentioned command
-async def info(ctx, arg):de
+async def info(ctx, arg):
     embed = discord.Embed(title=arg, color=config.color)
     embed.add_field(name="Information", value=getattr(CommandInfo, arg), inline=False)
     embed.add_field(name="Syntax", value=getattr(CommandSyntax, arg), inline=False)
