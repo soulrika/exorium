@@ -11,11 +11,12 @@ from discord.ext import commands
 from outsources import functions, util
 from requests.auth import HTTPBasicAuth
 import asyncio
-
+import re
 
 mydb = config.DBdata
 database = mydb.cursor()
 database.execute("CREATE TABLE IF NOT EXISTS warnings (id INT AUTO_INCREMENT PRIMARY KEY, user VARCHAR(255), reason VARCHAR(255), serverid VARCHAR(255))")
+database.execute("CREATE TABLE IF NOT EXISTS suggestions (id INT AUTO_INCREMENT PRIMARY KEY, user VARCHAR(255), suggestion VARCHAR(255), approved VARCHAR(255), messageid VARCHAR(255))")
 logger = logging.getLogger('discord')
 
 
@@ -119,9 +120,11 @@ async def links(ctx):
     e.add_field(name='Github', value='- [Repository](https://github.com/ThePawKingdom/exorium)', inline=True)
     await ctx.send(embed=e)
 
+
 @bot.command()
 async def source(ctx):
     await ctx.send('You can see my source code here: <https://github.com/ThePawKingdom/exorium>')
+
 
 @bot.command(name="stats", aliases=["statistics"], brief="shows bot statistics.")  # shows the bot statistics (total amount of users in total amount of guilds) in an embed
 async def statistics(ctx):
@@ -625,7 +628,7 @@ async def say(ctx, *, sentence):
 
 
 @bot.command()
-async def suggest(ctx, *, suggestion):
+async def suggest_deprecated(ctx, *, suggestion):
     try:
         await ctx.message.delete()
     except discord.Forbidden:
@@ -708,6 +711,181 @@ async def warnings(ctx, member: discord.Member):
 
     embed = discord.Embed(title='Warnings for ' + member.name, description=totalwarns, color=config.color)
     await ctx.send(embed=embed)
+
+
+@bot.command()
+async def suggest(ctx, *, suggestiontext):
+    database.execute("SELECT id FROM suggestions")
+    results = database.fetchall()
+    id = results[-1][0] + 1
+    sugchannel = bot.get_channel(769132481252818954)
+    embed = discord.Embed(title=suggestiontext, color=config.orange)
+    embed.add_field(name="User", value=str(ctx.author))
+    embed.add_field(name="Status", value="Pending")
+    embed.set_footer(text=f"ID: {id}")
+    botmsg = await sugchannel.send(embed=embed)
+    await botmsg.add_reaction("✅")
+    await botmsg.add_reaction("❌")
+    sql = "INSERT INTO suggestions (user, suggestion, messageid) VALUES (%s, %s, %s)"
+    val = (ctx.author.id, suggestiontext, botmsg.id)
+    database.execute(sql, val)
+    mydb.commit()
+    await ctx.send(f'Your suggestion "{suggestiontext}" was recorded!')
+
+
+@bot.command()
+async def suggestions(ctx):
+    if ctx.message.content.endswith("clear"):
+        botmsg = await ctx.send("Confirm deletion of all your **pending** suggestions?")
+        await botmsg.add_reaction("✅")
+        await botmsg.add_reaction("❌")
+        while True:
+            react = await bot.wait_for('reaction_add', timeout=300)
+            if react[1].id == ctx.author.id:
+                if react[0].emoji == "✅":
+                    database.execute("DELETE FROM suggestions WHERE user = %s AND approved IS NULL", [ctx.author.id])
+                    mydb.commit()
+                    await botmsg.delete()
+                    break
+                else:
+                    await botmsg.delete()
+                    await ctx.send("Cancelled deletion!")
+                    return
+    database.execute("SELECT * FROM suggestions WHERE user = %s", [ctx.author.id])
+    results = database.fetchall()
+    resultsformat = ''
+    if not results:
+        await ctx.send("You currently don't have any suggestions! Make some using `exo suggestion <suggestion>`")
+        return
+    for sugg in results:
+        if not sugg[3]:
+            approval = "Pending"
+        else:
+            approval = sugg[3]
+        resultsformat += f"#{sugg[0]} `{sugg[2]}` | Approved: `{approval}`\n"
+    await ctx.send(f"Your suggestions:\n{resultsformat}")
+
+
+@bot.command()
+async def digest(ctx):
+    approval = {
+        "❌": "Denied",
+        "✅": "Approved"
+    }
+    if ctx.author.id == "341988909363757057" or ctx.author.id == "698080201158033409":
+        await ctx.send("You aren't allowed to run this command")
+        return
+    if not re.findall("\\d+", ctx.message.content):
+        database.execute("SELECT * FROM suggestions WHERE approved IS NULL")
+        results = database.fetchall()
+        id = results[-1][0]
+        if not results:
+            await ctx.send("No new suggestions!")
+        nextsug = results[0][2]
+        user = await bot.fetch_user(results[0][1])
+        embed = discord.Embed(title= nextsug, color=config.orange)
+        embed.add_field(name="User", value=str(user))
+        if not results[0][3]:
+            status = "Pending"
+        else:
+            status = results[0][3]
+        embed.add_field(name="Status", value=status)
+        embed.set_footer(text=f"ID: {id}")
+        botmsg = await ctx.send(embed=embed)
+        await botmsg.add_reaction("✅")
+        await botmsg.add_reaction("❌")
+        while True:
+            react = await bot.wait_for('reaction_add', timeout=300)
+            if react[1].id == ctx.author.id:
+                break
+        approved = approval[react[0].emoji]
+        sql = "UPDATE suggestions SET approved = %s WHERE suggestion = %s"
+        val = (approved, nextsug)
+        database.execute(sql, val)
+        mydb.commit()
+        if approved == "Approved":
+            color = config.green
+        else:
+            color = config.red
+        status = approved
+        embed = discord.Embed(title=nextsug, color=color)
+        embed.add_field(name="User", value=str(user))
+        embed.add_field(name="Status", value=status)
+        sugmsg = await bot.get_channel(769132481252818954).fetch_message(results[0][4])
+        embed.set_footer(text=f"ID: {id}")
+        await sugmsg.edit(embed=embed)
+        await botmsg.delete()
+        await ctx.send("Got it!")
+    else:
+        num = re.findall("\\d+", ctx.message.content)
+        sql = "SELECT * FROM suggestions WHERE id = %s"
+        val = num
+        id = num
+        database.execute(sql, val)
+        results = database.fetchall()
+        if not results:
+            await ctx.send("No suggestion with that ID!")
+        nextsug = results[0][2]
+        user = await bot.fetch_user(results[0][1])
+        if not results[0][3]:
+            status = "Pending"
+            color = config.orange
+        else:
+            status = results[0][3]
+            if status == "Approved":
+                color = config.green
+            else:
+                color = config.red
+        id = results[-1][0]
+        embed = discord.Embed(title=nextsug, color=color)
+        embed.add_field(name="User", value=str(user))
+        embed.add_field(name="Status", value=status)
+        embed.set_footer(text=f"ID: {id}")
+        botmsg = await ctx.send(embed=embed)
+        await botmsg.add_reaction("✅")
+        await botmsg.add_reaction("❌")
+        while True:
+            react = await bot.wait_for('reaction_add', timeout=300)
+            if react[1].id == ctx.author.id:
+                break
+        approved = approval[react[0].emoji]
+        sql = "UPDATE suggestions SET approved = %s WHERE suggestion = %s"
+        val = (approved, nextsug)
+        database.execute(sql, val)
+        mydb.commit()
+        sql = "SELECT * FROM suggestions WHERE id = %s"
+        val = num
+        database.execute(sql, val)
+        results = database.fetchall()
+        await ctx.send("Got it!")
+        await botmsg.delete()
+        if not results[0][3]:
+            status = "Pending"
+            color = config.orange
+        else:
+            status = results[0][3]
+            if status == "Approved":
+                color = config.green
+            else:
+                color = config.red
+        embed = discord.Embed(title=nextsug, color=color)
+        embed.add_field(name="User", value=str(user))
+        embed.add_field(name="Status", value=status)
+        embed.set_footer(text=f"ID: {id}")
+        await ctx.send(embed=embed)
+        if approved == "Approved":
+            color = config.green
+        else:
+            color = config.red
+        status = approved
+        embed = discord.Embed(title=nextsug, color=color)
+        embed.add_field(name="User", value=str(user))
+        embed.add_field(name="Status", value=status)
+        sugmsg = await bot.get_channel(769132481252818954).fetch_message(results[0][4])
+        embed.set_footer(text=f"ID: {id}")
+        await sugmsg.edit(embed=embed)
+        await botmsg.delete()
+        await ctx.send("Got it!")
 
 
 async def api():
