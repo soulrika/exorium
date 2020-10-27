@@ -825,8 +825,8 @@ async def digest(ctx):
     else:
         num = re.findall("\\d+", ctx.message.content)
         sql = "SELECT * FROM suggestions WHERE id = %s"
-        val = num
-        id = num
+        val = num[1]
+        id = num[1]
         database.execute(sql, val)
         results = database.fetchall()
         if not results:
