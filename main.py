@@ -624,7 +624,7 @@ async def say(ctx, *, sentence):
     try:
         await ctx.message.delete()
     except discord.Forbidden:
-        await ctx.send("I don't have enough permissions to delete your message!")
+        pass
     except discord.NotFound:
         pass
     embed = discord.Embed(color=config.color)
