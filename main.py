@@ -431,6 +431,7 @@ async def cookie(ctx, *, member: discord.Member):
     e = discord.Embed(title=f'{ctx.author} gave {ctx.mention} a cookie', color=config.green)
     await ctx.send(embed=e)
 
+
 @bot.command(name="glomp")  # interaction command - glomp someone. gifs are random!
 async def glomp(ctx, members: commands.Greedy[discord.Member], *, reason="Love!"):
     giflist = gifs.glomp
@@ -760,7 +761,7 @@ async def suggestions(ctx):
     results = database.fetchall()
     resultsformat = ''
     if not results:
-        await ctx.send("You currently don't have any suggestions! Make some using `exo suggestion <suggestion>`")
+        await ctx.send("You currently don't have any suggestions! Make some using `exo suggest <suggestion>`")
         return
     for sugg in results:
         if not sugg[3]:
@@ -788,7 +789,7 @@ async def digest(ctx):
             await ctx.send("No new suggestions!")
         nextsug = results[0][2]
         user = await bot.fetch_user(results[0][1])
-        embed = discord.Embed(title= nextsug, color=config.orange)
+        embed = discord.Embed(title=nextsug, color=config.orange)
         embed.add_field(name="User", value=str(user))
         if not results[0][3]:
             status = "Pending"
@@ -841,7 +842,6 @@ async def digest(ctx):
                 color = config.green
             else:
                 color = config.red
-        id = results[-1][0]
         embed = discord.Embed(title=nextsug, color=color)
         embed.add_field(name="User", value=str(user))
         embed.add_field(name="Status", value=status)
