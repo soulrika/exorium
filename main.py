@@ -423,6 +423,11 @@ async def feed(ctx, members: commands.Greedy[discord.Member], *, reason="Hungwy"
     await functions.logging(ctx, "feed", bot)
 
 
+@bot.command()
+async def cookie(ctx, *, member: discord.Member)
+    e un ,j4hi59b8grjex 5zklbnj5imhk8lr4 ije
+
+
 @bot.command(name="glomp")  # interaction command - glomp someone. gifs are random!
 async def glomp(ctx, members: commands.Greedy[discord.Member], *, reason="Love!"):
     giflist = gifs.glomp
@@ -476,7 +481,7 @@ async def randomchoice(ctx, *args):
 
 
 @bot.command(name="info")  # Gives information about the mentioned command
-async def info(ctx, arg):
+async def info(ctx, arg):de
     embed = discord.Embed(title=arg, color=config.color)
     embed.add_field(name="Information", value=getattr(CommandInfo, arg), inline=False)
     embed.add_field(name="Syntax", value=getattr(CommandSyntax, arg), inline=False)
