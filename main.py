@@ -18,9 +18,10 @@ database = mydb.cursor()
 database.execute("CREATE TABLE IF NOT EXISTS warnings (id INT AUTO_INCREMENT PRIMARY KEY, user VARCHAR(255), reason VARCHAR(255), serverid VARCHAR(255))")
 database.execute("CREATE TABLE IF NOT EXISTS suggestions (id INT AUTO_INCREMENT PRIMARY KEY, user VARCHAR(255), suggestion VARCHAR(255), approved VARCHAR(255), messageid VARCHAR(255))")
 logger = logging.getLogger('discord')
+intents = discord.Intents.all()
 
 
-bot = commands.Bot(command_prefix=["exo ", "Exo ", "p/", "gay "])  # sets the bot prefix
+bot = commands.Bot(command_prefix=["exo ", "Exo ", "p/", "gay "], intents=intents)  # sets the bot prefix
 bot.remove_command('help')  # removes the default discord.py help command
 
 
