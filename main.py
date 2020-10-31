@@ -665,10 +665,15 @@ async def suggest_deprecated(ctx, *, suggestion):
 @bot.command()
 @commands.has_permissions(manage_messages=True)
 async def purge(ctx, amount=0):
+    def ducks_pin_message_check(quacky_bot):
+        if quacky_bot.pinned is False:
+            return True
+        return False
+
     if amount <= 0:
         return await ctx.send("You can't grow younger either, so neither can I purge negative amounts of messages.")
     if amount <= 1500:
-        await ctx.channel.purge(limit=amount + 1)
+        await ctx.channel.purge(limit=amount + 1, check=ducks_pin_message_check)
         await ctx.send(f'{ctx.author} deleted **{amount}** messages using the purge command.')
         await functions.logging(ctx, f"purge ({amount})", bot)
     if amount >= 1500:
