@@ -130,8 +130,8 @@ async def source(ctx):
 @bot.command(name="stats", aliases=["statistics"], brief="shows bot statistics.")  # shows the bot statistics (total amount of users in total amount of guilds) in an embed
 async def statistics(ctx):
     embed = discord.Embed(title="exorium statistics", color=config.color)
-    embed.add_field(name="Total Guilds", value=len(bot.guilds), inline=False)
-    embed.add_field(name="Total Users", value=len(bot.users), inline=False)
+    embed.add_field(name="Total Guilds", value=str(len(bot.guilds)), inline=False)
+    embed.add_field(name="Total Users", value=str(len(bot.users)), inline=False)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "stats", bot)
 
@@ -428,8 +428,8 @@ async def feed(ctx, members: commands.Greedy[discord.Member], *, reason="Hungwy"
 
 
 @bot.command()
-async def cookie(ctx, *, member: discord.Member):
-    e = discord.Embed(title=f'{ctx.author} gave {ctx.mention} a cookie', color=config.green)
+async def cookie(ctx, members: commands.Greedy[discord.Member]):
+    e = discord.Embed(title='A cookie has been given!', description=f'{ctx.author.mention} gave {members[0].mention} a cookie', color=config.green)
     await ctx.send(embed=e)
 
 
