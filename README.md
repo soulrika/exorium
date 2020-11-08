@@ -8,21 +8,21 @@ exorium started off as a small bot named Protogen, which was created by [BluewyD
 ---
 ### exorium team
 - [BluewyDev](https://github.com/BluewyDev) - Creator, main developer and social media manager
-- [ChosenFate](https://github.com/Chosen-Fate) - Main developer
+- [ToothyDev](https://github.com/ToothyDev) - Main developer
 - [Bench](https://github.com/Bench182) - Limited developer
 - [Etile](https://github.com/Etile0) - Host and provider
 ---
-### contributions
+### Contributions
 Anyone is free to contribute to exorium as long as they follow the [Contribution guidelines](https://github.com/ThePawKingdom/exorium/blob/master/CONTRIBUTING.md). Contributions can be done through [forks](https://github.com/ThePawKingdom/exorium/network/members). In your fork you can edit, add and remove code. After you did that, you are always free to make a [pull request](https://github.com/ThePawKingdom/exorium/pulls/). They will then be reviewed by one of the [main developers](https://github.com/ThePawKingdom/exorium#exorium-team).
 
 ---
 ## Warning
-**exorium is currently being rewritten into [cogs](https://github.com/ThePawKingdom/exorium/tree/cogs/). This could cause more downtime while it's being rewritten, as well as being able to cause more issues and errors. Of course we will try to keep this to the minimal, for as far as what we can do. But we can not guarantee this will go flawless. If you spot an error/issue or there's something else concerning that you think you need to report, please make an [issue](https://github.com/ThePawKingdom/exorium/issues).**
+**exorium is currently being rewritten into cogs. This could cause more downtime while it's being rewritten, as well as being able to cause more issues and errors. Of course we will try to keep this to the minimal, for as far as what we can do. But we can not guarantee this will go flawless. If you spot an error/issue or there's something else concerning that you think you need to report, please make an [issue](https://github.com/ThePawKingdom/exorium/issues).**
 
 ---
 ### Commands
 All available commands are listed here. This list may not be fully up-to-date at all times.
-Please report this in an issue if it's not complete, or make a [pull request](https://github.com/ThePawKingdom/exorium/pulls/) With a complete list. Note that for making a pull request you will need to [fork](https://github.com/ThePawKingdom/exorium/network/members) this repository first, and edit the fork's readme. Prefixes of this bot are `p/` and `p?`
+Please report this in an issue if it's not complete, or make a [pull request](https://github.com/ThePawKingdom/exorium/pulls/) With a complete list. Note that for making a pull request you will need to [fork](https://github.com/ThePawKingdom/exorium/network/members) this repository first, and edit the fork's readme. Prefixes of this bot are `p/` and `exo`
 
 * Syntax args surrounded by `<>` are required. 
 * Syntax args surrounded by `()` are optional. 
@@ -31,7 +31,7 @@ Please report this in an issue if it's not complete, or make a [pull request](ht
 
 Commands, suggestions or features we still plan to add can be seen in our [TO DO project](https://github.com/ThePawKingdom/exorium/projects/1). If a command doesn't work, please make an [issue](https://github.com/ThePawKingdom/exorium/issues/). Furthermore, if you require support with something within exorium, please join our [support server](https://discord.gg/CEHkNky) and ask for support in it's support channel. 
 
-#### Social commands
+#### Social Commands
 |Command                                                                      |Syntax                  |
 | :-------------------------------------------------------------------------: | :--------------------: |
 |[hug](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L179)     |`exo hug <@user>...`    |
@@ -53,8 +53,8 @@ Commands, suggestions or features we still plan to add can be seen in our [TO DO
 |[highfive](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L301)|`exo highfive <@user>...`|
 |[wag](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L307)     |`exo wag (@user)...`     |
 
-#### Moderation
-|Command                                                                        |Syntax                          |description                                      |
+#### Moderation Commands
+|Command                                                                        |Syntax                          |Description                                      |
 | :---------------------------------------------------------------------------: | :----------------------------: | :---------------------------------------------: |
 |[ban](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L364)       |`exo ban <@user> <@reason>`     |permbans the mentioned user from the guild       | 
 |[unban](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L384)     |`exo unban <ID>`                |Unbans the provided user                         |
@@ -64,7 +64,7 @@ Commands, suggestions or features we still plan to add can be seen in our [TO DO
 |[delwarn](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L515)   |`exo delwarn <@user> <@reason>` |Remove a case from someones warning logs         |
 |[warnings](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L528)  |`exo warnings <@user>`          |See the mentioned user's logged warnings         |
 
-#### Utility
+#### Utility Commands
 |Command                                                                        |Syntax                          |Description                                       |
 | :-------------------------------------------------------------------------:   | :----------------------------: | :----------------------------------------------: |
 |[serverinfo](https://github.com/ThePawKingdom/protogen/blob/master/main.py#L153)|`exo serverinfo`               |Shows membercount and guild region                |
@@ -75,17 +75,17 @@ Commands, suggestions or features we still plan to add can be seen in our [TO DO
 |[say](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L477)       |`exo say <args>...`             |Repeats what you said in an embed                 |
 |[id](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L92)         |`exo id <@user/ID/name>`        |Shows the ID of the provided user                 |
 
-#### Bot related
+#### Bot-Related Commands
 |Command                                                                        |Syntax                       |Description                                         |
 | :-------------------------------------------------------------------------:   | :-------------------------: | :------------------------------------------------: |
-|[invite](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L75)     |`exo invite`                    |Invite Protopaw through the given invite link    |
-|[stats](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L83)      |`exo stats`                     |The statistics of Protopaw (guilds & total users)|
-|[links](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L143)     |`exo links`                     |Links to things related to Protopaw & TPK        |
+|[invite](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L75)     |`exo invite`                    |Invite exorium through the given invite link    |
+|[stats](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L83)      |`exo stats`                     |The statistics of exorium (guilds & total users)|
+|[links](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L143)     |`exo links`                     |Links to things related to exorium & TPK        |
 |[pings](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L44)      |`exo ping`                      |Shows the bot's latency in seconds               |
-|[help](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L60)       |`exo help`                      |Shows all the commands and the Protopaw team     |
+|[help](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L60)       |`exo help`                      |Shows all the commands and the exorium team     |
 |[info](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L335)      |`exo info <command>`            |Shows information about an individual command    |
 |[suggest](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L629)   |`exo suggest <suggestion>`      |Send in a suggestion for exorium                 |
 
 ---
-#### Selfhosting
-Selfhosting exorium is not endorsed by the exorium team and is not recommended. We will not provide any type of support for editing or compiling the code in this repository. The source code is given here for education purposes, and so users can better contribute themselves as well as see how the bot works. If you do decide to selfhost exorium, please respect the [license](https://github.com/ThePawKingdom/exorium/blob/master/LICENSE)
+#### Self Hosting
+Selfhosting exorium is not endorsed by the exorium team and is not recommended. We will not provide any type of support for editing or compiling the code in this repository. The source code is given here for education purposes, and so users can better contribute themselves as well as see how the bot works. If you do decide to selfhost exorium, please respect the [license.](https://github.com/ThePawKingdom/exorium/blob/master/LICENSE)
