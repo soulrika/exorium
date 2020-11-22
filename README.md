@@ -32,59 +32,59 @@ Please report this in an issue if it's not complete, or make a [pull request](ht
 Commands, suggestions or features we still plan to add can be seen in our [TO DO project](https://github.com/ThePawKingdom/exorium/projects/1). If a command doesn't work, please make an [issue](https://github.com/ThePawKingdom/exorium/issues/). Furthermore, if you require support with something within exorium, please join our [support server](https://discord.gg/CEHkNky) and ask for support in it's support channel. 
 
 #### Social Commands
-|Command                                                                      |Syntax                  |
-| :-------------------------------------------------------------------------: | :--------------------: |
-|[hug](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L179)     |`exo hug <@user>...`    |
-|[snuggle](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L173) |`exo snuggle <@user>...`|
-|[boop](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L191)    |`exo boop <@user>...`   |
-|[kiss](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L197)    |`exo kiss <@user>...`   |
-|[pat](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L185)     |`exo pat <@user>...`    |
-|[cuddle](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L215)  |`exo cuddle <@user>...` |
-|[askproto](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L355)|`exo askexo <arg>...`   |
-|[bonk](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L275)    |`exo bonk <@user>...`   |
+|Command |Syntax                  |
+| :----: | :--------------------: |
+|hug     |`exo hug <@user>...`    |
+|snuggle |`exo snuggle <@user>...`|
+|boop    |`exo boop <@user>...`   |
+|kiss    |`exo kiss <@user>...`   |
+|pat     |`exo pat <@user>...`    |
+|cuddle  |`exo cuddle <@user>...` |
+|askproto|`exo askexo <arg>...`   |
+|bonk    |`exo bonk <@user>...`   |
 
-|Command                                                                      |Syntax                   |  
-| :-------------------------------------------------------------------------: | :---------------------: |
-|[lick](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L203)    |`exo lick <@user>...`    |
-|[blush](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L251)   |`exo blush (@user)...`   |
-|[feed](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L266)    |`exo feed <@user>...`    |
-|[glomp](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L276)   |`exo glomp <@user>...`   |
-|[happy](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L286)   |`exo happy (@user)...`   |
-|[highfive](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L301)|`exo highfive <@user>...`|
-|[wag](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L307)     |`exo wag (@user)...`     |
+|Command   |Syntax                   |  
+| :------: | :---------------------: |
+|lick      |`exo lick <@user>...`    |
+|blush     |`exo blush (@user)...`   |
+|feed      |`exo feed <@user>...`    |
+|glomp     |`exo glomp <@user>...`   |
+|happy     |`exo happy (@user)...`   |
+|highfive  |`exo highfive <@user>...`|
+|wag       |`exo wag (@user)...`     |
 
 #### Moderation Commands
-|Command                                                                        |Syntax                          |Description                                      |
-| :---------------------------------------------------------------------------: | :----------------------------: | :---------------------------------------------: |
-|[ban](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L364)       |`exo ban <@user> <@reason>`     |permbans the mentioned user from the guild       | 
-|[unban](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L384)     |`exo unban <ID>`                |Unbans the provided user                         |
-|[softban](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L416)   |`exo softban <@user> <@reason>` |Bans and immediately unbans the mentioned user   |
-|[kick](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L396)      |`exo kick <@user> <@reason>`    |Kicks the mentioned user from the guild          |
-|[warn](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L505)      |`exo warn <@user> <@reason>`    |Logs a warn for the mentioned user               |
-|[delwarn](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L515)   |`exo delwarn <@user> <@reason>` |Remove a case from someones warning logs         |
-|[warnings](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L528)  |`exo warnings <@user>`          |See the mentioned user's logged warnings         |
+|Command   |Syntax                          |Description                                      |
+| :------: | :----------------------------: | :---------------------------------------------: |
+|ban       |`exo ban <@user> <@reason>`     |permbans the mentioned user from the guild       | 
+|unban     |`exo unban <ID>`                |Unbans the provided user                         |
+|softban   |`exo softban <@user> <@reason>` |Bans and immediately unbans the mentioned user   |
+|kick      |`exo kick <@user> <@reason>`    |Kicks the mentioned user from the guild          |
+|warn      |`exo warn <@user> <@reason>`    |Logs a warn for the mentioned user               |
+|delwarn   |`exo delwarn <@user> <@reason>` |Remove a case from someones warning logs         |
+|warnings  |`exo warnings <@user>`          |See the mentioned user's logged warnings         |
 
 #### Utility Commands
-|Command                                                                        |Syntax                          |Description                                       |
-| :-------------------------------------------------------------------------:   | :----------------------------: | :----------------------------------------------: |
-|[serverinfo](https://github.com/ThePawKingdom/protogen/blob/master/main.py#L153)|`exo serverinfo`               |Shows membercount and guild region                |
-|[avatar](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L130)    |`exo avatar <@user>`            |Shows the mentioned user's avatar                 |
-|[random](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L328)    |`exo random <arg1> <arg2>...`   |Randomly picks one from the given args            |
-|[decide](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L458)    |`exo decide <arg>...`           |Lets people choose with :white_check_mark:	or :x:|
-|[poll](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L437)      |`exo poll <arg1>... (arg10)`    |Host a poll with up to 10 things to pick from     |
-|[say](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L477)       |`exo say <args>...`             |Repeats what you said in an embed                 |
-|[id](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L92)         |`exo id <@user/ID/name>`        |Shows the ID of the provided user                 |
+|Command    |Syntax                         |Description                                       |
+| :-------: | :---------------------------: | :----------------------------------------------: |
+|serverinfo |`exo serverinfo`               |Shows membercount and guild region                |
+|avatar     |`exo avatar <@user>`           |Shows the mentioned user's avatar                 |
+|random     |`exo random <arg1> <arg2>...`  |Randomly picks one from the given args            |
+|decide     |`exo decide <arg>...`          |Lets people choose with :white_check_mark:	or :x: |
+|poll       |`exo poll <arg1>... (arg10)`   |Host a poll with up to 10 things to pick from     |
+|say        |`exo say <args>...`            |Repeats what you said in an embed                 |
+|id         |`exo id <@user/ID/name>`       |Shows the ID of the provided user                 |
 
 #### Bot-Related Commands
-|Command                                                                        |Syntax                       |Description                                         |
-| :-------------------------------------------------------------------------:   | :-------------------------: | :------------------------------------------------: |
-|[invite](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L75)     |`exo invite`                    |Invite exorium through the given invite link    |
-|[stats](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L83)      |`exo stats`                     |The statistics of exorium (guilds & total users)|
-|[links](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L143)     |`exo links`                     |Links to things related to exorium & TPK        |
-|[pings](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L44)      |`exo ping`                      |Shows the bot's latency in seconds               |
-|[help](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L60)       |`exo help`                      |Shows all the commands and the exorium team     |
-|[info](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L335)      |`exo info <command>`            |Shows information about an individual command    |
-|[suggest](https://github.com/ThePawKingdom/exorium/blob/master/main.py#L629)   |`exo suggest <suggestion>`      |Send in a suggestion for exorium                 |
+|Command    |Syntax                       |Description                                     |
+| :-------: | :-------------------------: | :--------------------------------------------: |
+|invite     |`exo invite`                 |Invite exorium through the given invite link    |
+|stats      |`exo stats`                  |The statistics of exorium (guilds & total users)|
+|links      |`exo links`                  |Links to things related to exorium & TPK        |
+|pings      |`exo ping`                   |Shows the bot's latency in seconds              |
+|help       |`exo help`                   |Shows all the commands and the exorium team     |
+|info       |`exo info <command>`         |Shows information about an individual command   |
+|suggest    |`exo suggest <suggestion>`   |Send in a suggestion for exorium                |
 
 ---
 #### Self Hosting
