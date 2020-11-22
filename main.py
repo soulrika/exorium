@@ -137,9 +137,9 @@ async def statistics(ctx):
 
 
 @bot.command()  # retrieves the ID of a member. Argument can be an ID, just the user's name or the user mention
-async def get_id(ctx, member: discord.Member):
-    await ctx.send(f'The user ID of {member} is **{member.id}**.')
-    await functions.logging(ctx, "get_id", bot)
+async def id(ctx, member: discord.Member):
+    await ctx.send({member.id})
+    await functions.logging(ctx, "id", bot)
 
 
 @bot.command(name='animal', help='Generates a random animal!')
