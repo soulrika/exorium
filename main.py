@@ -82,13 +82,13 @@ policy = '🔗 [Privacy policy](https://github.com/ThePawKingdom/exorium/blob/ma
 
 botdesc = f'{support} | {invite} | {review} | {policy}'
 
-stats = f"**statistics:** {str(len(bot.guilds))} guilds | {str(len(bot.users))} users"
 
 @bot.group()
 async def help(ctx):
+    stats = f"**statistics:** {str(len(bot.guilds))} guilds | {str(len(bot.users))} users"
     if ctx.invoked_subcommand is None:
         e = discord.Embed(title=f'help cmd | prefix: `{ctx.prefix}`', description=botdesc, color=config.color)
-        e.add_field(name='​', value=f'**Developers:** [Bluewy](https://discord.com/users/698080201158033409) | [Toothless](https://discord.com/users/341988909363757057)\n{stats}')
+        e.add_field(name='', value=f'**Developers:** [Bluewy](https://discord.com/users/698080201158033409) | [Toothless](https://discord.com/users/341988909363757057)\n{stats}')
         await ctx.send(embed=e)
 
 @help.command()
