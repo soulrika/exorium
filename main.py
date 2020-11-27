@@ -86,7 +86,7 @@ botdesc = f'{support} | {invite} | {review} | {policy}'
 async def help(ctx):
     if ctx.invoked_subcommand is None:
         e = discord.Embed(title=f'help cmd | prefix: `{ctx.prefix}`', description=botdesc, color=config.color)
-        e.add_field(name='​', value='**Developers:** [Bluewy](https://discord.com/users/698080201158033409) | [Toothless](https://discord.com/users/341988909363757057')
+        e.add_field(name='​', value='**Developers:** [Bluewy](https://discord.com/users/698080201158033409) | [Toothless](https://discord.com/users/341988909363757057)')
         await ctx.send(embed=e)
 
 
