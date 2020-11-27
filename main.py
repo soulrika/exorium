@@ -89,7 +89,8 @@ async def help(ctx):
     discordpy = f"**discord.py version:** {discord.__version__}"
     if ctx.invoked_subcommand is None:
         e = discord.Embed(title=f'help cmd | prefix: `{ctx.prefix}`', description=botdesc, color=config.color)
-        e.add_field(name='test', value=f'**Developers:** [Bluewy](https://discord.com/users/698080201158033409) | [Toothless](https://discord.com/users/341988909363757057)\n{stats}\n{discordpy}')
+        e.add_field(name='info', value=f'**Developers:** [Bluewy](https://discord.com/users/698080201158033409) | [Toothless](https://discord.com/users/341988909363757057)\n{stats}\n{discordpy}')
+        e.add_field(name='categories', value=f'`{ctx.prefix}social`\n{ctx.prefix}mod\n`{ctx.prefix}utils`\n{ctx.prefix}bot')
         await ctx.send(embed=e)
 
 @help.command()
