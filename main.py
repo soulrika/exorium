@@ -22,7 +22,7 @@ intents = discord.Intents.all()
 
 
 bot = commands.Bot(command_prefix=["exo ", "Exo ", "p/", "gay "], intents=intents)  # sets the bot prefix
-# bot.remove_command('help')  # removes the default discord.py help command
+bot.remove_command('help')  # removes the default discord.py help command
 
 
 @bot.event  # sets the bot status and prints when it has started in console with stats, stats include: The amount of users that are in the total amount of guilds and the discord.py version
@@ -75,13 +75,22 @@ async def on_command_error(ctx, error):
 
 ###############################################################
 ############ Use of group decorators for help cmd #############
+support = '<:discordwindows:733855618775121921> [Support](https://discord.gg/CEHkNky)'
+invite = '<:discovery:719431405905379358> [Invite exo](https://discordextremelist.xyz/en-US/bots/exorium)'
+review = '<:new:736926339113680976> [Review us](https://top.gg/bot/620990340630970425)'
+policy = '🔗 [Privacy policy](https://github.com/ThePawKingdom/exorium/blob/master/privacy%20policy.md)'
+
+botdesc = f'{support} | {invite} | {review} | {policy}'
+
 @bot.group()
-async def test(ctx):
+async def help(ctx):
     if ctx.invoked_subcommand is None:
-        await ctx.send('no command passed')
+        e = discord.Embed(title=f'help cmd | prefix: `{bot.prefix}`', description='testing', color=config.color)
+        e.add_field(name='test', value='Does this work?')
+        await ctx.send(embed=e)
 
 
-@test.command()
+@help.command()
 async def number(ctx):
     await ctx.send('number WHAT')
 ###############################################################
