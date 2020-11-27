@@ -82,7 +82,7 @@ policy = '🔗 [Privacy policy](https://github.com/ThePawKingdom/exorium/blob/ma
 
 botdesc = f'{support} | {invite} | {review} | {policy}'
 
-stats = f'**guilds:** {len(bot.guilds)} | **users:** {len(bot.users)}'
+stats = f'**statistics:** str(len(bot.guilds)) guilds | str(len(bot.users)) users'
 
 @bot.group()
 async def help(ctx):
