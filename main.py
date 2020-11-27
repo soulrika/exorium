@@ -22,7 +22,7 @@ intents = discord.Intents.all()
 
 
 bot = commands.Bot(command_prefix=["exo ", "Exo ", "p/", "gay "], intents=intents)  # sets the bot prefix
-# bot.remove_command('help')  # removes the default discord.py help command
+bot.remove_command('help')  # removes the default discord.py help command
 
 
 @bot.event  # sets the bot status and prints when it has started in console with stats, stats include: The amount of users that are in the total amount of guilds and the discord.py version
