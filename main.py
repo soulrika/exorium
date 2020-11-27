@@ -85,7 +85,7 @@ botdesc = f'{support} | {invite} | {review} | {policy}'
 @bot.group()
 async def help(ctx):
     if ctx.invoked_subcommand is None:
-        e = discord.Embed(title=f'help cmd | prefix: `{bot.prefix}`', description='testing', color=config.color)
+        e = discord.Embed(title=f'help cmd | prefix: `{ctx.prefix}`', description=botdesc, color=config.color)
         e.add_field(name='test', value='Does this work?')
         await ctx.send(embed=e)
 
