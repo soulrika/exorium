@@ -73,6 +73,20 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=ie)
 
 
+###############################################################
+############ Use of group decorators for help cmd #############
+@bot.group()
+async def test(ctx):
+    if ctx.invoked_subcommand is None:
+        await ctx.send('no command passed')
+        
+@test.command()
+async def number(ctx):
+    await ctx.send('number WHAT')
+###############################################################
+###############################################################
+
+
 @bot.command(name="ping", aliases=["pong", "latency"], brief="shows the bot's latency.")  # the ping command, simply shows the latency in an embed
 async def latency(ctx):
     embed = discord.Embed(color=config.color)
