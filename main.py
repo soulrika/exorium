@@ -61,8 +61,6 @@ async def on_command_error(ctx, error):
         ie.add_field(name='error while processing', value='Only bot owners can use this command.')
         await ctx.send(embed=ie)
         
-    if isinstance(error, commands.CheckFailure):
-        
 
 ###############################################################
 ############ Use of group decorators for help cmd #############
