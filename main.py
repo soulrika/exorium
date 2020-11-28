@@ -96,7 +96,7 @@ async def help(ctx):
         await ctx.send(embed=e)
 
 @help.command()
-@command.is_owner()
+@commands.is_owner()
 async def jsk(ctx):
     e = discord.Embed(title='Jishaku help', description='Jishaku debug and diagnostics commands', color=config.color)
     e.add_field(name='test', value='test', inline=False)
