@@ -60,7 +60,9 @@ async def on_command_error(ctx, error):
         ie = discord.Embed(color=config.orange)
         ie.add_field(name='error while processing', value='Only bot owners can use this command.')
         await ctx.send(embed=ie)
-
+        
+    if isinstance(error, commands.CheckFailure):
+        
 
 ###############################################################
 ############ Use of group decorators for help cmd #############
@@ -115,7 +117,7 @@ async def utils(ctx):
 @help.command()
 async def exorium(ctx):
     e = discord.Embed(title='Bot commands', description="All the commands directly related to exorium itself", color=config.color)
-    e.add_field(name='Commands', value="```askexo, invite, links, ping, source, stats, suggest```", inline=False)
+    e.add_field(name='Commands', value="```askexo, invite, links, ping, stats, suggest```", inline=False)
     e.add_field(name='Important', value="Please report it to us immediately if one of these commands are outdated, or not functional in our [support server](https://discord.gg/CEHkNky)", inline=False)
     await ctx.send(embed=e)
     
@@ -167,11 +169,6 @@ async def links(ctx):
     e.add_field(name='Bot lists', value='- [Discordextremelist](https://discordextremelist.xyz/en-US/bots/exorium)\n- [Discordbotlist](https://top.gg/bot/620990340630970425)', inline=True)
     e.add_field(name='Github', value='- [Repository](https://github.com/ThePawKingdom/exorium)', inline=True)
     await ctx.send(embed=e)
-
-
-@bot.command()
-async def source(ctx):
-    await ctx.send('You can see my source code here: <https://github.com/ThePawKingdom/exorium>')
 
 
 @bot.command(name="stats", aliases=["statistics"], brief="shows bot statistics.")  # shows the bot statistics (total amount of users in total amount of guilds) in an embed
