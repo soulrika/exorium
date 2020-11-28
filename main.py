@@ -120,7 +120,14 @@ async def mod(ctx):
 @help.command()
 async def utils(ctx):
     e = discord.Embed(title='Utility commands', description="All the useful commands for you to use to enhance your own use of discord!", color=config.color)
-    e.add_field(name='Commands', value="```avatar, decide, id, info, poll, random, say, serverinfo, userinfo, variable```", inline=False)
+    e.add_field(name='Commands', value="```avatar, decide, id, info, poll, random, say, serverinfo, userinfo, variable, animal, image```", inline=False)
+    await ctx.send(embed=e)
+    
+@help.command()
+async def bot(ctx):
+    e = discord.Embed(title='Bot commands', description="All the commands directly related to exorium itself", color=config.color)
+    e.add_field(name='Commands', value="```askexo, invite, links, ping, source, stats, suggest```", inline=False)
+    e.add_field(name='Important', value="Please report it to us immediately if one of these commands are outdated, or not functional in our [support server](https://discord.gg/CEHkNky)", inline=False)
     await ctx.send(embed=e)
 ###############################################################
 ###############################################################
