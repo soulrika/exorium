@@ -91,7 +91,7 @@ async def help(ctx):
     if ctx.invoked_subcommand is None:
         e = discord.Embed(title=f'help cmd | prefix: `{ctx.prefix}`', description=botdesc, color=config.color)
         e.add_field(name='info', value=f'**Developers:** [Bluewy](https://discord.com/users/698080201158033409) | [Toothless](https://discord.com/users/341988909363757057)\n{stats}\n{discordpy}', inline=False)
-        e.add_field(name='categories', value=f'`{ctx.prefix}help social`\n**{ctx.prefix}help mod**\n`{ctx.prefix}help utils`\n**{ctx.prefix}help bot**\n`{ctx.prefix}help jsk (Dev+)`\n**These do not work yet.\nlook on the [GitHub repo](https://github.com/ThePawKingdom/exorium/blob/master/main.py) for the commands.**', inline=False)
+        e.add_field(name='categories', value=f'`{ctx.prefix}help social`\n**{ctx.prefix}help mod**\n`{ctx.prefix}help utils`\n**{ctx.prefix}help bot**\n`{ctx.prefix}help jsk (Dev+)`\n**{ctx.prefix}help owner (Dev+)**\n**These do not work yet.\nlook on the [GitHub repo](https://github.com/ThePawKingdom/exorium/blob/master/main.py) for the commands.**', inline=False)
         e.add_field(name='Latest news', value=news, inline=False)
         await ctx.send(embed=e)
 
@@ -108,6 +108,13 @@ async def social(ctx):
     e = discord.Embed(title='Social commands', description="All the bot's social commands, to improve community and chatting!", color=config.color)
     e.add_field(name='Commands', value="```awoo, bellyrub, blush, bonk, boop, cookie, cuddle, feed, glomp, happy, highfive, hug, kiss, lick, pat, rawr, snuggle, wag```", inline=False)
     e.add_field(name='Gifs & images', value="You can help us find more gifs & images for our interaction commands! Just go to [tenor](https://tenor.com) or to [imgur](https://imgur.com) and find us furry, or animal related gifs and make an issue on the [github repository](https://github.com/ThePawKingdom/exorium).", inline=False)
+    await ctx.send(embed=e)
+
+@help.command()
+async def mod(ctx):
+    e = discord.Embed(title='Moderation commands', description="All the moderation commands to make your server a safer place!", color=config.color)
+    e.add_field(name='Commands', value="```ban, delwarn, purge, softban, unban, warn, warnings```", inline=False)
+    e.add_field(name='Important', value="The ban command is permanent and can not temporarily ban people. We are working on allowing tempbans, and we plan to add more moderation commands in the future.", inline=False)
     await ctx.send(embed=e)
 ###############################################################
 ###############################################################
