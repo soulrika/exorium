@@ -30,19 +30,8 @@ async def on_ready():
     activity = discord.Game(name=f'exo help | {len(bot.guilds)} guilds', type=1)
     await bot.change_presence(status=discord.Status.online, activity=activity)
     print('exorium has started successfully')
-    print('-----------')
-    print('guilds:')
-    print(len(bot.guilds))
-    print('-----------')
-    print('users:')
-    print(len(bot.users))
-    print('-----------')
-    print('version:')
-    print(discord.__version__)
-    print('-----------')
 
 bot.load_extension('jishaku')
-
 
 @bot.event
 async def on_guild_join(guild):
