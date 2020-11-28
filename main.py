@@ -100,6 +100,7 @@ async def help(ctx):
 async def jsk(ctx):
     e = discord.Embed(title='Jishaku help', description='Jishaku debug and diagnostics commands', color=config.color)
     e.add_field(name='Commands', value='```cancel, cat, curl, debug, git, hide, in, load, py, py_inspect, repeat, retain, shell, show, logout, source, su, sudo, tasks, unload, voice```', inline=False)
+    e.add_field(name='Relevant links', value='[jsk repo](https://github.com/Gorialis/jishaku)\n[documentation](https://jishaku.readthedocs.io/en/latest/)\n[pypi.org](https://pypi.org/project/jishaku/)', inline=False)
     await ctx.send(embed=e)
 ###############################################################
 ###############################################################
