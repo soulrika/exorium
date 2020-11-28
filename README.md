@@ -33,18 +33,22 @@ Commands, suggestions or features we still plan to add can be seen in our [TO DO
 
 #### Social commands
 awoo, bellyrub, blush, bonk, boop, cookie, cuddle, feed, glomp, happy, highfive, hug, kiss, lick, pat, rawr, snuggle, wag
+
 **syntax:** `exo <command> (reason)`
 
 #### Mod commands
 ban, delwarn, purge, softban, unban, warn, warnings
+
 **Syntax:** `exo <command> <reason>` | Note that with `purge` and `unban` you do not need to provide a reason.
 
 #### Utility commands
 avatar, decide, id, info, poll, random, say, serverinfo, userinfo, variable, animal, image
+
 **Syntax:** `exo <command> <argument>` | Note that some of these commands don't need an argument necessarily
 
 #### Bot related commands
 askexo, invite, links, ping, source, stats, suggest
+
 **Syntax:** `exo <command>` | For the `suggest` and `askexo` command, an argument is needed.
 
 #### NSFW commands
