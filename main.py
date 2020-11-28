@@ -124,7 +124,7 @@ async def utils(ctx):
     await ctx.send(embed=e)
     
 @help.command()
-async def exo(ctx):
+async def exoriumbot (ctx):
     e = discord.Embed(title='Bot commands', description="All the commands directly related to exorium itself", color=config.color)
     e.add_field(name='Commands', value="```askexo, invite, links, ping, source, stats, suggest```", inline=False)
     e.add_field(name='Important', value="Please report it to us immediately if one of these commands are outdated, or not functional in our [support server](https://discord.gg/CEHkNky)", inline=False)
