@@ -6,6 +6,7 @@ import requests
 import logging
 import aiohttp
 import json
+import discord.opus
 import discord.ext
 from discord.ext import commands
 from outsources import functions, util
