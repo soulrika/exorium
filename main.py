@@ -100,6 +100,7 @@ async def help(ctx):
 async def jsk(ctx):
     e = discord.Embed(title='Jishaku help', description='Jishaku debug and diagnostics commands', color=config.color)
     e.add_field(name='test', value='test', inline=False)
+    await ctx.send(embed=e)
 ###############################################################
 ###############################################################
 
