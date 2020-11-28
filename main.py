@@ -91,7 +91,7 @@ async def help(ctx):
     if ctx.invoked_subcommand is None:
         e = discord.Embed(title=f'help cmd | prefix: `{ctx.prefix}`', description=botdesc, color=config.color)
         e.add_field(name='info', value=f'**Developers:** [Bluewy](https://discord.com/users/698080201158033409) | [Toothless](https://discord.com/users/341988909363757057)\n{stats}\n{discordpy}', inline=False)
-        e.add_field(name='categories', value=f'`{ctx.prefix}help social`\n**{ctx.prefix}help mod**\n`{ctx.prefix}help utils`\n**{ctx.prefix}help bot**\n`{ctx.prefix}help jsk (Dev+)`\n**{ctx.prefix}help owner (Dev+)**\n**These do not work yet.\nlook on the [GitHub repo](https://github.com/ThePawKingdom/exorium/blob/master/main.py) for the commands.**', inline=False)
+        e.add_field(name='categories', value=f'`{ctx.prefix}help social` - Social commands\n**{ctx.prefix}help mod** - Moderation commands\n`{ctx.prefix}help utils` - Utility commands\n**{ctx.prefix}help exorium** - Bot related\n`{ctx.prefix}help jsk (Dev+)` - Debugging/Diagnostics\n**{ctx.prefix}help owner (Dev+)** - Dev only commands\n**These do not work yet.\nlook on the [GitHub repo](https://github.com/ThePawKingdom/exorium/blob/master/main.py) for the commands.**', inline=False)
         e.add_field(name='Latest news', value=news, inline=False)
         await ctx.send(embed=e)
 
