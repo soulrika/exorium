@@ -140,7 +140,7 @@ async def owner(ctx):
 @help.command()
 async def nsfw(ctx):
     e = discord.Embed(title='NSFW commands', description="All the Not Safe For Work commands in exorium (NSFW CHANNELS ONLY)", color=config.color)
-    e.add_field(name='Commands', value="`e621` - Search the [https://e621.com] API for yiff", inline=False)
+    e.add_field(name='Commands', value="`e621` - Search the [e621](https://e621.com) API for yiff", inline=False)
     await ctx.send(embed=e)
 ###############################################################
 ###############################################################
