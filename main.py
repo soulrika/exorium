@@ -129,6 +129,12 @@ async def exorium(ctx):
     e.add_field(name='Commands', value="```askexo, invite, links, ping, source, stats, suggest```", inline=False)
     e.add_field(name='Important', value="Please report it to us immediately if one of these commands are outdated, or not functional in our [support server](https://discord.gg/CEHkNky)", inline=False)
     await ctx.send(embed=e)
+    
+@help.command()
+@commands.is_owner()
+async def owner(ctx):
+    e = discord.Embed(title='Dev commands', description="The developer and owner commands to manage exorium", color=config.color)
+    e.add_field(name='Commands', value="`help jsk` - Jishaku help menu\n**digest** - Review suggestions\n`jsk+` - Debugging/Diagnostics", inline=False)
 ###############################################################
 ###############################################################
 
