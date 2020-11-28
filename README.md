@@ -31,60 +31,24 @@ Please report this in an issue if it's not complete, or make a [pull request](ht
 
 Commands, suggestions or features we still plan to add can be seen in our [TO DO project](https://github.com/ThePawKingdom/exorium/projects/1). If a command doesn't work, please make an [issue](https://github.com/ThePawKingdom/exorium/issues/). Furthermore, if you require support with something within exorium, please join our [support server](https://discord.gg/CEHkNky) and ask for support in it's support channel. 
 
-#### Social Commands
-|Command |Syntax                  |
-| :----: | :--------------------: |
-|hug     |`exo hug <@user>...`    |
-|snuggle |`exo snuggle <@user>...`|
-|boop    |`exo boop <@user>...`   |
-|kiss    |`exo kiss <@user>...`   |
-|pat     |`exo pat <@user>...`    |
-|cuddle  |`exo cuddle <@user>...` |
-|askproto|`exo askexo <arg>...`   |
-|bonk    |`exo bonk <@user>...`   |
+#### Social commands
+awoo, bellyrub, blush, bonk, boop, cookie, cuddle, feed, glomp, happy, highfive, hug, kiss, lick, pat, rawr, snuggle, wag
+**syntax:** `exo <command> (reason)`
 
-|Command   |Syntax                   |  
-| :------: | :---------------------: |
-|lick      |`exo lick <@user>...`    |
-|blush     |`exo blush (@user)...`   |
-|feed      |`exo feed <@user>...`    |
-|glomp     |`exo glomp <@user>...`   |
-|happy     |`exo happy (@user)...`   |
-|highfive  |`exo highfive <@user>...`|
-|wag       |`exo wag (@user)...`     |
+#### Mod commands
+ban, delwarn, purge, softban, unban, warn, warnings
+**Syntax:** `exo <command> <reason>` | Note that with `purge` and `unban` you do not need to provide a reason.
 
-#### Moderation Commands
-|Command   |Syntax                          |Description                                      |
-| :------: | :----------------------------: | :---------------------------------------------: |
-|ban       |`exo ban <@user> <@reason>`     |permbans the mentioned user from the guild       | 
-|unban     |`exo unban <ID>`                |Unbans the provided user                         |
-|softban   |`exo softban <@user> <@reason>` |Bans and immediately unbans the mentioned user   |
-|kick      |`exo kick <@user> <@reason>`    |Kicks the mentioned user from the guild          |
-|warn      |`exo warn <@user> <@reason>`    |Logs a warn for the mentioned user               |
-|delwarn   |`exo delwarn <@user> <@reason>` |Remove a case from someones warning logs         |
-|warnings  |`exo warnings <@user>`          |See the mentioned user's logged warnings         |
+#### Utility commands
+avatar, decide, id, info, poll, random, say, serverinfo, userinfo, variable, animal, image
+**Syntax:** `exo <command> <argument>` | Note that some of these commands don't need an argument necessarily
 
-#### Utility Commands
-|Command    |Syntax                         |Description                                       |
-| :-------: | :---------------------------: | :----------------------------------------------: |
-|serverinfo |`exo serverinfo`               |Shows membercount and guild region                |
-|avatar     |`exo avatar <@user>`           |Shows the mentioned user's avatar                 |
-|random     |`exo random <arg1> <arg2>...`  |Randomly picks one from the given args            |
-|decide     |`exo decide <arg>...`          |Lets people choose with :white_check_mark:	or :x: |
-|poll       |`exo poll <arg1>... (arg10)`   |Host a poll with up to 10 things to pick from     |
-|say        |`exo say <args>...`            |Repeats what you said in an embed                 |
-|id         |`exo id <@user/ID/name>`       |Shows the ID of the provided user                 |
+#### Bot related commands
+askexo, invite, links, ping, source, stats, suggest
+**Syntax:** `exo <command>` | For the `suggest` and `askexo` command, an argument is needed.
 
-#### Bot-Related Commands
-|Command    |Syntax                       |Description                                     |
-| :-------: | :-------------------------: | :--------------------------------------------: |
-|invite     |`exo invite`                 |Invite exorium through the given invite link    |
-|stats      |`exo stats`                  |The statistics of exorium (guilds & total users)|
-|links      |`exo links`                  |Links to things related to exorium & TPK        |
-|pings      |`exo ping`                   |Shows the bot's latency in seconds              |
-|help       |`exo help`                   |Shows all the commands and the exorium team     |
-|info       |`exo info <command>`         |Shows information about an individual command   |
-|suggest    |`exo suggest <suggestion>`   |Send in a suggestion for exorium                |
+#### NSFW commands
+e621 - Search the [e621](https://e621.net) API for yiff
 
 ---
 #### Self Hosting
