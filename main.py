@@ -99,7 +99,7 @@ async def help(ctx):
 @commands.is_owner()
 async def jsk(ctx):
     e = discord.Embed(title='Jishaku help', description='Jishaku debug and diagnostics commands', color=config.color)
-    e.add_field(name='Commands', value='```cancel, cat, curl, debug, git, hide, in, load, py, py_inspect, repeat, retain, shell, show, logout, source, su, sudo, tasks, unload, voice```', inline=False)
+    e.add_field(name='Commands', value='```cancel, cat, curl, debug, git,\nhide, in, load, py,\npy_inspect, repeat, retain, shell,\nshow, logout, source, su,\nsudo, tasks, unload, voice```', inline=False)
     await ctx.send(embed=e)
 ###############################################################
 ###############################################################
