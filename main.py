@@ -135,6 +135,7 @@ async def exorium(ctx):
 async def owner(ctx):
     e = discord.Embed(title='Dev commands', description="The developer and owner commands to manage exorium", color=config.color)
     e.add_field(name='Commands', value="`help jsk` - Jishaku help menu\n**digest** - Review suggestions\n`jsk+` - Debugging/Diagnostics", inline=False)
+    await ctx.send(embed=e)
 ###############################################################
 ###############################################################
 
