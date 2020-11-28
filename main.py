@@ -102,6 +102,13 @@ async def jsk(ctx):
     e.add_field(name='Commands', value='```cancel, cat, curl, debug, git, hide, in, load, py, py_inspect, repeat, retain, shell, show, logout, source, su, sudo, tasks, unload, voice```', inline=False)
     e.add_field(name='Relevant links', value='[jsk repo](https://github.com/Gorialis/jishaku)\n[documentation](https://jishaku.readthedocs.io/en/latest/)\n[pypi.org](https://pypi.org/project/jishaku/)', inline=False)
     await ctx.send(embed=e)
+
+@help.command()
+async def social(ctx):
+    e = discord.Embed(title='Social commands', description="All the bot's social commands, to improve community and chatting!", color=config.color)
+    e.add_field(name='Commands', value="```awoo, bellyrub, blush, bonk, boop, cookie, cuddle, feed, glomp, happy, highfive, hug, kiss, lick, pat, rawr, snuggle, wag```", inline=False)
+    e.add_field(name='Gifs & images', value="You can help us find more gifs & images for our interaction commands! Just go to [tenor](https://tenor.com) or to [imgur](https://imgur.com) and find us furry, or animal related gifs and make an issue on the [github repository](https://github.com/ThePawKingdom/exorium).", inline=False)
+    await ctx.send(embed=e)
 ###############################################################
 ###############################################################
 
