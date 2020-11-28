@@ -116,6 +116,12 @@ async def mod(ctx):
     e.add_field(name='Commands', value="```ban, delwarn, purge, softban, unban, warn, warnings```", inline=False)
     e.add_field(name='Important', value="The ban command is permanent and can not temporarily ban people. We are working on allowing tempbans, and we plan to add more moderation commands in the future.", inline=False)
     await ctx.send(embed=e)
+    
+@help.command()
+async def utils(ctx):
+    e = discord.Embed(title='Utility commands', description="All the useful commands for you to use to enhance your own use of discord!", color=config.color)
+    e.add_field(name='Commands', value="```avatar, decide, id, info, poll, random, say, serverinfo, userinfo, variable```", inline=False)
+    await ctx.send(embed=e)
 ###############################################################
 ###############################################################
 
