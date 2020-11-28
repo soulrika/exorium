@@ -90,14 +90,16 @@ async def help(ctx):
     news = "[Changed help command completely. Bot was transferred to a new VPS, for issues please join the support server.](https://twitter.com/exoriumbot)"
     if ctx.invoked_subcommand is None:
         e = discord.Embed(title=f'help cmd | prefix: `{ctx.prefix}`', description=botdesc, color=config.color)
-        e.add_field(name='info', value=f'**Developers:** [Bluewy](https://discord.com/users/698080201158033409) | [Toothless](https://discord.com/users/341988909363757057)\n{stats}\n{discordpy}')
-        e.add_field(name='categories', value=f'`{ctx.prefix}help social`\n**{ctx.prefix}help mod**\n`{ctx.prefix}help utils`\n**{ctx.prefix}help bot**\n`{ctx.prefix}help jsk (Dev+)`\n**These do not work yet.\nlook on the [GitHub repo](https://github.com/ThePawKingdom/exorium/blob/master/main.py) for the commands.**')
-        e.add_field(name='Latest news', value=news)
+        e.add_field(name='info', value=f'**Developers:** [Bluewy](https://discord.com/users/698080201158033409) | [Toothless](https://discord.com/users/341988909363757057)\n{stats}\n{discordpy}', inline=False)
+        e.add_field(name='categories', value=f'`{ctx.prefix}help social`\n**{ctx.prefix}help mod**\n`{ctx.prefix}help utils`\n**{ctx.prefix}help bot**\n`{ctx.prefix}help jsk (Dev+)`\n**These do not work yet.\nlook on the [GitHub repo](https://github.com/ThePawKingdom/exorium/blob/master/main.py) for the commands.**', inline=False)
+        e.add_field(name='Latest news', value=news, inline=False)
         await ctx.send(embed=e)
 
 @help.command()
-async def number(ctx):
-    await ctx.send('number WHAT')
+@command.is_owner()
+async def jsk(ctx):
+    e = discord.Embed(title='Jishaku help', description='Jishaku debug and diagnostics commands', color=config.color)
+    e.add_field(name='test', value='test', inline=False)
 ###############################################################
 ###############################################################
 
