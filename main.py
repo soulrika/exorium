@@ -184,7 +184,7 @@ async def statistics(ctx):
     embed.add_field(name="Total users", value=str(len(bot.users)), inline=True)
     embed.add_field(name=".py version", value=discord.__version__, inline=True)
     embed.add_field(name="channels", value=f"<:channel:719660740050419935> {text:,} | <:voice:719660766269145118> {voice:,}", inline=True)
-    embed.add_field(name="Last boot", value={btime.human_timedelta(self.bot.uptime)}, inline=True)
+    embed.add_field(name="Last boot", value={btime.human_timedelta(bot.uptime)}, inline=True)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "stats", bot)
 
