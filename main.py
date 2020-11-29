@@ -13,6 +13,7 @@ from discord.ext import commands
 from collections import Counter
 from outsources import functions, util
 from requests.auth import HTTPBasicAuth
+from utils import btime
 import asyncio
 import re
 
@@ -181,8 +182,9 @@ async def statistics(ctx):
     embed = discord.Embed(title="exorium statistics", color=config.color)
     embed.add_field(name="Total guilds", value=str(len(bot.guilds)), inline=True)
     embed.add_field(name="Total users", value=str(len(bot.users)), inline=True)
-    embed.add_field(name="", value=discord.__version__, inline=False)
-    embed.add_field(name="channels", value=f"<:channel:719660740050419935> {text:,} | <:voice:719660766269145118> {voice:,}", inline=False)
+    embed.add_field(name="", value=discord.__version__, inline=True)
+    embed.add_field(name="channels", value=f"<:channel:719660740050419935> {text:,} | <:voice:719660766269145118> {voice:,}", inline=True)
+    embed.add_field(name="Last boot", value={btime.human_timedelta(self.bot.uptime)}, inline=True)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "stats", bot)
 
