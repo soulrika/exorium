@@ -23,7 +23,7 @@ logger = logging.getLogger('discord')
 intents = discord.Intents.all()
 
 
-bot = commands.Bot(command_prefix=["exo ", "Exo ", "p/", "gay "], intents=intents)  # sets the bot prefix
+bot = commands.Bot(command_prefix=["exo ", "Exo ", "p/", "gay "], case_insensitive=True, intents=intents)  # sets the bot prefix
 bot.remove_command('help')  # removes the default discord.py help command
 
 
