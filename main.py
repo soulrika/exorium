@@ -13,9 +13,9 @@ from discord.ext import commands
 from collections import Counter
 from outsources import functions, util
 from requests.auth import HTTPBasicAuth
-from utils import btime
 import asyncio
 import re
+from datetime import datetime
 
 mydb = config.DBdata
 database = mydb.cursor()
@@ -24,6 +24,7 @@ database.execute("CREATE TABLE IF NOT EXISTS suggestions (id INT AUTO_INCREMENT 
 logger = logging.getLogger('discord')
 intents = discord.Intents.all()
 
+startTime = datetime.now().timestamp()
 
 bot = commands.Bot(command_prefix=["exo ", "Exo ", "p/", "gay "], case_insensitive=True, intents=intents)  # sets the bot prefix
 bot.remove_command('help')  # removes the default discord.py help command
@@ -36,6 +37,7 @@ async def on_ready():
     print('exorium has started successfully')
 
 bot.load_extension('jishaku')
+
 
 @bot.event
 async def on_guild_join(guild):
@@ -66,8 +68,7 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=ie)
         
 
-###############################################################
-############ Use of group decorators for help cmd #############
+# Use of group decorators for help cmd
 support = '<:discordwindows:733855618775121921> [Support](https://discord.gg/CEHkNky)'
 invite = '<:discovery:719431405905379358> [Invite exo](https://discordextremelist.xyz/en-US/bots/exorium)'
 review = '<:new:736926339113680976> [Review us](https://top.gg/bot/620990340630970425)'
@@ -88,6 +89,7 @@ async def help(ctx):
         e.add_field(name='Latest news', value=news, inline=False)
         await ctx.send(embed=e)
 
+
 @help.command()
 @commands.is_owner()
 async def jsk(ctx):
@@ -96,6 +98,7 @@ async def jsk(ctx):
     e.add_field(name='Relevant links', value='[jsk repo](https://github.com/Gorialis/jishaku)\n[documentation](https://jishaku.readthedocs.io/en/latest/)\n[pypi.org](https://pypi.org/project/jishaku/)', inline=False)
     await ctx.send(embed=e)
 
+
 @help.command()
 async def social(ctx):
     e = discord.Embed(title='Social commands', description="All the bot's social commands, to improve community and chatting!", color=config.color)
@@ -103,33 +106,38 @@ async def social(ctx):
     e.add_field(name='Gifs & images', value="You can help us find more gifs & images for our interaction commands! Just go to [tenor](https://tenor.com) or to [imgur](https://imgur.com) and find us furry, or animal related gifs and make an issue on the [github repository](https://github.com/ThePawKingdom/exorium).", inline=False)
     await ctx.send(embed=e)
 
+
 @help.command()
 async def mod(ctx):
     e = discord.Embed(title='Moderation commands', description="All the moderation commands to make your server a safer place!", color=config.color)
     e.add_field(name='Commands', value="```ban, delwarn, purge, softban, unban, warn, warnings```", inline=False)
     e.add_field(name='Important', value="The ban command is permanent and can not temporarily ban people. We are working on allowing tempbans, and we plan to add more moderation commands in the future.", inline=False)
     await ctx.send(embed=e)
-    
+
+
 @help.command()
 async def utils(ctx):
     e = discord.Embed(title='Utility commands', description="All the useful commands for you to use to enhance your own use of discord!", color=config.color)
     e.add_field(name='Commands', value="```avatar, decide, id, info, poll, random, say, serverinfo, userinfo, variable, animal, image```", inline=False)
     await ctx.send(embed=e)
-    
+
+
 @help.command()
 async def exorium(ctx):
     e = discord.Embed(title='Bot commands', description="All the commands directly related to exorium itself", color=config.color)
     e.add_field(name='Commands', value="```askexo, invite, links, ping, stats, suggest```", inline=False)
     e.add_field(name='Important', value="Please report it to us immediately if one of these commands are outdated, or not functional in our [support server](https://discord.gg/CEHkNky)", inline=False)
     await ctx.send(embed=e)
-    
+
+
 @help.command()
 @commands.is_owner()
 async def owner(ctx):
     e = discord.Embed(title='Dev commands', description="The developer and owner commands to manage exorium", color=config.color)
     e.add_field(name='Commands', value="`help jsk` - Jishaku help menu\n**digest** - Review suggestions\n`jsk+` - Debugging/Diagnostics", inline=False)
     await ctx.send(embed=e)
-    
+
+
 @help.command()
 async def nsfw(ctx):
     e = discord.Embed(title='NSFW commands', description="All the Not Safe For Work commands in exorium (NSFW CHANNELS ONLY)", color=config.color)
@@ -175,6 +183,9 @@ async def links(ctx):
 
 @bot.command(name="stats", aliases=["statistics"], brief="shows bot statistics.")  # shows the bot statistics (total amount of users in total amount of guilds) in an embed
 async def statistics(ctx):
+    print(startTime)
+    print(datetime.now().timestamp())
+    uptime = datetime.now().timestamp() - startTime
     channel_types = Counter(type(c) for c in bot.get_all_channels())
     voice = channel_types[discord.channel.VoiceChannel]
     text = channel_types[discord.channel.TextChannel]
@@ -184,16 +195,17 @@ async def statistics(ctx):
     embed.add_field(name="Total users", value=str(len(bot.users)), inline=True)
     embed.add_field(name=".py version", value=discord.__version__, inline=True)
     embed.add_field(name="channels", value=f"<:channel:719660740050419935> {text:,} | <:voice:719660766269145118> {voice:,}", inline=True)
-    embed.add_field(name="Last boot", value={btime.human_timedelta(bot.uptime)}, inline=True)
+    embed.add_field(name="Uptime", value=str((datetime.utcfromtimestamp(uptime).strftime('%H hour(s), %M minute(s) and %S second(s)'))), inline=True)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "stats", bot)
 
 #    embed = discord.Embed(title="exorium statistics", color=config.color)
 #    e.description = f"""
-#__**About exorium**__
-#**Developers:** [Bluewy](https://discord.com/users/698080201158033409) & [Toothless](https://discord.com/users/341988909363757057)\n**Library:** [Discord.py {discord.__version__}]((https://github.com/Rapptz/discord.py))
+#    **About exorium**__
+#     **Developers:** [Bluewy](https://discord.com/users/698080201158033409) & [Toothless](https://discord.com/users/341988909363757057)\n**Library:** [Discord.py {discord.__version__}]((https://github.com/Rapptz/discord.py))
 #
-#"""
+# """
+
 
 @bot.command()  # retrieves the ID of a member. Argument can be an ID, just the user's name or the user mention
 async def id(ctx, member: discord.Member):
@@ -589,8 +601,8 @@ async def ban(ctx, member: discord.Member, *, reason=None):
 
 @bot.command(name='unban')  # Unbans user with a given ID
 @commands.has_permissions(ban_members=True)
-async def _unban(ctx, id: int):
-    user = await bot.fetch_user(id)
+async def _unban(ctx, userid: int):
+    user = await bot.fetch_user(userid)
     await ctx.guild.unban(user)
     embed = discord.Embed(title=f"Unbanned {user.name}", color=config.color)
     embed.set_footer(text=f"{user}, ID: {user.id}")
@@ -788,12 +800,12 @@ async def warnings(ctx, member: discord.Member):
 async def suggest(ctx, *, suggestiontext):
     database.execute("SELECT id FROM suggestions")
     results = database.fetchall()
-    id = results[-1][0] + 1
+    suggestionid = results[-1][0] + 1
     sugchannel = bot.get_channel(769132481252818954)
     embed = discord.Embed(title=suggestiontext, color=config.orange)
     embed.add_field(name="User", value=str(ctx.author))
     embed.add_field(name="Status", value="Pending")
-    embed.set_footer(text=f"ID: {id}")
+    embed.set_footer(text=f"ID: {suggestionid}")
     botmsg = await sugchannel.send(embed=embed)
     await botmsg.add_reaction("✅")
     await botmsg.add_reaction("❌")
@@ -849,7 +861,7 @@ async def digest(ctx):
     if not re.findall("\\d+", ctx.message.content):
         database.execute("SELECT * FROM suggestions WHERE approved IS NULL")
         results = database.fetchall()
-        id = results[-1][0]
+        suggestionid = results[-1][0]
         if not results:
             await ctx.send("No new suggestions!")
         nextsug = results[0][2]
@@ -861,7 +873,7 @@ async def digest(ctx):
         else:
             status = results[0][3]
         embed.add_field(name="Status", value=status)
-        embed.set_footer(text=f"ID: {id}")
+        embed.set_footer(text=f"ID: {suggestionid}")
         botmsg = await ctx.send(embed=embed)
         await botmsg.add_reaction("✅")
         await botmsg.add_reaction("❌")
@@ -883,7 +895,7 @@ async def digest(ctx):
         embed.add_field(name="User", value=str(user))
         embed.add_field(name="Status", value=status)
         sugmsg = await bot.get_channel(769132481252818954).fetch_message(results[0][4])
-        embed.set_footer(text=f"ID: {id}")
+        embed.set_footer(text=f"ID: {suggestionid}")
         await sugmsg.edit(embed=embed)
         await botmsg.delete()
         await ctx.send("Got it!")
@@ -891,7 +903,7 @@ async def digest(ctx):
         num = re.findall("\\d+", ctx.message.content)
         sql = "SELECT * FROM suggestions WHERE id = %s"
         val = num[1]
-        id = num[1]
+        suggestionid = num[1]
         database.execute(sql, val)
         results = database.fetchall()
         if not results:
@@ -910,7 +922,7 @@ async def digest(ctx):
         embed = discord.Embed(title=nextsug, color=color)
         embed.add_field(name="User", value=str(user))
         embed.add_field(name="Status", value=status)
-        embed.set_footer(text=f"ID: {id}")
+        embed.set_footer(text=f"ID: {suggestionid}")
         botmsg = await ctx.send(embed=embed)
         await botmsg.add_reaction("✅")
         await botmsg.add_reaction("❌")
@@ -941,7 +953,7 @@ async def digest(ctx):
         embed = discord.Embed(title=nextsug, color=color)
         embed.add_field(name="User", value=str(user))
         embed.add_field(name="Status", value=status)
-        embed.set_footer(text=f"ID: {id}")
+        embed.set_footer(text=f"ID: {suggestionid}")
         await ctx.send(embed=embed)
         if approved == "Approved":
             color = config.green
@@ -952,7 +964,7 @@ async def digest(ctx):
         embed.add_field(name="User", value=str(user))
         embed.add_field(name="Status", value=status)
         sugmsg = await bot.get_channel(769132481252818954).fetch_message(results[0][4])
-        embed.set_footer(text=f"ID: {id}")
+        embed.set_footer(text=f"ID: {suggestionid}")
         await sugmsg.edit(embed=embed)
         await botmsg.delete()
         await ctx.send("Got it!")
