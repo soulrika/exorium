@@ -9,7 +9,6 @@ exorium started off as a small bot named Protogen, which was created by [BluewyD
 ### exorium team
 - [BluewyDev](https://github.com/BluewyDev) - Creator, main developer and social media manager
 - [ToothyDev](https://github.com/ToothyDev) - Main developer
-- [Bench](https://github.com/Bench182) - Limited developer
 - [Etile](https://github.com/Etile0) - Host and provider
 ---
 ### Contributions
