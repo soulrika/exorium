@@ -183,7 +183,6 @@ async def statistics(ctx):
     embed.add_field(name="Total users", value=str(len(bot.users)), inline=True)
     embed.add_field(name=".py version", value=discord.__version__, inline=False)
     embed.add_field(name="Total channels", value=f"<:channel:719660740050419935> {text:,} | <:voice:719660766269145118> {voice:,}", inline=False)
-    embed.add_field(name="Total channels", value=channel_types", inline=False)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "stats", bot)
 
