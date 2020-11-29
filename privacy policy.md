@@ -5,13 +5,15 @@
 ## What information do you store and why?
 
 
-We only store user information for the `warn`, `delwarn` and `warnings` command:
+We only store user information for the `warn`, `delwarn`, `warnings` and `suggest` commands:
 
 the only information stored for those commands are the ID of the user and moderator, and the server ID.
 
 We store this information so warnings are saved until deleted.
 userid is used for the user that gets warned, and serverid for which case belongs to what server.
 The data, rather warn(s) are deleted if a moderator in a server you got warned in deletes your warn(s) using the `delwarn` command or if an exorium developer removes the data.
+
+`suggest` will only store the user ID. 
 
 **NOTE: ONLY MAIN DEVELOPERS, AS WELL AS THE HOST & PROVIDER CAN ACCESS THE DATA.**
 
@@ -33,4 +35,4 @@ We do **not** share anything with third parties, any data saved is only visible 
 
 
 ## questions and concerns
-You can ask any questions or concerns in an issue, or you can join our [support server](https://discord.gg/CEHkNky) and ask, or DM NeoGames#4612 on discord.
+You can ask any questions or concerns in an issue, or you can join our [support server](https://discord.gg/CEHkNky) and ask. You can also DM [Bluewy](https://discord.com/users/698080201158033409) or [Toothless](https://discord.com/users/341988909363757057) on discord.
