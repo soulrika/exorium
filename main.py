@@ -177,6 +177,7 @@ async def statistics(ctx):
     embed.add_field(name="Total guilds", value=str(len(bot.guilds)), inline=True)
     embed.add_field(name="Total users", value=str(len(bot.users)), inline=True)
     embed.add_field(name=".py version", value=discord.__version__, inline=False)
+    embed.add_field(name="Total channels", value=str(bot.get_all_channels), inline=False)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "stats", bot)
 
