@@ -181,11 +181,17 @@ async def statistics(ctx):
     embed = discord.Embed(title="exorium statistics", color=config.color)
     embed.add_field(name="Total guilds", value=str(len(bot.guilds)), inline=True)
     embed.add_field(name="Total users", value=str(len(bot.users)), inline=True)
-    embed.add_field(name=".py version", value=discord.__version__, inline=False)
-    embed.add_field(name="Total channels", value=f"<:channel:719660740050419935> {text:,} | <:voice:719660766269145118> {voice:,}", inline=False)
+    embed.add_field(name="", value=discord.__version__, inline=False)
+    embed.add_field(name="channels", value=f"<:channel:719660740050419935> {text:,} | <:voice:719660766269145118> {voice:,}", inline=False)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "stats", bot)
 
+#    embed = discord.Embed(title="exorium statistics", color=config.color)
+#    e.description = f"""
+#__**About exorium**__
+#**Developers:** [Bluewy](https://discord.com/users/698080201158033409) & [Toothless](https://discord.com/users/341988909363757057)\n**Library:** [Discord.py {discord.__version__}]((https://github.com/Rapptz/discord.py))
+#
+#"""
 
 @bot.command()  # retrieves the ID of a member. Argument can be an ID, just the user's name or the user mention
 async def id(ctx, member: discord.Member):
