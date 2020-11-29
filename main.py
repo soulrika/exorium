@@ -174,8 +174,9 @@ async def links(ctx):
 @bot.command(name="stats", aliases=["statistics"], brief="shows bot statistics.")  # shows the bot statistics (total amount of users in total amount of guilds) in an embed
 async def statistics(ctx):
     embed = discord.Embed(title="exorium statistics", color=config.color)
-    embed.add_field(name="Total Guilds", value=str(len(bot.guilds)), inline=False)
-    embed.add_field(name="Total Users", value=str(len(bot.users)), inline=False)
+    embed.add_field(name="Total guilds", value=str(len(bot.guilds)), inline=False)
+    embed.add_field(name="Total users", value=str(len(bot.users)), inline=True)
+    embed.add_field(name=".py version", value=discord.__version__, inline=False)
     await ctx.send(embed=embed)
     await functions.logging(ctx, "stats", bot)
 
