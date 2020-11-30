@@ -199,13 +199,8 @@ async def statistics(ctx):
     await ctx.send(embed=embed)
     await functions.logging(ctx, "stats", bot)
 
-#    embed = discord.Embed(title="exorium statistics", color=config.color)
-#    e.description = f"""
-#    **About exorium**__
-#     **Developers:** [Bluewy](https://discord.com/users/698080201158033409) & [Toothless](https://discord.com/users/341988909363757057)\n**Library:** [Discord.py {discord.__version__}]((https://github.com/Rapptz/discord.py))
-#
-# """
-
+    #embed = discord.Embed(title="exorium statistics", color=config.color)
+    #e.description = f"__**About exorium**__\n**Developers:** [Bluewy](https://discord.com/users/698080201158033409) & [Toothless](https://discord.com/users/341988909363757057)\n**Library:** [Discord.py {discord.__version__}]((https://github.com/Rapptz/discord.py))\n**Last boot:** {str((datetime.utcfromtimestamp(uptime).strftime('%H hour(s), %M minute(s) and %S second(s)')))}
 
 @bot.command()  # retrieves the ID of a member. Argument can be an ID, just the user's name or the user mention
 async def id(ctx, member: discord.Member):
