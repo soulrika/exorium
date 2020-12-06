@@ -389,10 +389,10 @@ async def variables(ctx):
     await functions.logging(ctx, "variable", bot)
 
 
-#@bot.command(name='slap', brief='Slap someone, bad!')
-#async def slap(ctx, members: commands.Greedy[discord.Member], *, reason="Being bad"):
-#    await functions.interactions(ctx, members, reason, "slap", "bad!", "slapped")
-#    await functions.logging(ctx, "slap", bot)
+@bot.command(name='slap', brief='Slap someone, bad!')
+async def slap(ctx, members: commands.Greedy[discord.Member], *, reason="Being bad"):
+    await functions.interactions(ctx, members, reason, "slap", "bad!", "slapped")
+    await functions.logging(ctx, "slap", bot)
 
 
 @bot.command(name='snuggle', brief='Snuggling, how sweet')  # interaction command - snuggle someone. gifs are random!
