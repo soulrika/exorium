@@ -127,6 +127,8 @@ bonk = ["https://media1.tenor.com/images/c7db074a1f169d09f037e4a1695ce8ab/tenor.
         "https://media1.tenor.com/images/c70e5c67f32b126e8d62bb1ee099aec4/tenor.gif?itemid=17872492",
         "https://media1.tenor.com/images/5be9d9780f7f36146eef8ec6716493a5/tenor.gif?itemid=17119858"]
 
+slap = ["https://media.tenor.co/videos/318d19d23b24c54ab51cacf5ef4bfccf/mp4"]
+
 votechannels = [731848766327619586, 731829759146721320]
 
 Askexorium = ["yes",
