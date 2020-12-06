@@ -102,8 +102,8 @@ async def jsk(ctx):
 @help.command()
 async def social(ctx):
     e = discord.Embed(title='Social commands', description="All the bot's social commands, to improve community and chatting!", color=config.color)
-    e.add_field(name='Commands', value="```awoo, bellyrub, blush, bonk, boop, cookie, cuddle, feed, glomp, happy, highfive, hug, kiss, lick, pat, rawr, snuggle, wag```", inline=False)
-    e.add_field(name='Gifs & images', value="You can help us find more gifs & images for our interaction commands! Just go to [tenor](https://tenor.com) or to [imgur](https://imgur.com) and find us furry, or animal related gifs and make an issue on the [github repository](https://github.com/ThePawKingdom/exorium).", inline=False)
+    e.add_field(name='Commands', value="```awoo, bellyrub, blush, bonk, boop, cookie, cuddle, feed, glomp, happy, highfive, hug, kiss, lick, pat, rawr, snuggle, wag, slap```", inline=False)
+    e.add_field(name='Gifs & images', value="You can help us find more gifs & images for our interaction commands! Just go to [tenor](https://tenor.com) or to [imgur](https://imgur.com) and find us furry, or animal related gifs and make an issue on the [github repository](https://github.com/ThePawKingdom/exorium).\n\nOne of your gifs/images on exo and want it removed? Make an issue on the repo or DM one of the developers.", inline=False)
     await ctx.send(embed=e)
 
 
