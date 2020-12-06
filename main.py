@@ -391,7 +391,7 @@ async def variables(ctx):
 
 @bot.command(name='slap', brief='Slap someone, bad!')
 async def slap(ctx, members: commands.Greedy[discord.Member], *, reason="Being bad"):
-    if members == ctx.message.author:
+    if members == message.author:
         await ctx.send("You can't slap yourself, derp!")
         return
     else:
