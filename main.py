@@ -49,6 +49,16 @@ async def on_guild_join(guild):
     channel = bot.get_channel(762203326519181312)
     await channel.send(embed=e)
 
+@bot.event
+async def on_guild_remove(guild):
+    print(f"I have been removed from {guild.name}, ID: { guild.id}")
+    e = discord.Embed(title='Removed from', color=config.green)
+    e.add_field(name="Guild", value=guild, inline=True)
+    e.add_field(name="Members", value=guild.member_count, inline=True)
+    e.add_field(name="Guild ID", value=guild.id, inline=False)
+    channel = bot.get_channel(762203326519181312)
+    await channel.send(embed=e)
+
 
 @bot.event
 async def on_command_error(ctx, error):
