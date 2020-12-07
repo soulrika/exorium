@@ -42,7 +42,7 @@ bot.load_extension('jishaku')
 @bot.event
 async def on_guild_join(guild):
     print(f"I just joined {guild.name}, ID: {guild.id}")
-    e = discord.Embed(title='New server', color=config.green)
+    e = discord.Embed(title='New server', color=config.red)
     e.add_field(name="Guild", value=guild, inline=True)
     e.add_field(name="Members", value=guild.member_count, inline=True)
     e.add_field(name="Guild ID", value=guild.id, inline=False)
