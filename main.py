@@ -98,7 +98,7 @@ async def help(ctx):
         e.add_field(name='categories', value=f'`{ctx.prefix}help social` - Social commands\n**{ctx.prefix}help mod** - Moderation commands\n`{ctx.prefix}help utils` - Utility commands\n**{ctx.prefix}help exorium** - Bot related\n`{ctx.prefix}help jsk (Dev+)` - Debugging\n**{ctx.prefix}help owner (Dev+)** - Dev only commands\n`{ctx.prefix}help nsfw` - NSFW commands', inline=False)
         e.add_field(name='Latest news', value=news, inline=False)
         await ctx.send(embed=e)
-
+        await functions.logging(ctx, "help", bot)
 
 @help.command()
 @commands.is_owner()
@@ -107,7 +107,7 @@ async def jsk(ctx):
     e.add_field(name='Commands', value='```cancel, cat, curl, debug, git, hide, in, load, py, py_inspect, repeat, retain, shell, show, logout, source, su, sudo, tasks, unload, voice```', inline=False)
     e.add_field(name='Relevant links', value='[jsk repo](https://github.com/Gorialis/jishaku)\n[documentation](https://jishaku.readthedocs.io/en/latest/)\n[pypi.org](https://pypi.org/project/jishaku/)', inline=False)
     await ctx.send(embed=e)
-
+    await functions.logging(ctx, "help jsk", bot)
 
 @help.command()
 async def social(ctx):
@@ -115,7 +115,7 @@ async def social(ctx):
     e.add_field(name='Commands', value="```awoo, bellyrub, blush, bonk, boop, cookie, cuddle, feed, glomp, happy, highfive, hug, kiss, lick, pat, rawr, snuggle, wag, slap```", inline=False)
     e.add_field(name='Gifs & images', value="You can help us find more gifs & images for our interaction commands! Just go to [tenor](https://tenor.com) or to [imgur](https://imgur.com) and find us furry, or animal related gifs and make an issue on the [github repository](https://github.com/ThePawKingdom/exorium).\n\nOne of your gifs/images on exo and want it removed? Make an issue on the repo or DM one of the developers.", inline=False)
     await ctx.send(embed=e)
-
+    await functions.logging(ctx, "help social", bot)
 
 @help.command()
 async def mod(ctx):
@@ -123,14 +123,14 @@ async def mod(ctx):
     e.add_field(name='Commands', value="```ban, delwarn, purge, softban, unban, warn, warnings```", inline=False)
     e.add_field(name='Important', value="The ban command is permanent and can not temporarily ban people. We are working on allowing tempbans, and we plan to add more moderation commands in the future.", inline=False)
     await ctx.send(embed=e)
-
+    await functions.logging(ctx, "help mod", bot)
 
 @help.command()
 async def utils(ctx):
     e = discord.Embed(title='Utility commands', description="All the useful commands for you to use to enhance your own use of discord!", color=config.color)
     e.add_field(name='Commands', value="```avatar, decide, id, info, poll, random, say, serverinfo, userinfo, variable, animal, image```", inline=False)
     await ctx.send(embed=e)
-
+    await functions.logging(ctx, "help utils", bot)
 
 @help.command()
 async def exorium(ctx):
@@ -138,7 +138,7 @@ async def exorium(ctx):
     e.add_field(name='Commands', value="```askexo, invite, links, ping, stats, suggest```", inline=False)
     e.add_field(name='Important', value="Please report it to us immediately if one of these commands are outdated, or not functional in our [support server](https://discord.gg/CEHkNky)", inline=False)
     await ctx.send(embed=e)
-
+    await functions.logging(ctx, "help exorium", bot)
 
 @help.command()
 @commands.is_owner()
@@ -146,13 +146,14 @@ async def owner(ctx):
     e = discord.Embed(title='Dev commands', description="The developer and owner commands to manage exorium", color=config.color)
     e.add_field(name='Commands', value="`help jsk` - Jishaku help menu\n**digest** - Review suggestions\n`jsk+` - Debugging/Diagnostics", inline=False)
     await ctx.send(embed=e)
-
+    await functions.logging(ctx, "help owner", bot)
 
 @help.command()
 async def nsfw(ctx):
     e = discord.Embed(title='NSFW commands', description="All the Not Safe For Work commands in exorium (NSFW CHANNELS ONLY)", color=config.color)
     e.add_field(name='Commands', value="`e621` - Search the [e621](https://e621.net) API for yiff", inline=False)
     await ctx.send(embed=e)
+    await functions.logging(ctx, "help nsfw", bot)
 ###############################################################
 ###############################################################
 
