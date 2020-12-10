@@ -872,7 +872,7 @@ async def digest(ctx):
         "❌": "Denied",
         "✅": "Approved"
     }
-    if ctx.author.id == "341988909363757057" or ctx.author.id == "698080201158033409":
+    if ctx.author.id != "341988909363757057" or ctx.author.id != "698080201158033409":
         await ctx.send("You aren't allowed to run this command")
         return
     if not re.findall("\\d+", ctx.message.content):
