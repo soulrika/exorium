@@ -49,6 +49,7 @@ async def on_guild_join(guild):
     channel = bot.get_channel(762203326519181312)
     await channel.send(embed=e)
 
+
 @bot.event
 async def on_guild_remove(guild):
     print(f"I have been removed from {guild.name}, ID: { guild.id}")
@@ -100,6 +101,7 @@ async def help(ctx):
         await ctx.send(embed=e)
         await functions.logging(ctx, "help", bot)
 
+
 @help.command()
 @commands.is_owner()
 async def jsk(ctx):
@@ -109,6 +111,7 @@ async def jsk(ctx):
     await ctx.send(embed=e)
     await functions.logging(ctx, "help jsk", bot)
 
+
 @help.command()
 async def social(ctx):
     e = discord.Embed(title='Social commands', description="All the bot's social commands, to improve community and chatting!", color=config.color)
@@ -116,6 +119,7 @@ async def social(ctx):
     e.add_field(name='Gifs & images', value="You can help us find more gifs & images for our interaction commands! Just go to [tenor](https://tenor.com) or to [imgur](https://imgur.com) and find us furry, or animal related gifs and make an issue on the [github repository](https://github.com/ThePawKingdom/exorium).\n\nOne of your gifs/images on exo and want it removed? Make an issue on the repo or DM one of the developers.", inline=False)
     await ctx.send(embed=e)
     await functions.logging(ctx, "help social", bot)
+
 
 @help.command()
 async def mod(ctx):
@@ -125,12 +129,14 @@ async def mod(ctx):
     await ctx.send(embed=e)
     await functions.logging(ctx, "help mod", bot)
 
+
 @help.command()
 async def utils(ctx):
     e = discord.Embed(title='Utility commands', description="All the useful commands for you to use to enhance your own use of discord!", color=config.color)
     e.add_field(name='Commands', value="```avatar, decide, id, info, poll, random, say, serverinfo, userinfo, variable, animal, image```", inline=False)
     await ctx.send(embed=e)
     await functions.logging(ctx, "help utils", bot)
+
 
 @help.command()
 async def exorium(ctx):
@@ -140,6 +146,7 @@ async def exorium(ctx):
     await ctx.send(embed=e)
     await functions.logging(ctx, "help exorium", bot)
 
+
 @help.command()
 @commands.is_owner()
 async def owner(ctx):
@@ -147,6 +154,7 @@ async def owner(ctx):
     e.add_field(name='Commands', value="`help jsk` - Jishaku help menu\n**digest** - Review suggestions\n`jsk+` - Debugging/Diagnostics", inline=False)
     await ctx.send(embed=e)
     await functions.logging(ctx, "help owner", bot)
+
 
 @help.command()
 async def nsfw(ctx):
@@ -211,8 +219,9 @@ async def statistics(ctx):
     await ctx.send(embed=embed)
     await functions.logging(ctx, "stats", bot)
 
-    #embed = discord.Embed(title="exorium statistics", color=config.color)
-    #e.description = f"__**About exorium**__\n**Developers:** [Bluewy](https://discord.com/users/698080201158033409) & [Toothless](https://discord.com/users/341988909363757057)\n**Library:** [Discord.py {discord.__version__}]((https://github.com/Rapptz/discord.py))\n**Last boot:** {str((datetime.utcfromtimestamp(uptime).strftime('%H hour(s), %M minute(s) and %S second(s)')))}
+    # embed = discord.Embed(title="exorium statistics", color=config.color)
+    # e.description = f"__**About exorium**__\n**Developers:** [Bluewy](https://discord.com/users/698080201158033409) & [Toothless](https://discord.com/users/341988909363757057)\n**Library:** [Discord.py {discord.__version__}]((https://github.com/Rapptz/discord.py))\n**Last boot:** {str((datetime.utcfromtimestamp(uptime).strftime('%H hour(s), %M minute(s) and %S second(s)')))}
+
 
 @bot.command()  # retrieves the ID of a member. Argument can be an ID, just the user's name or the user mention
 async def id(ctx, member: discord.Member):
@@ -867,14 +876,12 @@ async def suggestions(ctx):
 
 
 @bot.command()
+@commands.is_owner()
 async def digest(ctx):
     approval = {
         "❌": "Denied",
         "✅": "Approved"
     }
-    if not ctx.author.id == "341988909363757057" or ctx.author.id == "698080201158033409":
-        await ctx.send("You aren't allowed to run this command")
-        return
     if not re.findall("\\d+", ctx.message.content):
         database.execute("SELECT * FROM suggestions WHERE approved IS NULL")
         results = database.fetchall()
