@@ -6,8 +6,6 @@ import requests
 import logging
 import aiohttp
 import json
-import discord.opus
-import discord.voice_client
 import discord.ext
 from discord.ext import commands
 from collections import Counter
