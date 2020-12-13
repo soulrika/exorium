@@ -813,7 +813,7 @@ async def delallwarns(ctx, user: discord.User):
             except:
                 break
         await ctx.send("Removed all warnings")
-        await functions.logging(ctx, "delwarn", bot)
+        await functions.logging(ctx, "delallwarns", bot)
         return
     await ctx.send("This user has no warnings")
 
