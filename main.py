@@ -192,7 +192,7 @@ async def invite(ctx):
 @bot.command()
 async def support(ctx):
     e = discord.Embed(color=config.color)
-    e.description = f"You can get support in our {config.support)""
+    e.description = f"You can get support in our {config.support}"
     await ctx.send(embed=e)
     await functions.logging(ctx, "support", bot)
 
