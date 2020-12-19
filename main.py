@@ -174,9 +174,18 @@ async def latency(ctx):
     
 @bot.command(name="invite", aliases=["inv", "oauth"], brief="Shows the bot ouath link")  # shows the bot invite with hyperlink in an embed
 async def invite(ctx):
-    embed = discord.Embed(color=config.color)
-    embed.add_field(name="Invites", value="[Add exorium to your server](https://discord.com/api/oauth2/authorize?client_id=620990340630970425&permissions=806218999&scope=bot)\n[Join the support server](https://discord.gg/CEHkNky)")
-    await ctx.send(embed=embed)
+    e = discord.Embed(color=config.color)
+    e.description = f"""
+    __**Invite links:**__
+    [needed permissions](https://discord.com/api/oauth2/authorize?client_id=620990340630970425&permissions=335932630&scope=bot) (recommended)
+    [admin permissions](https://discord.com/api/oauth2/authorize?client_id=620990340630970425&permissions=8&scope=bot)
+    [0 permissions](https://discord.com/api/oauth2/authorize?client_id=620990340630970425&permissions=0&scope=bot)
+    
+    __**Other links:**__
+    [support server](https://discord.gg/CEHkNky)
+    [status page](https://exorium.statuspage.io/)
+    """
+    await ctx.send(embed=e)
     await functions.logging(ctx, "invite", bot)
 
 
