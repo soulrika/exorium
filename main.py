@@ -207,18 +207,17 @@ async def statistics(ctx):
     channel_types = Counter(type(c) for c in bot.get_all_channels())
     voice = channel_types[discord.channel.VoiceChannel]
     text = channel_types[discord.channel.TextChannel]
-
-    embed = discord.Embed(title="exorium statistics", color=config.color)
-    embed.add_field(name="Total guilds", value=str(len(bot.guilds)), inline=True)
-    embed.add_field(name="Total users", value=str(len(bot.users)), inline=True)
-    embed.add_field(name=".py version", value=discord.__version__, inline=True)
-    embed.add_field(name="channels", value=f"<:channel:719660740050419935> {text:,} | <:voice:719660766269145118> {voice:,}", inline=True)
-    embed.add_field(name="Uptime", value=str((datetime.utcfromtimestamp(uptime).strftime('%H hour(s), %M minute(s) and %S second(s)'))), inline=True)
-    await ctx.send(embed=embed)
+    lastboot = str((datetime.utcfromtimestamp(uptime).strftime('%H hour(s), %M minute(s) and %S second(s)')))
+    e = discord.Embed(title="exorium statistics", color=config.color)
+    e.description = f"""
+    __**About exorium**__
+    **Developers:** [Bluewy](https://discord.com/users/698080201158033409) & [Toothless](https://discord.com/users/341988909363757057)\n**Library:** [Discord.py {discord.__version__} <:python:758139554670313493>]((https://github.com/Rapptz/discord.py))\n**Last boot:** {lastboot}
+    
+    __**statistics**__
+    **guilds:** {str(len(bot.guilds))}\n**users:** {str(len(bot.users))}\n**channels:**\nText <:channel:719660740050419935> {text:,}\nVoice <:voice:719660766269145118> {voice:,}
+    """
+    await ctx.send(embed=e)
     await functions.logging(ctx, "stats", bot)
-
-    # embed = discord.Embed(title="exorium statistics", color=config.color)
-    # e.description = f"__**About exorium**__\n**Developers:** [Bluewy](https://discord.com/users/698080201158033409) & [Toothless](https://discord.com/users/341988909363757057)\n**Library:** [Discord.py {discord.__version__}]((https://github.com/Rapptz/discord.py))\n**Last boot:** {str((datetime.utcfromtimestamp(uptime).strftime('%H hour(s), %M minute(s) and %S second(s)')))}
 
 
 @bot.command()  # retrieves the ID of a member. Argument can be an ID, just the user's name or the user mention
