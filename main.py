@@ -192,9 +192,7 @@ async def invite(ctx):
 @bot.command()
 async def support(ctx):
     e = discord.Embed(color=config.color)
-    e.add_field(name='Get support', value='- [Support server](https://discord.gg/CEHkNky)\n- [Github issue](https://github.com/ThePawKingdom/exorium/issues)\n- [DM Azymondias#4612](https://discord.com/users/698080201158033409)', inline=True)
-    e.add_field(name='Related commands', value='```exo invite\nexo links```', inline=True)
-    e.set_footer(text='Thank you for using exorium!')
+    e.description = f"You can get support in our {config.support)""
     await ctx.send(embed=e)
     await functions.logging(ctx, "support", bot)
 
