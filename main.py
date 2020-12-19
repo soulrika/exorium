@@ -78,7 +78,7 @@ async def on_command_error(ctx, error):
         
 
 # Use of group decorators for help cmd
-support = '<:discordwindows:733855618775121921> [Support](https://discord.gg/CEHkNky)'
+support = f'<:discordwindows:733855618775121921> {config.support}'
 invite = '<:discovery:719431405905379358> [Invite exo](https://discordextremelist.xyz/en-US/bots/exorium)'
 review = '<:new:736926339113680976> [Review us](https://top.gg/bot/620990340630970425)'
 policy = '🔗 [Privacy policy](https://github.com/ThePawKingdom/exorium/blob/master/privacy%20policy.md)'
