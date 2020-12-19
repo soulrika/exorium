@@ -9,6 +9,7 @@ orange = (YELLOWCOLOR)
 #  Color codes must be in hex, for example: 
 #  red = (c93838)
 
+support = "[support server](discord.gg/invlink)"
 pixabaykey = 'pixabay api key'
 
 e621key = 'apikey' # Your e621 api key (you need an account)
