@@ -211,7 +211,7 @@ async def statistics(ctx):
     e = discord.Embed(title="exorium statistics", color=config.color)
     e.description = f"""
     __**About exorium**__
-    **Developers:** [Bluewy](https://discord.com/users/698080201158033409) & [Toothless](https://discord.com/users/341988909363757057)\n**Library:** [Discord.py {discord.__version__} <:python:758139554670313493>]((https://github.com/Rapptz/discord.py))\n**Last boot:** {lastboot}
+    **Developers:** [Bluewy](https://discord.com/users/698080201158033409) & [Toothless](https://discord.com/users/341988909363757057)\n**Library:** [Discord.py {discord.__version__} <:python:758139554670313493>](https://github.com/Rapptz/discord.py)\n**Last boot:** {lastboot}
     
     __**statistics**__
     **guilds:** {str(len(bot.guilds))}\n**users:** {str(len(bot.users))}\n**channels:**\nText <:channel:719660740050419935> {text:,}\nVoice <:voice:719660766269145118> {voice:,}
