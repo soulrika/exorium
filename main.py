@@ -65,8 +65,10 @@ async def on_command_error(ctx, error):
         ie = discord.Embed(color=config.orange)
         ie.add_field(name='error while processing', value='Please fill in all the required arguments.\nUse `exo info <command`> for usage.')
         await ctx.send(embed=ie)
+        e = discord.Embed(color=config.orange)
+        e.description = f"{ctx.message.author} had an error while using a command:\n`Required arguments were not specified.`"
         channel = bot.get_channel(790239054868381697)
-        await channel.send(embed=ie)
+        await channel.send(embed=e)
 
     if isinstance(error, commands.MissingPermissions):
         ie = discord.Embed(color=config.red)
@@ -74,6 +76,10 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=ie)
         channel = bot.get_channel(790239054868381697)
         await channel.send(embed=ie)
+        e = discord.Embed(color=config.orange)
+        e.description = f"{ctx.message.author} had an error while using a command:\n`User permissions are too low.`"
+        channel = bot.get_channel(790239054868381697)
+        await channel.send(embed=e)
 
     if isinstance(error, commands.NotOwner):
         ie = discord.Embed(color=config.orange)
@@ -81,6 +87,10 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=ie)
         channel = bot.get_channel(790239054868381697)
         await channel.send(embed=ie)
+        e = discord.Embed(color=config.orange)
+        e.description = f"{ctx.message.author} had an error while using a command:\n`Command can only be used by bot owners.`"
+        channel = bot.get_channel(790239054868381697)
+        await channel.send(embed=e)
         
 
 # Use of group decorators for help cmd
