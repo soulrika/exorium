@@ -1,4 +1,4 @@
-import gifs
+simport gifs
 import config
 import discord
 import random
@@ -840,7 +840,7 @@ async def warnings(ctx, member: discord.Member):
 
 @bot.command()
 async def suggest(ctx, *, suggestiontext):
-    if len(suggest) >= 500:
+    if len(suggestiontext) >= 500:
         return await ctx.send('Your suggestion is too long! Please limit your suggestion to 500 characters or less.')
     database.execute("SELECT id FROM suggestions")
     results = database.fetchall()
