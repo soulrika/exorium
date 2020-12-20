@@ -840,6 +840,8 @@ async def warnings(ctx, member: discord.Member):
 
 @bot.command()
 async def suggest(ctx, *, suggestiontext):
+    if len(suggest) >= 500:
+        return await ctx.send('Your suggestion is too long! Please limit your suggestion to 500 characters or less.')
     database.execute("SELECT id FROM suggestions")
     results = database.fetchall()
     suggestionid = results[-1][0] + 1
@@ -888,7 +890,10 @@ async def suggestions(ctx):
         else:
             approval = sugg[3]
         resultsformat += f"#{sugg[0]} `{sugg[2]}` | Approved: `{approval}`\n"
-    await ctx.send(f"Your suggestions:\n{resultsformat}", allowed_mentions=discord.AllowedMentions(roles=False, everyone=False))
+    try:
+        await ctx.send(f"Your suggestions:\n{resultsformat}", allowed_mentions=discord.AllowedMentions(roles=False, everyone=False))
+    except discord.errors.HTTPException:
+        await ctx.send("You have too many suggestions to view! You can clear all your suggestions with the `exo suggestions clear` command.")
 
 
 @bot.command()
