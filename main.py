@@ -74,8 +74,6 @@ async def on_command_error(ctx, error):
         ie = discord.Embed(color=config.red)
         ie.add_field(name='error while processing', value='You do not have the sufficient permissions.')
         await ctx.send(embed=ie)
-        channel = bot.get_channel(790239054868381697)
-        await channel.send(embed=ie)
         e = discord.Embed(color=config.orange)
         e.description = f"{ctx.message.author} had an error while using a command:\n`User permissions are too low.`"
         channel = bot.get_channel(790239054868381697)
@@ -85,8 +83,6 @@ async def on_command_error(ctx, error):
         ie = discord.Embed(color=config.orange)
         ie.add_field(name='error while processing', value='Only bot owners can use this command.')
         await ctx.send(embed=ie)
-        channel = bot.get_channel(790239054868381697)
-        await channel.send(embed=ie)
         e = discord.Embed(color=config.orange)
         e.description = f"{ctx.message.author} had an error while using a command:\n`Command can only be used by bot owners.`"
         channel = bot.get_channel(790239054868381697)
