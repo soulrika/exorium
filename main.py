@@ -65,16 +65,22 @@ async def on_command_error(ctx, error):
         ie = discord.Embed(color=config.orange)
         ie.add_field(name='error while processing', value='Please fill in all the required arguments.\nUse `exo info <command`> for usage.')
         await ctx.send(embed=ie)
+        channel = bot.get_channel(790239054868381697)
+        await channel.send(embed=ie)
 
     if isinstance(error, commands.MissingPermissions):
         ie = discord.Embed(color=config.red)
         ie.add_field(name='error while processing', value='You do not have the sufficient permissions.')
         await ctx.send(embed=ie)
+        channel = bot.get_channel(790239054868381697)
+        await channel.send(embed=ie)
 
     if isinstance(error, commands.NotOwner):
         ie = discord.Embed(color=config.orange)
         ie.add_field(name='error while processing', value='Only bot owners can use this command.')
         await ctx.send(embed=ie)
+        channel = bot.get_channel(790239054868381697)
+        await channel.send(embed=ie)
         
 
 # Use of group decorators for help cmd
