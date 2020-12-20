@@ -1,4 +1,4 @@
-simport gifs
+import gifs
 import config
 import discord
 import random
