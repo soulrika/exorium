@@ -855,7 +855,7 @@ async def suggest(ctx, *, suggestiontext):
     val = (ctx.author.id, suggestiontext, botmsg.id)
     database.execute(sql, val)
     mydb.commit()
-    await ctx.send(f'Your suggestion "{suggestiontext}" was recorded!')
+    await ctx.send(f'Your suggestion "{suggestiontext}" was recorded!', allowed_mentions=discord.Allowedmentions(roles=False, everyone=False))
 
 
 @bot.command()
@@ -888,7 +888,7 @@ async def suggestions(ctx):
         else:
             approval = sugg[3]
         resultsformat += f"#{sugg[0]} `{sugg[2]}` | Approved: `{approval}`\n"
-    await ctx.send(f"Your suggestions:\n{resultsformat}")
+    await ctx.send(f"Your suggestions:\n{resultsformat}", , allowed_mentions=discord.Allowedmentions(roles=False, everyone=False))
 
 
 @bot.command()
