@@ -175,6 +175,12 @@ async def nsfw(ctx):
 ###############################################################
 ###############################################################
 
+@bot.command()
+async def privacy(ctx):
+    e = discord.embed(color=config.color)
+    e.description = "You can read our privacy policy [here](Privacy policy](https://github.com/ThePawKingdom/exorium/blob/master/privacy%20policy.md)."
+    await ctx.send(embed=e)
+    await functions.logging(ctx, "privacy", bot)
 
 @bot.command(name="ping", aliases=["pong", "latency"], brief="shows the bot's latency.")  # the ping command, simply shows the latency in an embed
 async def latency(ctx):
