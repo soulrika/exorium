@@ -178,7 +178,7 @@ async def nsfw(ctx):
 @bot.command()
 async def privacy(ctx):
     e = discord.Embed(color=config.color)
-    e.description = "You can read our privacy policy [here](Privacy policy](https://github.com/ThePawKingdom/exorium/blob/master/privacy%20policy.md)."
+    e.description = "You can read our privacy policy [here](https://github.com/ThePawKingdom/exorium/blob/master/privacy%20policy.md)."
     await ctx.send(embed=e)
     await functions.logging(ctx, "privacy", bot)
 
