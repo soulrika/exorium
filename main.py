@@ -367,6 +367,7 @@ async def serverinfo(ctx):
         "BANNER": "Banner",
         "ANIMATED_ICON": "Animated Icon",
         "PUBLIC_DISABLED": "Public Disabled",
+        "MEMBER_VERIFICATION_GATE_ENABLED": "Member verification gate",
         "WELCOME_SCREEN_ENABLED": "Welcome Screen",
         "PREVIEW_ENABLED": "Preview"
     }
