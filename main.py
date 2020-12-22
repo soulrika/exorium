@@ -596,6 +596,8 @@ async def wag(ctx, members: commands.Greedy[discord.Member], *, reason="Rawr!"):
 
 @bot.command(name='random', brief='Randomness!')  # Let exorium choose for you!
 async def randomchoice(ctx, *args):
+    if not args:
+        return await ctx.send("Please specify at least two options to choose from.")
     await ctx.send(random.choice(args), allowed_mentions=discord.AllowedMentions(roles=False, users=False, everyone=False))
     await functions.logging(ctx, "random", bot)
 
