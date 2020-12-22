@@ -741,9 +741,10 @@ async def say(ctx, *, sentence):
         pass
     except discord.NotFound:
         pass
-    embed = discord.Embed(color=config.color)
-    embed.add_field(name=sentence, value=f'by {ctx.author}')
-    await ctx.send(embed=embed)
+    e = discord.Embed(color=config.color)
+    e.description = sentence
+    e.set_footer(text=f"from user {ctx.author}")
+    await ctx.send(embed=e)
     await functions.logging(ctx, "say", bot)
 
 
