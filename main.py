@@ -542,6 +542,8 @@ async def feed(ctx, members: commands.Greedy[discord.Member], *, reason="Hungwy"
 
 @bot.command()
 async def cookie(ctx, members: commands.Greedy[discord.Member]):
+    if not (members):
+        return await ctx.send("Please specify at least one cutie to give a cookie to!")
     e = discord.Embed(title='A cookie has been given!', description=f'{ctx.author.mention} gave {members[0].mention} a cookie', color=config.green)
     await ctx.send(embed=e)
 
