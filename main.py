@@ -367,7 +367,8 @@ async def serverinfo(ctx):
         "BANNER": "Banner",
         "ANIMATED_ICON": "Animated Icon",
         "PUBLIC_DISABLED": "Public Disabled",
-        "WELCOME_SCREEN_ENABLED": "Welcome Screen"
+        "WELCOME_SCREEN_ENABLED": "Welcome Screen",
+        "PREVIEW_ENABLED": "Preview"
     }
     embed = discord.Embed(color=config.color)
     embed.add_field(name="Server Name", value=str(gu.name), inline=True)
