@@ -112,7 +112,8 @@ async def help(ctx):
         e.add_field(name='Latest news', value=news, inline=False)
         await ctx.send(embed=e)
         await functions.logging(ctx, "help", bot)
-
+        await functions.info2(ctx, "shows the help menu", "exo help", bot)
+        
 @help.command()
 @commands.is_owner()
 async def jsk(ctx):
