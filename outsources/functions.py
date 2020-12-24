@@ -23,9 +23,3 @@ async def logging(ctx, type, bot):
     embed.add_field(name="Channel", value=f"`{ctx.channel}`", inline=True)
     channel = bot.get_channel(755138117488345118)
     await channel.send(embed=embed)
-
-async def info2(ctx, type, inform, syntax, bot):
-    e = discord.Embed(color=config.color)
-    e.description = f"**Command:** `{type}`\n**Syntax:** `{syntax}`\n**Information:**\n```{info2}```"
-    e.set_footer(text="Requested by {ctx.message.author}")
-    await ctx.send(embed=e)
