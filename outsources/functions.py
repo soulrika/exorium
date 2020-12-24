@@ -24,8 +24,8 @@ async def logging(ctx, type, bot):
     channel = bot.get_channel(755138117488345118)
     await channel.send(embed=embed)
 
-async def info2(ctx, command, info2, syntax, bot):
+async def info2(ctx, info2, syntax, bot):
     e = discord.Embed(color=config.color)
-    e.description = f"**Command:** `\"{command}\"`\n**Syntax:** `\"{syntax}\"`\n**Information:\n```\"{info2}\"```"
+    e.description = f"**Command:** `\"{type}\"`\n**Syntax:** `\"{syntax}\"`\n**Information:\n```\"{info2}\"```"
     e.set_footer(text="Requested by {ctx.message.author}")
     await ctx.send(embed=e)
