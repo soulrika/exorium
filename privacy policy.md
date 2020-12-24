@@ -21,6 +21,7 @@ If exorium joins or leaves a guild it will log the following:
 - The guild name
 - The guild ID
 - The membercount
+- The owner username
 
 If a command is executed on exorium it will log the following:
 - The command executed
@@ -28,7 +29,11 @@ If a command is executed on exorium it will log the following:
 - The guild it was executed in
 - The channel it was executed in
 
-Guild joins/leaves and command executions do **not** get saved. Only **logged**, these are only visible to members of the exorium team and happen only once everytime.
+If an error occurs on exorium it will log the following:
+- The error
+- The user who did the command which caused the error
+
+Guild joins/leaves and command executions/errors do **not** get saved. Only **logged**, these are only visible to members of the exorium team and happen only once everytime.
 
 ## third party sharing
 We do **not** share anything with third parties, any data saved is only visible to (certain members of) the exorium team.
