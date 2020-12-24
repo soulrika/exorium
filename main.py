@@ -173,8 +173,23 @@ async def nsfw(ctx):
     e.add_field(name='Commands', value="`e621` - Search the [e621](https://e621.net) API for yiff", inline=False)
     await ctx.send(embed=e)
     await functions.logging(ctx, "help nsfw", bot)
-###############################################################
-###############################################################
+##############################################################################################################################
+##############################################################################################################################
+@bot.group
+async def emote(ctx):
+    if ctx.invoked_subcommand is None:
+        e = discord.Embed(color=config.color)
+        e.description = f"**Info:**\nUse these handy commands to manage your emotes and to improve your use of emotes.\n\n**Commands:**\n- `convert` | Convert emote to URL\n`{ctx.prefix}emote convert <emote>`"
+        e.set_footer(text=ctx.message.author)
+        await ctx.send(embed=e)
+        await functions.logging(ctx, "emote", bot)
+        
+@emote.command()
+async def convert(ctx, emoji: discord.PartialEmoji):
+    await ctx.send(emoji.url)
+    await functions.logging(ctx, "emote convert", bot)
+##############################################################################################################################
+##############################################################################################################################
 
 @bot.command()
 async def privacy(ctx):
@@ -250,7 +265,6 @@ async def statistics(ctx):
 async def id(ctx, member: discord.Member):
     await ctx.send(member.id)
     await functions.logging(ctx, "id", bot)
-
 
 @bot.command(name='animal', help='Generates a random animal!')
 async def animal(ctx, *args):
