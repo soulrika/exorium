@@ -44,6 +44,7 @@ async def on_guild_join(guild):
     e.add_field(name="Guild", value=guild, inline=True)
     e.add_field(name="Members", value=guild.member_count, inline=True)
     e.add_field(name="Guild ID", value=guild.id, inline=False)
+    e.add_field(name="Guild owner", value=guild.owner, inline=False)
     channel = bot.get_channel(762203326519181312)
     await channel.send(embed=e)
 
@@ -55,6 +56,7 @@ async def on_guild_remove(guild):
     e.add_field(name="Guild", value=guild, inline=True)
     e.add_field(name="Members", value=guild.member_count, inline=True)
     e.add_field(name="Guild ID", value=guild.id, inline=False)
+    e.add_field(name="Guild owner", value=guild.owner, inline=False)
     channel = bot.get_channel(762203326519181312)
     await channel.send(embed=e)
 
