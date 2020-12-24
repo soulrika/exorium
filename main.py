@@ -175,7 +175,7 @@ async def nsfw(ctx):
     await functions.logging(ctx, "help nsfw", bot)
 ##############################################################################################################################
 ##############################################################################################################################
-@bot.group
+@bot.group()
 async def emote(ctx):
     if ctx.invoked_subcommand is None:
         e = discord.Embed(color=config.color)
