@@ -192,8 +192,10 @@ async def convert(ctx, emoji: discord.PartialEmoji):
 @emote.command()
 async def info(ctx, emoji: discord.Emoji):
     e = discord.Embed(color=config.color)
-    e.description = f"**Emote name:** {emoji.name}\n**Emoji ID:** {emoji.id}\n**Emoji Hash:** {hash(emoji)}\n**Animated:** {emoji.animated}\n**Guild:** {emoji.guild}\n**Guild ID:** {emoji.guild_id}\n**Created:** " + emoji.created_at.strftime('%d.%m.%Y %H:%M') + " test "
+    e.description = f"**Emote name:** {emoji.name}\n**Emoji ID:** {emoji.id}\n**Emoji Hash:** {hash(emoji)}\n**Animated:** {emoji.animated}\n**Guild:** {emoji.guild}\n**Guild ID:** {emoji.guild_id}\n**Created:** " + emoji.created_at.strftime('%d.%m.%Y %H:%M') + f"\n**Available:** {emoji.available}\n**Escaped:** " f"\{emoji}" + f"\n**Emote link:** [Click here]({emoji.url})"
+    e.set_thumbnail(url=emoji.url)
     await ctx.send(embed=e)
+    await functions.logging(ctx, "emote info", bot)
 ##############################################################################################################################
 ##############################################################################################################################
 
