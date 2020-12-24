@@ -179,8 +179,8 @@ async def nsfw(ctx):
 async def emote(ctx):
     if ctx.invoked_subcommand is None:
         e = discord.Embed(color=config.color)
-        e.description = f"**Info:**\nUse these handy commands to manage- and improve your use of emotes.\n\n**Commands:**\n- `convert` | Convert emote to URL\n`{ctx.prefix}emote convert <emote>`"
-        e.set_footer(text=ctx.message.author)
+        e.description = f"**Info:**\nUse these handy commands to manage- and improve your use of emotes.\n\n**Commands:**\n- `convert` | Convert emote to URL | `{ctx.prefix}emote convert <emote>`"
+        e.set_footer(text=f"Command executed by {ctx.message.author}")
         await ctx.send(embed=e)
         await functions.logging(ctx, "emote", bot)
         
