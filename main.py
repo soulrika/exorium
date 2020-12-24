@@ -104,7 +104,7 @@ botdesc = f'{support} | {invite} | {review} | {policy}'
 async def help(ctx):
     stats = f"**statistics:** {str(len(bot.guilds))} guilds | {str(len(bot.users))} users"
     discordpy = f"**discord.py version:** {discord.__version__}"
-    news = "[Changed help command completely. Bot was transferred to a new VPS, for issues please join the support server.](https://twitter.com/exoriumbot)"
+    news = f"- Added `emote` and `emote convert` command\n- Commands with subcommands now show a number behind them in the help menus"
     if ctx.invoked_subcommand is None:
         e = discord.Embed(title=f'help cmd | prefix: `{ctx.prefix}`', description=botdesc, color=config.color)
         e.add_field(name='info', value=f'**Developers:** [Bluewy](https://discord.com/users/698080201158033409) | [Toothless](https://discord.com/users/341988909363757057)\n{stats}\n{discordpy}', inline=False)
@@ -144,7 +144,7 @@ async def mod(ctx):
 @help.command()
 async def utils(ctx):
     e = discord.Embed(title='Utility commands', description="All the useful commands for you to use to enhance your own use of discord!", color=config.color)
-    e.add_field(name='Commands', value="```avatar, decide, id, info, poll, random, say, serverinfo, userinfo, variable, animal, image```", inline=False)
+    e.add_field(name='Commands', value="```avatar, decide, id, info, poll, random, say, serverinfo, userinfo, variable, animal, image, emote (1)```", inline=False)
     await ctx.send(embed=e)
     await functions.logging(ctx, "help utils", bot)
 
