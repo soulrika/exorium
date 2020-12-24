@@ -26,6 +26,6 @@ async def logging(ctx, type, bot):
 
 async def info2(ctx, type, inform, syntax, bot):
     e = discord.Embed(color=config.color)
-    e.description = f"**Command:** `\"{type}\"`\n**Syntax:** `\"{syntax}\"`\n**Information:**\n```\"{info2}\"```"
+    e.description = f"**Command:** `{type}`\n**Syntax:** `{syntax}`\n**Information:**\n```{info2}```"
     e.set_footer(text="Requested by {ctx.message.author}")
     await ctx.send(embed=e)
