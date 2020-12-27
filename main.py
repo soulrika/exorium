@@ -136,7 +136,7 @@ async def mod(ctx):
 @help.command()
 async def utils(ctx):
     e = discord.Embed(title='Utility commands', description="All the useful commands for you to use to enhance your own use of discord!", color=config.color)
-    e.add_field(name='Commands', value="```avatar, decide, id, info, poll, random, say, serverinfo, userinfo, variable, animal, image, emote (1)```", inline=False)
+    e.add_field(name='Commands', value="```avatar, decide, id, info, poll, random, say, serverinfo, userinfo, variable, animal, image, emote (2)```", inline=False)
     await ctx.send(embed=e)
     await functions.logging(ctx, "help utils", bot)
 
