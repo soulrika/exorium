@@ -24,7 +24,7 @@ bot.remove_command('help')  # removes the default discord.py help command
 async def on_ready():
     activity = discord.Game(name=f'exo help | {len(bot.guilds)} guilds', type=1)
     await bot.change_presence(status=discord.Status.online, activity=activity)
-    print('exorium has started successfully')
+    print('\n-= exorium has started successfully =-\n')
 
 bot.load_extension('jishaku')
 
