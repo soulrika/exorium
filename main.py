@@ -1,5 +1,5 @@
 import gifs
-import con  fig
+import config
 import discord
 import random
 import requests
