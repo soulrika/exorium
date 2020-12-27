@@ -832,6 +832,9 @@ async def purge(ctx, amount=0):
 @bot.command()
 @commands.has_permissions(ban_members=True)
 async def warn(ctx, member: discord.Member, *, reason="No reason provided"):
+    if member == ctx.author:
+        await ctx.send("You can't warn yourself.")
+        return
     sql = "INSERT INTO warnings (user, reason, serverid) VALUES (%s, %s, %s)"
     val = (member.id, reason, ctx.message.guild.id)
     database.execute(sql, val)
