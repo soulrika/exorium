@@ -830,7 +830,7 @@ async def purge(ctx, amount=0):
 
 
 @bot.command()
-@commands.has_permissions(ban_members=True)
+@commands.has_permissions(manage_messages=True)
 async def warn(ctx, member: discord.Member, *, reason="No reason provided"):
     if member == ctx.author:
         await ctx.send("You can't warn yourself.")
@@ -844,7 +844,7 @@ async def warn(ctx, member: discord.Member, *, reason="No reason provided"):
 
 
 @bot.command()
-@commands.has_permissions(ban_members=True)
+@commands.has_permissions(manage_messages=True)
 async def delwarn(ctx, caseid):
     database.execute("SELECT * FROM warnings WHERE id = %s AND serverid = %s", [caseid, ctx.message.guild.id])
     results = database.fetchall()
@@ -858,7 +858,7 @@ async def delwarn(ctx, caseid):
 
 
 @bot.command()
-@commands.has_permissions(ban_members=True)
+@commands.has_permissions(manage_messages=True)
 async def warnings(ctx, member: discord.Member):
     await functions.logging(ctx, "warnings", bot)
     database.execute("SELECT * FROM warnings WHERE user = %s AND serverid = %s", [member.id, ctx.message.guild.id])
