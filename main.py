@@ -1,19 +1,11 @@
-import gifs
-import config
-import discord
-import random
-import requests
-import logging
-import aiohttp
-import json
-import discord.ext
+import gifs, config, discord, random, requests
+import logging, aiohttp, json, discord.ext
 from discord.ext import commands
 from collections import Counter
 from outsources import functions, util
 from requests.auth import HTTPBasicAuth
-import asyncio
-import re
 from datetime import datetime
+import asyncio, re
 
 mydb = config.DBdata
 database = mydb.cursor()
