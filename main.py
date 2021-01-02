@@ -320,7 +320,7 @@ async def image(ctx, *args):
 
 @bot.command()
 async def e621(ctx, *, tags=''):
-    if ["scat", "child"] in tags:
+    if tags.lower() in ["scat", "child"]:
         return ctx.send("Blacklisted crap is not allowed smh")
     if ctx.channel.is_nsfw() or ctx.channel.id in config.nsfwexceptions:
         tagurl = tags.replace(' ', '+')
