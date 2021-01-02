@@ -330,10 +330,6 @@ async def e621(ctx, *, tags=''):
             headers={'User-Agent': config.e621agent},
             auth=HTTPBasicAuth(config.e621username, config.e621key)
         )
-        if tags.lower() == ["child porn", "scat", "child"]:
-            await delmsg.delete()
-            await ctx.send("This tag is in the blacklist. Please choose another one.")
-            return
         if not response.json()["posts"]:
             await delmsg.delete()
             await ctx.send(f"Sadly, we couldn't get you `{tags}` - weirdo")
