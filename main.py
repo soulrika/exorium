@@ -328,6 +328,10 @@ async def e621(ctx, *, tags=''):
             headers={'User-Agent': config.e621agent},
             auth=HTTPBasicAuth(config.e621username, config.e621key)
         )
+        if tags == "scat":
+            await delmsg.delete()
+            await ctx.send("We do not allow scat as an option. Please pick another one.")
+            return
         if not response.json()["posts"]:
             await delmsg.delete()
             await ctx.send(f"Sadly, we couldn't get you `{tags}` - weirdo")
@@ -344,8 +348,6 @@ async def e621(ctx, *, tags=''):
         await delmsg.delete()
         await ctx.send(embed=embed)
         await functions.logging(ctx, "e621", bot)
-    if tags == "scat":
-            await ctx.send("We do not allow scat as an option. Please pick another one.")
     else:
         await ctx.send("Sorry, you can only use e621 commands in an NSFW channel")
         await functions.logging(ctx, "e621_fail", bot)
