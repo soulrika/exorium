@@ -328,9 +328,9 @@ async def e621(ctx, *, tags=''):
             headers={'User-Agent': config.e621agent},
             auth=HTTPBasicAuth(config.e621username, config.e621key)
         )
-        if tags.lower() in ["scat", "child"]:
+        if ["scat", "child"] in tags.lower():
             await delmsg.delete()
-            await ctx.send("We do not allow scat as an option. Please pick another one.")
+            await ctx.send("This tag is in the blacklist. Please choose another one.")
             return
         if not response.json()["posts"]:
             await delmsg.delete()
