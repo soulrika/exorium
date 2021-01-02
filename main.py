@@ -328,7 +328,7 @@ async def e621(ctx, *, tags=''):
             headers={'User-Agent': config.e621agent},
             auth=HTTPBasicAuth(config.e621username, config.e621key)
         )
-        if tags.lower() == "scat":
+        if tags.lower() == "scat", "child":
             await delmsg.delete()
             await ctx.send("We do not allow scat as an option. Please pick another one.")
             return
