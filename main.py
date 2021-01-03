@@ -105,7 +105,7 @@ botdesc = f'{support} | {invite} | {review} | {policy}'
 @bot.group()
 async def help(ctx):
     if ctx.invoked_subcommand is None:
-        e = discord.embed(color=config.color)
+        e = discord.Embed(color=config.color)
         e.description = f"{botdesc}\n\n**Developers:** [Bluewy]({config.Bluewy}) & [Toothy]({config.toothy})\n**Prefix:** `e!`"
         e.title = f"{ctx.bot.username} Help"
         e.set_thumbnail(url=ctx.bot.user.avatar_url)
