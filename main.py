@@ -210,7 +210,6 @@ async def privacy(ctx):
     await functions.logging(ctx, "privacy", bot)
 
 @bot.command(name="ping", aliases=["pong", "latency"], brief="shows the bot's latency.")  # the ping command, simply shows the latency in an embed
-@commands.cooldown(1, 5, commands.BucketType.user)
 async def latency(ctx):
     embed = discord.Embed(color=config.color)
     embed.add_field(name="<a:loadingbounce:753173725263822858> ping", value=f'**{bot.latency * 1000:.0f}**ms', inline=True)
@@ -279,6 +278,7 @@ async def id(ctx, member: discord.Member):
     await functions.logging(ctx, "id", bot)
 
 @bot.command(name='animal', help='Generates a random animal!')
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def animal(ctx, *args):
     delmsg = await ctx.send("Awaiting API results...")
     query = ''
@@ -306,6 +306,7 @@ async def animal(ctx, *args):
 
 
 @bot.command(name='image', help='Generates a random image!')
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def image(ctx, *args):
     delmsg = await ctx.send("Awaiting API results...")
     query = ''
@@ -331,6 +332,7 @@ async def image(ctx, *args):
 
 
 @bot.command()
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def e621(ctx, *, tags:str=''):
     for item in ["scat", "child", "child porn"]:
         if tags.lower().count(item):
@@ -465,6 +467,7 @@ async def variables(ctx):
 
 
 @bot.command(name='slap', brief='Slap someone, bad!')
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def slap(ctx, members: commands.Greedy[discord.Member], *, reason="Being bad"):
     if str(ctx.message.author.id) in str(members):
         await ctx.send("You can't slap yourself, derp!")
@@ -475,60 +478,70 @@ async def slap(ctx, members: commands.Greedy[discord.Member], *, reason="Being b
 
 
 @bot.command(name='snuggle', brief='Snuggling, how sweet')  # interaction command - snuggle someone. gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def snuggle(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
     await functions.interactions(ctx, members, reason, "snuggle", "how cute", "snuggled")
     await functions.logging(ctx, "snuggle", bot)
 
 
 @bot.command(name='hug', brief='Fandom hug!')  # interaction command - hug someone. gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def hug(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
     await functions.interactions(ctx, members, reason, "hug", "how lovely", "hugged")
     await functions.logging(ctx, "hug", bot)
 
 
 @bot.command(name='bonk', brief='Bonk naughty person!')  # interaction command - bonk someone. gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def bonk(ctx, members: commands.Greedy[discord.Member], *, reason="bad!"):
     await functions.interactions(ctx, members, reason, "bonk", "how mean", "bonked")
     await functions.logging(ctx, "bonk", bot)
 
 
 @bot.command(name='pat', brief='Pats, wholesome!')  # interaction command - pat someone. gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def pat(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
     await functions.interactions(ctx, members, reason, "pat", "how beautiful", "pat")
     await functions.logging(ctx, "pat", bot)
 
 
 @bot.command(name='boop', aliases=['bp'], brief='Boop!')  # interaction command - boop someone. gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def boop(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
     await functions.interactions(ctx, members, reason, "boop", "so soft", "booped")
     await functions.logging(ctx, "boop", bot)
 
 
 @bot.command(name='kiss', aliases=['smooch'], brief='Smooch!')  # interaction command - kiss someone. gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def kiss(ctx, members: commands.Greedy[discord.Member], *, reason="being lovely"):
     await functions.interactions(ctx, members, reason, "smooch", "lovely", "smooched")
     await functions.logging(ctx, "kiss", bot)
 
 
 @bot.command(name="lick", brief='Licking, lol')  # interaction command - lick someone. gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def lick(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
     await functions.interactions(ctx, members, reason, "lick", "tasty", "licked")
     await functions.logging(ctx, "lick", bot)
 
 
 @bot.command(name="bellyrub")  # interaction command - bellyrub someone. gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def bellyrub(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
     await functions.interactions(ctx, members, reason, "bellyrub", "lovely", "bellyrubbed")
     await functions.logging(ctx, "bellyrub", bot)
 
 
 @bot.command(name="cuddle")  # interaction command - cuddle someone. gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def cuddle(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
     await functions.interactions(ctx, members, reason, "cuddle", "heartwarming", "cuddled")
     await functions.logging(ctx, "cuddle", bot)
 
 
 @bot.command(name="rawr")  # interaction command - rawr at someone. gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def rawr(ctx, members: commands.Greedy[discord.Member], *, reason="Rawr!"):
     giflist = gifs.rawr
     gif = random.choice(giflist)
@@ -544,6 +557,7 @@ async def rawr(ctx, members: commands.Greedy[discord.Member], *, reason="Rawr!")
 
 
 @bot.command(name="awoo")  # interaction command - awoo at someone. gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def awoo(ctx, members: commands.Greedy[discord.Member], *, reason="Awoo!"):
     giflist = gifs.awoo
     gif = random.choice(giflist)
@@ -559,6 +573,7 @@ async def awoo(ctx, members: commands.Greedy[discord.Member], *, reason="Awoo!")
 
 
 @bot.command(name="blush")  # interaction command - blush (because of) someone. gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def blush(ctx, members: commands.Greedy[discord.Member], *, reason="Makes them kyooter!"):
     giflist = gifs.blush
     gif = random.choice(giflist)
@@ -574,12 +589,14 @@ async def blush(ctx, members: commands.Greedy[discord.Member], *, reason="Makes 
 
 
 @bot.command(name="feed")  # interaction command - feed someone. Gifs are random
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def feed(ctx, members: commands.Greedy[discord.Member], *, reason="Hungwy"):
     await functions.interactions(ctx, members, reason, "feed", "sweet!", "fed")
     await functions.logging(ctx, "feed", bot)
 
 
 @bot.command()
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def cookie(ctx, members: commands.Greedy[discord.Member]):
     if not (members):
         return await ctx.send("Please specify at least one cutie to give a cookie to!")
@@ -588,6 +605,7 @@ async def cookie(ctx, members: commands.Greedy[discord.Member]):
 
 
 @bot.command(name="glomp")  # interaction command - glomp someone. gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def glomp(ctx, members: commands.Greedy[discord.Member], *, reason="Love!"):
     giflist = gifs.glomp
     gif = random.choice(giflist)
@@ -598,6 +616,7 @@ async def glomp(ctx, members: commands.Greedy[discord.Member], *, reason="Love!"
 
 
 @bot.command(name="happy")  # interaction command - be happy (because of someone). gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def happy(ctx, members: commands.Greedy[discord.Member], *, reason="Vibing"):
     giflist = gifs.happy
     gif = random.choice(giflist)
@@ -613,12 +632,14 @@ async def happy(ctx, members: commands.Greedy[discord.Member], *, reason="Vibing
 
 
 @bot.command(name="highfive")  # interaction command - highfive someone. Gifs are random
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def highfive(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
     await functions.interactions(ctx, members, reason, "highfive", "awesome!", "high fived")
     await functions.logging(ctx, "highfive", bot)
 
 
 @bot.command(name="wag")  # interaction command - wag (because of someone). gifs are random!
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def wag(ctx, members: commands.Greedy[discord.Member], *, reason="Rawr!"):
     giflist = gifs.wag
     gif = random.choice(giflist)
@@ -769,6 +790,7 @@ async def decide(ctx, *, arg):
 
 
 @bot.command(name="revive")  # Tags the role that was given with a message.
+@commands.cooldown(1, 120, commands.BucketType.user)
 @commands.has_permissions(manage_messages=True)
 async def revive(ctx):
     await ctx.message.delete()
@@ -886,6 +908,7 @@ async def warnings(ctx, member: discord.Member):
 
 
 @bot.command()
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def suggest(ctx, *, suggestiontext):
     if len(suggestiontext) >= 500:
         return await ctx.send('Your suggestion is too long! Please limit your suggestion to 500 characters or less.')
@@ -908,6 +931,7 @@ async def suggest(ctx, *, suggestiontext):
 
 
 @bot.command()
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def suggestions(ctx):
     if ctx.message.content.endswith("clear"):
         botmsg = await ctx.send("Confirm deletion of all your **pending** suggestions?")
