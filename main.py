@@ -68,7 +68,7 @@ async def on_command_error(ctx, error):
         ie = discord.Embed(color=config.red)
         ie.add_field(name='error while processing', value='You do not have the sufficient permissions.')
         await ctx.send(embed=ie)
-        e = discord.Embed(color=config.orange)
+        e = discord.Embed(color=config.red)
         e.description = f"{ctx.message.author} had an error while using a command:\n`User permissions are too low.`"
         channel = bot.get_channel(790239054868381697)
         await channel.send(embed=e)
@@ -81,7 +81,15 @@ async def on_command_error(ctx, error):
         e.description = f"{ctx.message.author} had an error while using a command:\n`Command can only be used by bot owners.`"
         channel = bot.get_channel(790239054868381697)
         await channel.send(embed=e)
-        
+    
+    if isinstance(error, commands.CommandOnCooldown):
+        ie = discord.Embed(color=config.red)
+        ie.description=f"This command is on cooldown, please wait."
+        await ctx.send(embed=ie)
+        e = discord.Embed(color=config.red)
+        e.description=f"{ctx.message.author} had a cooldown error while attempting to use a command in guild {guild.name} (`{guild.id}`)."
+        channel = bot.get_channel(790239054868381697)
+        await channel.send(embed=e)        
 
 # Use of group decorators for help cmd
 support = f'<:discordwindows:733855618775121921> {config.support}'
@@ -199,6 +207,7 @@ async def privacy(ctx):
     await functions.logging(ctx, "privacy", bot)
 
 @bot.command(name="ping", aliases=["pong", "latency"], brief="shows the bot's latency.")  # the ping command, simply shows the latency in an embed
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def latency(ctx):
     embed = discord.Embed(color=config.color)
     embed.add_field(name="<a:loadingbounce:753173725263822858> ping", value=f'**{bot.latency * 1000:.0f}**ms', inline=True)
