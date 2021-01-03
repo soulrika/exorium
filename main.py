@@ -107,22 +107,12 @@ async def help(ctx):
     stats = f"**statistics:** {str(len(bot.guilds))} guilds | {str(len(bot.users))} users"
     discordpy = f"**discord.py version:** {discord.__version__}"
     if ctx.invoked_subcommand is None:
-        e = discord.Embed(title="Exo help", color=config.color)
-        e.description = f"""
-**{botdesc}**
-
-**Developers:** {config.bluewy} and {config.toothy}
-**Prefix:** `e!` (`exo help <menu>` for the correct help menu.)
-
-<:FH_TPK_fifihug:752161104603381903> **social**     <:add:784479069852008558> **jsk (dev+)**
-<:protoban:730788937332686970> **mod**              <:owner:675395742407327754> **owner (dev+)**
-<:stafftools:782681985021116436> **utils**          <:nsfw:758068849424990219> **nsfw**
-
-Latest news:
-{config.news}
-"""
-    await ctx.send(embed=e)
-    await functions.logging(ctx, "help", bot)
+        e = discord.Embed(title=f'help cmd | prefix: `{ctx.prefix}`', description=botdesc, color=config.color)
+        e.add_field(name='info', value=f'**Developers:** [Bluewy]({config.bluewy}) | [Toothless]({config.toothy})\n{stats}\n{discordpy}', inline=False)
+        e.add_field(name='categories', value=f'`{ctx.prefix}help social` - Social commands\n**{ctx.prefix}help mod** - Moderation commands\n`{ctx.prefix}help utils` - Utility commands\n**{ctx.prefix}help exorium** - Bot related\n`{ctx.prefix}help jsk (Dev+)` - Debugging\n**{ctx.prefix}help owner (Dev+)** - Dev only commands\n`{ctx.prefix}help nsfw` - NSFW commands', inline=False)
+        e.add_field(name='Latest news', value=config.news, inline=False)
+        await ctx.send(embed=e)
+        await functions.logging(ctx, "help", bot)
         
 @help.command()
 @commands.is_owner()
