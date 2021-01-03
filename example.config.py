@@ -10,6 +10,15 @@ orange = (YELLOWCOLOR)
 #  red = (c93838)
 
 support = "[support server](discord.gg/invlink)"
+ninvite = "needed permissions oauth invite link" ### ONLY FOR NEEDED PERMISSIONS ### To hyperlink this in main.py: [invite me!]({config.ninvite})
+ainvite = "admin permissions oauth invite link" ### ONLY FOR ADMIN PERMISSIONS ### To hyperlink this in main.py: [invite me!]({config.ainvite})
+zinvite = "zero permissions oauth invite link" ### ONLY FOR ZERO PERMISSIONS ### To hyperlink this in main.py: [invite me!]({config.zinvite})
+review = "link to review page" ### To hyperlink this in main.py: [review me!]({config.review})
+pp = "privacy policy link" ### To hyperlink this in main.py: [privacy policy]({config.pp})
+status = "status page link" ### For your bot's statuspage
+
+
+### API's 
 pixabaykey = 'pixabay api key'
 
 e621key = 'apikey' # Your e621 api key (you need an account)
