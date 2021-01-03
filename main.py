@@ -275,7 +275,7 @@ __**statistics**__
 **guilds:** {str(len(bot.guilds))}\n**users:** {str(len(bot.users))}\n**channels:**\nText <:channel:719660740050419935> {text:,}\nVoice <:voice:719660766269145118> {voice:,}
 
 __**System**__
-**Hosting OS:** `{playform.platform()}`\n**Cores:** `{cores}`\n**CPU:** `{cpu_per}%`\n**RAM:** `{mem_usage}/{memory} MB`\n**Storage:** `{storage_free} GB free`
+**Hosting OS:** `{platform.platform()}`\n**Cores:** `{cores}`\n**CPU:** `{cpu_per}%`\n**RAM:** `{mem_usage}/{memory} MB`\n**Storage:** `{storage_free} GB free`
 """
     await ctx.send(embed=e)
     await functions.logging(ctx, "stats", bot)
