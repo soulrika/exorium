@@ -320,9 +320,10 @@ async def image(ctx, *args):
 
 @bot.command()
 async def e621(ctx, *, tags:str=''):
-    if tags.lower() in ["scat", "child", "child porn"]:
-        await ctx.send("Blacklisted crap is not allowed smh")
-        return
+    for item in ["scat", "child", "child porn"]:
+        if tags.lower().count(item):
+            await ctx.send("Blacklisted crap is not allowed smh")
+            return
     if ctx.channel.is_nsfw() or ctx.channel.id in config.nsfwexceptions:
         tagurl = tags.replace(' ', '+')
         delmsg = await ctx.send("Waiting for results <a:loadingbounce:753173725263822858>")
