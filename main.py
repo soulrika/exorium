@@ -319,7 +319,7 @@ async def image(ctx, *args):
 
 
 @bot.command()
-async def e621(ctx, *, tags=''):
+async def e621(ctx, *, tags:str=''):
     if tags.lower() in ["scat", "child", "child porn"]:
         await ctx.send("Blacklisted crap is not allowed smh")
         return
