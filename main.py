@@ -95,7 +95,7 @@ async def on_command_error(ctx, error):
         
 
 # Use of group decorators for help cmd
-support = f'<:discordwindows:733855618775121921> {config.support}'
+support = f'<:discordwindows:733855618775121921> [Get support]({config.support})'
 invite = f'<:discovery:719431405905379358> [Invite exo]({config.ninvite})'
 review = f'<:new:736926339113680976> [Review us]({config.review})'
 policy = f'🔗 [Privacy policy]({config.pp})'
