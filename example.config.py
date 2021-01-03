@@ -9,7 +9,7 @@ orange = (YELLOWCOLOR)
 #  Color codes must be in hex, for example: 
 #  red = (c93838)
 
-support = "[support server](discord.gg/invlink)"
+support = "support server link"
 ninvite = "needed permissions oauth invite link" ### ONLY FOR NEEDED PERMISSIONS ### To hyperlink this in main.py: [invite me!]({config.ninvite})
 ainvite = "admin permissions oauth invite link" ### ONLY FOR ADMIN PERMISSIONS ### To hyperlink this in main.py: [invite me!]({config.ainvite})
 zinvite = "zero permissions oauth invite link" ### ONLY FOR ZERO PERMISSIONS ### To hyperlink this in main.py: [invite me!]({config.zinvite})
