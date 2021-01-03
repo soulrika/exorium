@@ -85,10 +85,10 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         cdamount = '{:.2f}'.format(error.retry_after)
         ie = discord.Embed(color=config.red)
-        ie.description=f"This command is on cooldown for {cdamount} more seconds., please wait."
+        ie.description=f"This command is on cooldown for **{cdamount}** more seconds, please wait."
         await ctx.send(embed=ie)
         e = discord.Embed(color=config.red)
-        e.description=f"Cooldown ({cdamount}) occured for {ctx.message.author} in {ctx.guild.name} (`{ctx.guild.id}`)."
+        e.description=f"Cooldown (`{cdamount}s`) occured for {ctx.message.author} in {ctx.guild.name} (`{ctx.guild.id}`)."
         channel = bot.get_channel(790239054868381697)
         await channel.send(embed=e)        
 
