@@ -113,6 +113,7 @@ async def help(ctx):
         # e.add_field(name="\u200b", value="<:developer:784466302507941918> jsk (dev+)\n<:owner:585789630800986114> owner (dev+)", inline=True)
         if ctx.message.author.id == owner_ids:
             e.add_field(name="Dev only", value="`jsk` and `owner` (submenus for dev commands)", inline=False)
+            print("If statement success")
         e.add_field(name="<:announcementchannel:719661836303073413> news", value=config.news, inline=False)
         await ctx.send(embed=e)
         await functions.logging(ctx, "help", bot)
