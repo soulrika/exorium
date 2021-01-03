@@ -261,6 +261,17 @@ async def statistics(ctx):
     voice = channel_types[discord.channel.VoiceChannel]
     text = channel_types[discord.channel.TextChannel]
     lastboot = str((datetime.utcfromtimestamp(uptime).strftime('%H hour(s), %M minute(s) and %S second(s)')))
+    cpu_per = psutil.cpu_percent()
+    cores = psutil.cpu_count()
+    memory = psutil.virtual_memory().total >> 20
+    mem_usage = psutil.virtual_memory().used >> 20
+    storage_free = psutil.disk_usage('/').free >> 30
+        em = discord.Embed(color=config.color,
+        description=f"Hosting OS: **{platform.platform()}**\n"
+        f"Cores: **{cores}**\n"
+        f"CPU: **{cpu_per}%**\n"
+        f"RAM: **{mem_usage}/{memory} MB**\n"
+        f"STORAGE: **{storage_free} GB free**")
     e = discord.Embed(title="exorium statistics", color=config.color)
     e.description = f"""
 __**About exorium**__
@@ -268,7 +279,10 @@ __**About exorium**__
     
 __**statistics**__
 **guilds:** {str(len(bot.guilds))}\n**users:** {str(len(bot.users))}\n**channels:**\nText <:channel:719660740050419935> {text:,}\nVoice <:voice:719660766269145118> {voice:,}
-    """
+
+__**System**__
+**Hosting OS:** `{playform.platform()}`\n**Cores:** `{cores}`\n**CPU:** `{cpu_per}%`\n**RAM:** `{mem_usage}/{memory} MB`\n**Storage:** `{storage_free} GB free`
+"""
     await ctx.send(embed=e)
     await functions.logging(ctx, "stats", bot)
     
