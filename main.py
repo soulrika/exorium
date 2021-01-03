@@ -790,7 +790,7 @@ async def decide(ctx, *, arg):
 
 
 @bot.command(name="revive")  # Tags the role that was given with a message.
-@commands.cooldown(1, 120, commands.BucketType.user)
+@commands.cooldown(1, 300, commands.BucketType.user)
 @commands.has_permissions(manage_messages=True)
 async def revive(ctx):
     await ctx.message.delete()
