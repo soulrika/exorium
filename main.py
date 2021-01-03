@@ -107,7 +107,7 @@ async def help(ctx):
     if ctx.invoked_subcommand is None:
         e = discord.Embed(color=config.color)
         e.description = f"{botdesc}\n\n**Developers:** [Bluewy]({config.bluewy}) & [Toothy]({config.toothy})\n**Prefix:** `e!`"
-        e.title = f"{ctx.bot.username} Help"
+        e.title = f"{ctx.bot.user.name} Help"
         e.set_thumbnail(url=ctx.bot.user.avatar_url)
         e.add_field(name="\u200b", value="<:animated:719431405934739506> social\n<:moderator:784466302441357382> mod\n<:notified:784466302227972120>\n<:nsfw:758068849424990219> nsfw\n<:bot:699190181277859840> bot", inline=False)
         e.add_field(name="\u200b", value="<:developer:784466302507941918> jsk (dev+)\n<:owner:585789630800986114> owner (dev+)", inline=True)
