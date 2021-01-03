@@ -5,7 +5,7 @@ from collections import Counter
 from outsources import functions, util
 from requests.auth import HTTPBasicAuth
 from datetime import datetime
-import asyncio, re, psutil
+import asyncio, re, psutil, platform
 
 mydb = config.DBdata
 database = mydb.cursor()
