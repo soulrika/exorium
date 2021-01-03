@@ -174,6 +174,7 @@ async def owner(ctx):
 async def nsfw(ctx):
     e = discord.Embed(title='NSFW commands', description="All the Not Safe For Work commands in exorium (NSFW CHANNELS ONLY)", color=config.color)
     e.add_field(name='Commands', value="`e621` - Search the [e621](https://e621.net) API for yiff", inline=False)
+    e.set_footer(text="Please note that all nsfw commands have child porn and scat blacklisted.")
     await ctx.send(embed=e)
     await functions.logging(ctx, "help nsfw", bot)
 ##############################################################################################################################
