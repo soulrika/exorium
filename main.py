@@ -96,9 +96,9 @@ async def on_command_error(ctx, error):
 
 # Use of group decorators for help cmd
 support = f'<:discordwindows:733855618775121921> {config.support}'
-invite = '<:discovery:719431405905379358> [Invite exo](https://discordextremelist.xyz/en-US/bots/exorium)'
-review = '<:new:736926339113680976> [Review us](https://top.gg/bot/620990340630970425)'
-policy = '🔗 [Privacy policy](https://github.com/ThePawKingdom/exorium/blob/master/privacy%20policy.md)'
+invite = f'<:discovery:719431405905379358> [Invite exo]({config.invite})'
+review = f'<:new:736926339113680976> [Review us]({config.review})'
+policy = f'🔗 [Privacy policy]({config.pp})'
 
 botdesc = f'{support} | {invite} | {review} | {policy}'
 
@@ -156,7 +156,7 @@ async def utils(ctx):
 async def exorium(ctx):
     e = discord.Embed(title='Bot commands', description="All the commands directly related to exorium itself", color=config.color)
     e.add_field(name='Commands', value="```askexo, invite, links, ping, stats, suggest```", inline=False)
-    e.add_field(name='Important', value="Please report it to us immediately if one of these commands are outdated, or not functional in our [support server](https://discord.gg/CEHkNky)", inline=False)
+    e.add_field(name='Important', value=f"Please report it to us immediately if one of these commands are outdated, or not functional in our [support server]({config.support})", inline=False)
     await ctx.send(embed=e)
     await functions.logging(ctx, "help exorium", bot)
 
@@ -206,7 +206,7 @@ async def info(ctx, emoji: discord.Emoji):
 @bot.command()
 async def privacy(ctx):
     e = discord.Embed(color=config.color)
-    e.description = "You can read our privacy policy [here](https://github.com/ThePawKingdom/exorium/blob/master/privacy%20policy.md)."
+    e.description = f"You can read our privacy policy [here]({config.pp})."
     await ctx.send(embed=e)
     await functions.logging(ctx, "privacy", bot)
 
@@ -223,13 +223,13 @@ async def invite(ctx):
     e = discord.Embed(color=config.color)
     e.description = f"""
     __**Invite links:**__
-    [needed permissions](https://discord.com/api/oauth2/authorize?client_id=620990340630970425&permissions=335932630&scope=bot) (recommended)
-    [admin permissions](https://discord.com/api/oauth2/authorize?client_id=620990340630970425&permissions=8&scope=bot)
-    [0 permissions](https://discord.com/api/oauth2/authorize?client_id=620990340630970425&permissions=0&scope=bot)
+    [needed permissions]({config.ninvite}) (recommended)
+    [admin permissions]({config.ainvite})
+    [0 permissions]({config.zinvite})
     
     __**Other links:**__
-    [support server](https://discord.gg/CEHkNky)
-    [status page](https://exorium.statuspage.io/)
+    [support server]({config.support})
+    [status page]({config.status})
     """
     await ctx.send(embed=e)
     await functions.logging(ctx, "invite", bot)
@@ -248,7 +248,7 @@ async def links(ctx):
     e = discord.Embed(color=config.color)
     e.add_field(name='Bot lists', value='- [Discordextremelist](https://discordextremelist.xyz/en-US/bots/exorium)\n- [Discordbotlist](https://top.gg/bot/620990340630970425)', inline=True)
     e.add_field(name='Github', value='- [Repository](https://github.com/ThePawKingdom/exorium)', inline=True)
-    e.add_field(name='status', value='- [status page](https://exorium.statuspage.io/)', inline=True)
+    e.add_field(name='status', value=f'- [status page]({config.status})', inline=True)
     await ctx.send(embed=e)
 
 
