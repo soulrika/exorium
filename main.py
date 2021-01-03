@@ -5,7 +5,7 @@ from collections import Counter
 from outsources import functions, util
 from requests.auth import HTTPBasicAuth
 from datetime import datetime
-import asyncio, re
+import asyncio, re, psutil
 
 mydb = config.DBdata
 database = mydb.cursor()
@@ -271,6 +271,25 @@ __**statistics**__
     """
     await ctx.send(embed=e)
     await functions.logging(ctx, "stats", bot)
+    
+
+@bot.command()
+async def system(ctx):
+    try:
+    cpu_per = psutil.cpu_percent()
+    cores = psutil.cpu_count()
+    memory = psutil.virtual_memory().total >> 20
+    mem_usage = psutil.virtual_memory().used >> 20
+    storage_free = psutil.disk_usage('/').free >> 30
+    em = discord.Embed(color=self.color['embed_color'],
+    description=f"Hosting OS: **{platform.platform()}**\n"
+    f"Cores: **{cores}**\n"
+    f"CPU: **{cpu_per}%**\n"
+    f"RAM: **{mem_usage}/{memory} MB**\n"
+    f"STORAGE: **{storage_free} GB free**")
+    await ctx.send(embed=em)
+   except Exception as e:
+    await ctx.send("Looks like there's no system information")
 
 
 @bot.command()  # retrieves the ID of a member. Argument can be an ID, just the user's name or the user mention
