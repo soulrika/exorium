@@ -111,7 +111,7 @@ async def help(ctx):
         e.set_thumbnail(url=ctx.bot.user.avatar_url)
         e.add_field(name="\u200b", value="<:animated:719431405934739506> social\n<:moderator:784466302441357382> mod\n<:notified:784466302227972120> utils\n<:nsfw:758068849424990219> nsfw\n<:bot:699190181277859840> bot\n\u200b", inline=True)
         # e.add_field(name="\u200b", value="<:developer:784466302507941918> jsk (dev+)\n<:owner:585789630800986114> owner (dev+)", inline=True)
-        if ctx.message.author.id == owner_ids:
+        if ctx.message.author.id == int(owner_ids):
             e.add_field(name="Dev only", value="`jsk` and `owner` (submenus for dev commands)", inline=False)
             print("If statement success")
         e.add_field(name="<:announcementchannel:719661836303073413> news", value=config.news, inline=False)
