@@ -16,7 +16,8 @@ zinvite = "zero permissions oauth invite link" ### ONLY FOR ZERO PERMISSIONS ###
 review = "link to review page" ### To hyperlink this in main.py: [review me!]({config.review})
 pp = "privacy policy link" ### To hyperlink this in main.py: [privacy policy]({config.pp})
 status = "status page link" ### For your bot's statuspage
-
+dev1 = "discord user profile link" ### user profile links look like this: https://discord.com/users/(the user's ID)
+dev2 = "discord user profile link" ### user profile links look like this: https://discord.com/users/(the user's ID)
 
 ### API's 
 pixabaykey = 'pixabay api key'
