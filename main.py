@@ -288,7 +288,7 @@ async def system(ctx):
         f"RAM: **{mem_usage}/{memory} MB**\n"
         f"STORAGE: **{storage_free} GB free**")
         await ctx.send(embed=em)
-       except Exception as e:
+    except Exception as e:
         await ctx.send("Looks like there's no system information")
 
 
