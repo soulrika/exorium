@@ -87,7 +87,7 @@ async def on_command_error(ctx, error):
         ie.description=f"This command is on cooldown, please wait."
         await ctx.send(embed=ie)
         e = discord.Embed(color=config.red)
-        e.description=f"{ctx.message.author} had a cooldown error while attempting to use a command in guild {guild.name} (`{guild.id}`)."
+        e.description=f"{ctx.message.author} had a cooldown error while attempting to use a command in guild {ctx.guild.name} (`{ctx.guild.id}`)."
         channel = bot.get_channel(790239054868381697)
         await channel.send(embed=e)        
 
