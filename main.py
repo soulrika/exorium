@@ -281,7 +281,7 @@ async def system(ctx):
         memory = psutil.virtual_memory().total >> 20
         mem_usage = psutil.virtual_memory().used >> 20
         storage_free = psutil.disk_usage('/').free >> 30
-        em = discord.Embed(color=self.color['embed_color'],
+        em = discord.Embed(color=config.color,
         description=f"Hosting OS: **{platform.platform()}**\n"
         f"Cores: **{cores}**\n"
         f"CPU: **{cpu_per}%**\n"
