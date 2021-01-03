@@ -104,16 +104,18 @@ botdesc = f'{support} | {invite} | {review} | {policy}'
 
 @bot.group()
 async def help(ctx):
-    stats = f"**statistics:** {str(len(bot.guilds))} guilds | {str(len(bot.users))} users"
-    discordpy = f"**discord.py version:** {discord.__version__}"
     if ctx.invoked_subcommand is None:
-        e = discord.Embed(title=f'help cmd | prefix: `{ctx.prefix}`', description=botdesc, color=config.color)
-        e.add_field(name='info', value=f'**Developers:** [Bluewy]({config.bluewy}) | [Toothless]({config.toothy})\n{stats}\n{discordpy}', inline=False)
-        e.add_field(name='categories', value=f'`{ctx.prefix}help social` - Social commands\n**{ctx.prefix}help mod** - Moderation commands\n`{ctx.prefix}help utils` - Utility commands\n**{ctx.prefix}help exorium** - Bot related\n`{ctx.prefix}help jsk (Dev+)` - Debugging\n**{ctx.prefix}help owner (Dev+)** - Dev only commands\n`{ctx.prefix}help nsfw` - NSFW commands', inline=False)
-        e.add_field(name='Latest news', value=config.news, inline=False)
+        e = discord.embed(color=config.color)
+        e.description = f"{botdesc}\n\n**Developers:** [Bluewy]({config.Bluewy}) & [Toothy]({config.toothy})\n**Prefix:** `e!`"
+        e.title = f"{ctx.bot.username} Help"
+        e.set_thumbnail(url=ctx.bot.user.avatar_url)
+        e.add_field(name="\u200b", value="<:animated:719431405934739506> social\n<:moderator:784466302441357382> mod\n<:notified:784466302227972120>\n<:nsfw:758068849424990219> nsfw\n<:bot:699190181277859840> bot", inline=False)
+        e.add_field(name="\u200b", value="<:developer:784466302507941918> jsk (dev+)\n<:owner:585789630800986114> owner (dev+)", inline=True)
+        e.add_field(name="<:announcementchannel:719661836303073413> news", value=config.news, inline=False)
         await ctx.send(embed=e)
         await functions.logging(ctx, "help", bot)
         
+
 @help.command()
 @commands.is_owner()
 async def jsk(ctx):
@@ -151,7 +153,7 @@ async def utils(ctx):
 
 
 @help.command()
-async def exorium(ctx):
+async def bot(ctx):
     e = discord.Embed(title='Bot commands', description="All the commands directly related to exorium itself", color=config.color)
     e.add_field(name='Commands', value="```askexo, invite, links, ping, stats, suggest```", inline=False)
     e.add_field(name='Important', value=f"Please report it to us immediately if one of these commands are outdated, or not functional in our [support server]({config.support})", inline=False)
