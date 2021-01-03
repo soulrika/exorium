@@ -103,7 +103,7 @@ policy = f'🔗 [Privacy policy]({config.pp})'
 botdesc = f'{support} | {invite} | {review} | {policy}'
 
 @bot.group()
-async def help(ctx)
+async def help(ctx):
     stats = f"**statistics:** {str(len(bot.guilds))} guilds | {str(len(bot.users))} users"
     discordpy = f"**discord.py version:** {discord.__version__}"
     if ctx.invoked_subcommand is None:
