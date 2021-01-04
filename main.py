@@ -400,6 +400,9 @@ async def e621(ctx, *, tags:str=''):
     if 'shit' in ctx.message.content.lower():
         await ctx.send(f"{tags} is blacklisted. Why tf you weirdo?")
         return
+    if 'cub' in ctx.message.content.lower():
+        await ctx.send(f"(tags) is blacklisted. Why tf you weirdo?")
+        return
     if ctx.channel.is_nsfw() or ctx.channel.id in config.nsfwexceptions:
         tagurl = tags.replace(' ', '+')
         delmsg = await ctx.send("Waiting for results <a:loadingbounce:753173725263822858>")
