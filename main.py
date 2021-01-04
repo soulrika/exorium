@@ -92,6 +92,10 @@ async def on_command_error(ctx, error):
         channel = bot.get_channel(790239054868381697)
         await channel.send(embed=e)
 
+    if isinstance(error, discord.ext.commands.errors.CommandInvokeError):
+        await ctx.send(":warning: Error - {}".format(error))
+    elif isinstance(error, discord.ext.commands.errors.Forbidden(response, message)):
+        await ctx.send(":warning: Error - {} {} {}".format(error,response,message))
         
 
 # Use of group decorators for help cmd
