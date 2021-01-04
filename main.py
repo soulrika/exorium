@@ -226,6 +226,13 @@ async def info(ctx, emoji: discord.Emoji):
 ##############################################################################################################################
 
 @bot.command()
+@commands.is_owner()
+async def testing(ctx):
+    invite = await ctx.guild.invites()
+    await ctx.send(invites)
+
+
+@bot.command()
 async def privacy(ctx):
     e = discord.Embed(color=config.color)
     e.description = f"You can read our privacy policy [here]({config.pp})."
