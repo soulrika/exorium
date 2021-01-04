@@ -91,12 +91,16 @@ async def on_command_error(ctx, error):
         e.description=f"Cooldown (`{cdamount}s`) occured for {ctx.message.author} in {ctx.guild.name} (`{ctx.guild.id}`)."
         channel = bot.get_channel(790239054868381697)
         await channel.send(embed=e)
-
-    if isinstance(error, discord.ext.commands.errors.CommandInvokeError):
-        await ctx.send(":warning: Error - {}".format(error))
-    elif isinstance(error, discord.ext.commands.errors.Forbidden(response, message)):
-        await ctx.send(":warning: Error - {} {} {}".format(error,response,message))
         
+    if isinstance(error, discord.ext.commands.errors.CommandInvokeError):
+        e = discord.Embed(title="⚠️ An error occured", color=config.red)
+        e.description="```{}```".format(error)
+        await ctx.send(embed=e)
+    elif isinstance(error, discord.ext.commands.errors.Forbidden(response, message)):
+        e = discord.Embed(title="⚠️ An error occured", color=config.red)
+        e.description="{} {} {}".format(error,response,message)
+        await ctx.send(embed=e)
+
 
 # Use of group decorators for help cmd
 support = f'<:discordwindows:733855618775121921> [Get support]({config.support})'
