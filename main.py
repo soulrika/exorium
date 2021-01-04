@@ -98,7 +98,7 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=e)
     elif isinstance(error, discord.ext.commands.errors.Forbidden(response, message)):
         e = discord.Embed(title="⚠️ An error occured", color=config.red)
-        e.description="{} {} {}".format(error,response,message)
+        e.description="```{} {} {}```".format(error,response,message)
         await ctx.send(embed=e)
 
 
