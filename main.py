@@ -229,7 +229,7 @@ async def info(ctx, emoji: discord.Emoji):
 @commands.is_owner()
 async def testing(ctx):
     invite = await ctx.guild.invites()
-    await ctx.send(invites)
+    await ctx.send(invite)
 
 
 @bot.command()
