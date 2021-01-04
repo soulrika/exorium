@@ -389,6 +389,7 @@ async def image(ctx, *args):
 
 
 @bot.command()
+@commands.is_owner()
 @commands.cooldown(1, 10, commands.BucketType.user)
 async def e621(ctx, *, tags:str=''):
     if 'scat' in ctx.message.content.lower():
