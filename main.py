@@ -928,8 +928,6 @@ async def purge(ctx, amount=0):
 @bot.command()
 @commands.has_permissions(manage_messages=True)
 async def warn(ctx, member: discord.Member, *, reason="No reason provided"):
-    await ctx.send("This command is not available as our database is having issues.")
-    return
     if member == ctx.author:
         await ctx.send("You can't warn yourself.")
         return
@@ -944,8 +942,6 @@ async def warn(ctx, member: discord.Member, *, reason="No reason provided"):
 @bot.command()
 @commands.has_permissions(manage_messages=True)
 async def delwarn(ctx, caseid):
-    await ctx.send("This command is not available as our database is having issues")
-    return
     database.execute("SELECT * FROM warnings WHERE id = %s AND serverid = %s", [caseid, ctx.message.guild.id])
     results = database.fetchall()
     if results:
@@ -960,8 +956,6 @@ async def delwarn(ctx, caseid):
 @bot.command()
 @commands.has_permissions(manage_messages=True)
 async def warnings(ctx, member: discord.Member):
-    await ctx.send("This command is not available as our database is having issues")
-    return
     await functions.logging(ctx, "warnings", bot)
     database.execute("SELECT * FROM warnings WHERE user = %s AND serverid = %s", [member.id, ctx.message.guild.id])
     results = database.fetchall()
@@ -982,8 +976,6 @@ async def warnings(ctx, member: discord.Member):
 @bot.command()
 @commands.cooldown(1, 10, commands.BucketType.user)
 async def suggest(ctx, *, suggestiontext):
-    await ctx.send("This command is not available as our database is having issues")
-    return
     if len(suggestiontext) >= 500:
         return await ctx.send('Your suggestion is too long! Please limit your suggestion to 500 characters or less.')
     database.execute("SELECT id FROM suggestions")
@@ -1007,8 +999,6 @@ async def suggest(ctx, *, suggestiontext):
 @bot.command()
 @commands.cooldown(1, 5, commands.BucketType.user)
 async def suggestions(ctx):
-    await ctx.send("This command is not available as our database is having issues")
-    return
     if ctx.message.content.endswith("clear"):
         botmsg = await ctx.send("Confirm deletion of all your **pending** suggestions?")
         await botmsg.add_reaction("✅")
@@ -1046,8 +1036,6 @@ async def suggestions(ctx):
 @bot.command()
 @commands.is_owner()
 async def digest(ctx):
-    await ctx.send("This command is not available as our database is having issues")
-    return
     approval = {
         "❌": "Denied",
         "✅": "Approved"
