@@ -240,10 +240,10 @@ async def privacy(ctx):
     await functions.logging(ctx, "privacy", bot)
 
 @bot.command(name="ping", aliases=["pong", "latency"], brief="shows the bot's latency.")  # the ping command, simply shows the latency in an embed
-async def latency(ctx):
-    embed = discord.Embed(color=config.color)
-    embed.add_field(name="<a:loadingbounce:753173725263822858> ping", value=f'**{bot.latency * 1000:.0f}**ms', inline=True)
-    await ctx.send(embed=embed)
+async def ping(ctx):
+    e = discord.Embed(color=config.color)
+    e.description = f"<a:loady:797071022935244801> The ping is `{bot.latency * 1000:.0f}`ms"
+    await ctx.send(embed=e)
     await functions.logging(ctx, "ping", bot)
 
     
