@@ -44,7 +44,7 @@ bot.load_extension('jishaku')
 async def on_guild_join(guild):
     e = discord.Embed(title="New server", color=config.green)
     
-    created = {guild.created_at.strftime('%d.%m.%Y %H:%M')}
+    created = f"{guild.created_at.strftime('%d.%m.%Y %H:%M')}"
     humann = sum(1 for member in guild.members if not member.bot)
     botts = sum(1 for member in guild.members if member.bot)
         
