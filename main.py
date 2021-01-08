@@ -29,24 +29,24 @@ async def on_ready():
 bot.load_extension('jishaku')
 
 
-@bot.event
-async def on_guild_join(guild):
-    print(f"I just joined {guild.name}, ID: {guild.id}")
-    e = discord.Embed(title='New server', color=config.green)
-    e.add_field(name="Guild", value=guild, inline=True)
-    e.add_field(name="Members", value=guild.member_count, inline=True)
-    e.add_field(name="Guild ID", value=guild.id, inline=False)
-    e.add_field(name="Guild owner", value=guild.owner, inline=False)
-    channel = bot.get_channel(762203326519181312)
-    await channel.send(embed=e)
+# @bot.event
+# async def on_guild_join(guild):
+#     print(f"I just joined {guild.name}, ID: {guild.id}")
+#     e = discord.Embed(title='New server', color=config.green)
+#     e.add_field(name="Guild", value=guild, inline=True)
+#     e.add_field(name="Members", value=guild.member_count, inline=True)
+#     e.add_field(name="Guild ID", value=guild.id, inline=False)
+#     e.add_field(name="Guild owner", value=guild.owner, inline=False)
+#     channel = bot.get_channel(762203326519181312)
+#     await channel.send(embed=e)
 
 @bot.event
 async def on_guild_join(guild):
     e = discord.Embed(title="New server", color=config.green)
     
     created = {guild.created_at.strftime('%d.%m.%Y %H:%M')}
-    humann = sum(1 for member in ctx.guild.members if not member.bot)
-    botts = sum(1 for member in ctx.guild.members if member.bot)
+    humann = sum(1 for member in guild.members if not member.bot)
+    botts = sum(1 for member in guild.members if member.bot)
         
     e.description = f"""
 __**Information**__
