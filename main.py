@@ -153,7 +153,7 @@ async def on_command_error(ctx, error):
         channel = bot.get_channel(790239054868381697)
         e = discord.Embed(title="⚠️ An error occured", color=config.red)
         e.description="```{}```".format(error)
-        await channel.send(content=f"`<@&755070139325743226>` | {ctx.message.author} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
+        await channel.send(content=f"<@&755070139325743226> | {ctx.message.author} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
         
     elif isinstance(error, discord.ext.commands.errors.Forbidden(response, message)):
         ie = discord.Embed(title="⚠️ An error occured", color=config.red)
@@ -162,7 +162,7 @@ async def on_command_error(ctx, error):
         channel = bot.get_channel(790239054868381697)
         e = discord.Embed(title="⚠️ An error occured", color=config.red)
         e.description="```{} {} {}```".format(error,response,message)
-        await channel.send(content=f"`<@&755070139325743226>` | {ctx.message.author} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
+        await channel.send(content=f"<@&755070139325743226> | {ctx.message.author} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
 
 
 # Use of group decorators for help cmd
@@ -1005,7 +1005,7 @@ async def delwarn(ctx, caseid):
     await ctx.send("No warning with such an ID exists here. Please check again!")
 
 @bot.command()
-@commands.has_permissions(ban_members=True)
+@commands.has_permissions(manage_messages=True)
 async def delallwarns(ctx, user: discord.User):
     database.execute("SELECT id FROM warnings WHERE user = %s AND serverid = %s", [user.id, ctx.message.guild.id])
     results = database.fetchall()
