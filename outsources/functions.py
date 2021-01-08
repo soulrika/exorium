@@ -35,7 +35,7 @@ async def logging(ctx, type, bot):
     
     e.description = f"""
 __**Command info**__
-**Command:** `\"{type}\"`
+**Command:** `{type}`
 **Message ID:** [{ctx.message.id}]({ctx.message.jump_url}) (Click to go to message)
 **Message date:** {mcreated}
 
