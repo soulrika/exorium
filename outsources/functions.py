@@ -23,3 +23,23 @@ async def logging(ctx, type, bot):
     embed.add_field(name="Channel", value=f"`{ctx.channel}`", inline=True)
     channel = bot.get_channel(755138117488345118)
     await channel.send(embed=embed)
+
+async def logging(ctx, type, bot):
+    print(f"{type} used in {ctx.channel} | {ctx.guild} by {ctx.message.author}")
+    e = discord.Embed(color=config.color)
+    
+    mcreated = f"{ctx.message.created_at.strftime('%d.%m.%Y %H:%M')}"
+    ucreated = f"{util.weekdays[createday]} {user.created_at.strftime('%d.%m.%Y %H:%M')}"
+    
+    e.description = f"""
+__**Command info**__
+**Command:** `{type}`
+**Message ID:** `[{ctx.message.id}]({ctx.message.jump_url}) (Click to go to message)
+**Message date:** {mcreated}
+
+__**User info**__
+**Username:** {ctx.message.author} | **ID:** `{ctx.message.author.id}`
+**Created at:** {ucreated}
+"""
+    channel = bot.get_channel(755138117488345118)
+    await channel.send(embed=e)
