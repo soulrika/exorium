@@ -2,6 +2,7 @@ import discord
 import config
 import random
 import gifs
+from outsources import util
 
 
 async def interactions(ctx, members, reason, type, ending, typespecial):
