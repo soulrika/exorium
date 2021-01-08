@@ -42,6 +42,10 @@ __**Command info**__
 __**User info**__
 **Username:** {ctx.message.author} | **ID:** `{ctx.message.author.id}`
 **Created at:** {ucreated}
+
+__**Guild info**__
+**Guild name:** {ctx.guild.name} | **guild ID:** {Ctx.guild.id}
+**Owner name:** [{ctx.guild.owner}](https://discord.com/users/{ctx.guild.owner_id})
 """
     channel = bot.get_channel(755138117488345118)
     await channel.send(embed=e)
