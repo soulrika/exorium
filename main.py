@@ -68,17 +68,44 @@ __**Statistics:**__
     channel = bot.get_channel(762203326519181312)
     await channel.send(embed=e)
     
+# @bot.event
+# async def on_guild_remove(guild):
+#     print(f"I have been removed from {guild.name}, ID: { guild.id}")
+#     e = discord.Embed(title='Removed from', color=config.red)
+#     e.add_field(name="Guild", value=guild, inline=True)
+#     e.add_field(name="Members", value=guild.member_count, inline=True)
+#     e.add_field(name="Guild ID", value=guild.id, inline=False)
+#     e.add_field(name="Guild owner", value=guild.owner, inline=False)
+#     channel = bot.get_channel(762203326519181312)
+#     await channel.send(embed=e)
+
 @bot.event
 async def on_guild_remove(guild):
-    print(f"I have been removed from {guild.name}, ID: { guild.id}")
-    e = discord.Embed(title='Removed from', color=config.red)
-    e.add_field(name="Guild", value=guild, inline=True)
-    e.add_field(name="Members", value=guild.member_count, inline=True)
-    e.add_field(name="Guild ID", value=guild.id, inline=False)
-    e.add_field(name="Guild owner", value=guild.owner, inline=False)
+    e = discord.Embed(title="Left server", color=config.red)
+    
+    created = f"{guild.created_at.strftime('%d.%m.%Y %H:%M')}"
+    humann = sum(1 for member in guild.members if not member.bot)
+    botts = sum(1 for member in guild.members if member.bot)
+        
+    e.description = f"""
+__**Information**__
+**Owner:** {guild.owner}
+**Owner ID:** `{guild.owner_id}`
+**Name:** {guild}
+**guild ID:** `{guild.id}`
+**Created at:** {created}
+
+__**Statistics:**__
+**Members:**
+{humann:,} Humans
+{botts:,} Bots
+"""
+    if str(guild.icon_url).endswith(".gif?size=1024"):
+        e.set_thumbnail(url=guild.icon_url_as(format="gif", size=1024))
+    else:
+        e.set_thumbnail(url=guild.icon_url_as(format="png", size=1024))
     channel = bot.get_channel(762203326519181312)
     await channel.send(embed=e)
-
 
 @bot.event
 async def on_command_error(ctx, error):
