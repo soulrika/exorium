@@ -43,11 +43,23 @@ async def on_guild_join(guild):
 @bot.event
 async def on_guild_join(guild):
     e = discord.Embed(title="New server", color=config.green)
+    
+    created = {gu.created_at.strftime('%d.%m.%Y %H:%M')}
+    humann = sum(1 for member in ctx.guild.members if not member.bot)
+    botts = sum(1 for member in ctx.guild.members if member.bot)
+        
     e.description = f"""
 __**Information**__
 **Owner:** {guild.owner}
+**Owner ID:** `{guild.owner_id}`
 **Name:** {guild}
-**ID: `{guild.id}`
+**guild ID:** `{guild.id}`
+**Created at:** {created}
+
+__**Statistics:**__
+**Members:**
+{humann:,} Humans
+{botts:,} Bots
 """
     if str(guild.icon_url).endswith(".gif?size=1024"):
         e.set_thumbnail(url=guild.icon_url_as(format="gif", size=1024))
