@@ -97,20 +97,18 @@ async def on_command_error(ctx, error):
         ie.description="```{}```".format(error)
         await ctx.send(embed=ie)
         channel = bot.get_channel(790239054868381697)
-        await channel.send("<@&755070139325743226>")
         e = discord.Embed(title="⚠️ An error occured", color=config.red)
         e.description="```{}```".format(error)
-        await channel.send(embed=e)
+        await channel.send(content="f<@&755070139325743226> | {ctx.message.author} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
         
     elif isinstance(error, discord.ext.commands.errors.Forbidden(response, message)):
         ie = discord.Embed(title="⚠️ An error occured", color=config.red)
         ie.description="```{} {} {}```".format(error,response,message)
         await ctx.send(embed=ie)
         channel = bot.get_channel(790239054868381697)
-        await channel.send("<@&755070139325743226>")
         e = discord.Embed(title="⚠️ An error occured", color=config.red)
         e.description="```{} {} {}```".format(error,response,message)
-        await channel.send(embed=e)
+        await channel.send(content=f"<@&755070139325743226> | {ctx.message.author} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
 
 
 # Use of group decorators for help cmd
