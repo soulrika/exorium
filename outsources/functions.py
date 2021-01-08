@@ -44,7 +44,7 @@ __**User info**__
 **Created at:** {ucreated}
 
 __**Guild info**__
-**Guild name:** {ctx.guild.name} | **guild ID:** {Ctx.guild.id}
+**Guild name:** {ctx.guild.name} | **guild ID:** {ctx.guild.id}
 **Owner name:** [{ctx.guild.owner}](https://discord.com/users/{ctx.guild.owner_id})
 """
     channel = bot.get_channel(755138117488345118)
