@@ -40,7 +40,22 @@ async def on_guild_join(guild):
     channel = bot.get_channel(762203326519181312)
     await channel.send(embed=e)
 
-
+@bot.event
+async def on_guild_join(guild):
+    e = discord.Embed(title="New server", color=config.green)
+    e.description = f"""
+__**Information**__
+**Owner:** {guild.owner}
+**Name:** {guild}
+**ID: `{guild.id}`
+"""
+    if str(gu.icon_url).endswith(".gif?size=1024"):
+        embed.set_thumbnail(url=gu.icon_url_as(format="gif", size=1024))
+    else:
+        embed.set_thumbnail(url=gu.icon_url_as(format="png", size=1024))
+    channel = bot.get_channel(762203326519181312)
+    await channel.send(embed=e)
+    
 @bot.event
 async def on_guild_remove(guild):
     print(f"I have been removed from {guild.name}, ID: { guild.id}")
