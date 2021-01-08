@@ -30,6 +30,7 @@ async def logging(ctx, type, bot):
     e = discord.Embed(color=config.color)
     
     mcreated = f"{ctx.message.created_at.strftime('%d.%m.%Y %H:%M')}"
+    createday = user.created_at.weekday()
     ucreated = f"{util.weekdays[createday]} {user.created_at.strftime('%d.%m.%Y %H:%M')}"
     
     e.description = f"""
