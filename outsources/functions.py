@@ -25,7 +25,7 @@ async def logging(ctx, type, bot):
     await channel.send(embed=embed)
 
 async def logging(ctx, type, bot):
-    print(f"{type} used in {ctx.channel} | {ctx.guild} by {ctx.message.author}")
+    print(f"\"{type}\" used in {ctx.channel} | {ctx.guild} by {ctx.message.author}")
     e = discord.Embed(color=config.color)
     
     mcreated = f"{ctx.message.created_at.strftime('%d.%m.%Y %H:%M')}"
@@ -33,7 +33,7 @@ async def logging(ctx, type, bot):
     
     e.description = f"""
 __**Command info**__
-**Command:** `{type}`
+**Command:** `\"{type}\"`
 **Message ID:** `[{ctx.message.id}]({ctx.message.jump_url}) (Click to go to message)
 **Message date:** {mcreated}
 
