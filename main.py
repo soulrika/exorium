@@ -49,10 +49,10 @@ __**Information**__
 **Name:** {guild}
 **ID: `{guild.id}`
 """
-    if str(gu.icon_url).endswith(".gif?size=1024"):
-        embed.set_thumbnail(url=gu.icon_url_as(format="gif", size=1024))
+    if str(guild.icon_url).endswith(".gif?size=1024"):
+        embed.set_thumbnail(url=guild.icon_url_as(format="gif", size=1024))
     else:
-        embed.set_thumbnail(url=gu.icon_url_as(format="png", size=1024))
+        embed.set_thumbnail(url=guild.icon_url_as(format="png", size=1024))
     channel = bot.get_channel(762203326519181312)
     await channel.send(embed=e)
     
