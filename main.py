@@ -313,7 +313,7 @@ async def invite(ctx):
     e.description = f"""
     __**Invite links:**__
     [needed permissions]({config.ninvite}) (recommended)
-    [admin permissions]({config.Ainvite})
+    [admin permissions]({config.ainvite})
     [0 permissions]({config.zinvite})
     
     __**Other links:**__
