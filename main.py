@@ -28,18 +28,6 @@ async def on_ready():
 
 bot.load_extension('jishaku')
 
-
-# @bot.event
-# async def on_guild_join(guild):
-#     print(f"I just joined {guild.name}, ID: {guild.id}")
-#     e = discord.Embed(title='New server', color=config.green)
-#     e.add_field(name="Guild", value=guild, inline=True)
-#     e.add_field(name="Members", value=guild.member_count, inline=True)
-#     e.add_field(name="Guild ID", value=guild.id, inline=False)
-#     e.add_field(name="Guild owner", value=guild.owner, inline=False)
-#     channel = bot.get_channel(762203326519181312)
-#     await channel.send(embed=e)
-
 @bot.event
 async def on_guild_join(guild):
     e = discord.Embed(title="New server", color=config.green)
@@ -67,17 +55,6 @@ __**Statistics:**__
         e.set_thumbnail(url=guild.icon_url_as(format="png", size=1024))
     channel = bot.get_channel(762203326519181312)
     await channel.send(embed=e)
-    
-# @bot.event
-# async def on_guild_remove(guild):
-#     print(f"I have been removed from {guild.name}, ID: { guild.id}")
-#     e = discord.Embed(title='Removed from', color=config.red)
-#     e.add_field(name="Guild", value=guild, inline=True)
-#     e.add_field(name="Members", value=guild.member_count, inline=True)
-#     e.add_field(name="Guild ID", value=guild.id, inline=False)
-#     e.add_field(name="Guild owner", value=guild.owner, inline=False)
-#     channel = bot.get_channel(762203326519181312)
-#     await channel.send(embed=e)
 
 @bot.event
 async def on_guild_remove(guild):
