@@ -311,15 +311,15 @@ async def ping(ctx):
 async def invite(ctx):
     e = discord.Embed(color=config.color)
     e.description = f"""
-    __**Invite links:**__
-    [needed permissions]({config.ninvite}) (recommended)
-    [admin permissions]({config.ainvite})
-    [0 permissions]({config.zinvite})
-    
-    __**Other links:**__
-    [support server]({config.support})
-    [status page]({config.status})
-    """
+__**Invite links:**__
+[needed permissions]({config.ninvite}) (recommended)
+[admin permissions]({config.ainvite})
+[0 permissions]({config.zinvite})
+
+__**Other links:**__
+[support server]({config.support})
+[status page]({config.status})
+"""
     await ctx.send(embed=e)
     await functions.logging(ctx, "invite", bot)
 
