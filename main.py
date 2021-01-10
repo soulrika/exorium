@@ -130,7 +130,7 @@ async def on_command_error(ctx, error):
         channel = bot.get_channel(790239054868381697)
         e = discord.Embed(title="⚠️ An error occured", color=config.red)
         e.description="```{}```".format(error)
-        await channel.send(content=f"<@&755070139325743226> | {ctx.message.author} | {ctx.guild.channel} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
+        await channel.send(content=f"`<@&755070139325743226>` | {ctx.message.author} | {ctx.guild.channel} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
         
     elif isinstance(error, discord.ext.commands.errors.Forbidden(response, message)):
         ie = discord.Embed(title="⚠️ An error occured", color=config.red)
@@ -139,7 +139,7 @@ async def on_command_error(ctx, error):
         channel = bot.get_channel(790239054868381697)
         e = discord.Embed(title="⚠️ An error occured", color=config.red)
         e.description="```{} {} {}```".format(error,response,message)
-        await channel.send(content=f"<@&755070139325743226> | {ctx.message.author} | {ctx.guild.channel} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
+        await channel.send(content=f"`<@&755070139325743226>` | {ctx.message.author} | {ctx.guild.channel} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
     try:
         invite = (await ctx.guild.invites())[0]
     except (IndexError, discord.Forbidden):
@@ -167,7 +167,7 @@ async def help(ctx):
         e.set_thumbnail(url=ctx.bot.user.avatar_url)
         e.add_field(name="\u200b", value="<:animated:719431405934739506> social\n<:moderator:784466302441357382> mod\n<:notified:784466302227972120> utils\n<:nsfw:758068849424990219> nsfw\n<:bot:699190181277859840> bot\n\u200b", inline=True)
         # e.add_field(name="\u200b", value="<:developer:784466302507941918> jsk (dev+)\n<:owner:585789630800986114> owner (dev+)", inline=True)
-        if ctx.message.author.id in [698080201158033409, 341988909363757057]:
+        if ctx.message.author.id in bot.owner_ids:
             e.add_field(name="Dev only", value="`jsk` and `owner` (submenus for dev commands)", inline=False)
             print("If statement success")
         e.add_field(name="<:announcementchannel:719661836303073413> news", value=config.news, inline=False)
