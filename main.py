@@ -25,7 +25,10 @@ async def on_ready():
     activity = discord.Game(name=f'exo help | {len(bot.guilds)} guilds', type=1)
     await bot.change_presence(status=discord.Status.online, activity=activity)
     print('\n-= exorium has started successfully =-\n')
-
+    e = discord.Embed(description=f"exorium has started successfully", color=config.color)
+    user = bot.get_user(698080201158033409)
+    await user.send(embed=e)
+    
 bot.load_extension('jishaku')
 
 @bot.event
