@@ -604,8 +604,8 @@ async def bonk(ctx, members: commands.Greedy[discord.Member], *, reason="bad!"):
         await ctx.send("You can't bonk yourself, derp!")
         return
     else:
-    await functions.interactions(ctx, members, reason, "bonk", "how mean", "bonked")
-    await functions.logging(ctx, "bonk", bot)
+         await functions.interactions(ctx, members, reason, "bonk", "how mean", "bonked")
+         await functions.logging(ctx, "bonk", bot)
 
 
 @bot.command(name='pat', brief='Pats, wholesome!')  # interaction command - pat someone. gifs are random!
