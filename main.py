@@ -607,7 +607,7 @@ async def bonk(ctx, members: commands.Greedy[discord.Member], *, reason="bad!"):
         await ctx.send("**Bonking this kind dragon is NOT ALLOWED**")
         return
     else:
-         await functions.interactions(ctx, membrs, reason, "bonk", "how mean", "bonked")
+         await functions.interactions(ctx, members, reason, "bonk", "how mean", "bonked")
          await functions.logging(ctx, "bonk", bot)
 
 
