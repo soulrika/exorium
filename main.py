@@ -133,7 +133,7 @@ async def on_command_error(ctx, error):
         channel = bot.get_channel(790239054868381697)
         e = discord.Embed(title="⚠️ An error occured", color=config.red)
         e.description="```{}```".format(error)
-        await channel.send(content=f"`<@&755070139325743226>` | {ctx.message.author} | {ctx.guild.channel} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
+        await channel.send(content=f"`<@&755070139325743226>` | {ctx.message.author} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
         
     elif isinstance(error, discord.ext.commands.errors.Forbidden(response, message)):
         ie = discord.Embed(title="⚠️ An error occured", color=config.red)
@@ -142,7 +142,7 @@ async def on_command_error(ctx, error):
         channel = bot.get_channel(790239054868381697)
         e = discord.Embed(title="⚠️ An error occured", color=config.red)
         e.description="```{} {} {}```".format(error,response,message)
-        await channel.send(content=f"`<@&755070139325743226>` | {ctx.message.author} | {ctx.guild.channel} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
+        await channel.send(content=f"`<@&755070139325743226>` | {ctx.message.author} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
     try:
         invite = (await ctx.guild.invites())[0]
     except (IndexError, discord.Forbidden):
