@@ -603,7 +603,7 @@ async def bonk(ctx, members: commands.Greedy[discord.Member], *, reason="bad!"):
     if str(ctx.message.author.id) in str(members):
         await ctx.send("You can't bonk yourself, derp!")
         return
-    if members == [698080201158033409, 341988909363757057]:
+    if str([698080201158033409, 341988909363757057]) in str(members):
         await ctx.send("**Bonking this kind dragon is NOT ALLOWED**")
         return
     else:
