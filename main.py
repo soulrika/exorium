@@ -578,6 +578,11 @@ async def slap(ctx, members: commands.Greedy[discord.Member], *, reason="Being b
     if str(ctx.message.author.id) in str(members):
         await ctx.send("You can't slap yourself, derp!")
         return
+    if 698080201158033409 in members:
+        await ctx.send("**Bonking this kind and kyoot dragon IS NOT ALLOWED**")
+        return
+    if 341988909363757057 in members:
+        await ctx.send("**Bonking this kind and kyoot dragon IS NOT ALLOWED**")
     else:
         await functions.interactions(ctx, members, reason, "slap", "bad!", "slapped")
         await functions.logging(ctx, "slap", bot)
@@ -603,9 +608,11 @@ async def bonk(ctx, members: commands.Greedy[discord.Member], *, reason="bad!"):
     if str(ctx.message.author.id) in str(members):
         await ctx.send("You can't bonk yourself, derp!")
         return
-    if 698080201158033409 or 341988909363757057 in members:
-        await ctx.send("**Bonking this kind dragon is NOT ALLOWED**")
+    if 698080201158033409 in members:
+        await ctx.send("**Bonking this kind and kyoot dragon IS NOT ALLOWED**")
         return
+    if 341988909363757057 in members:
+        await ctx.send("**Bonking this kind and kyoot dragon IS NOT ALLOWED**")
     else:
          await functions.interactions(ctx, members, reason, "bonk", "how mean", "bonked")
          await functions.logging(ctx, "bonk", bot)
