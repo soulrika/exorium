@@ -600,6 +600,10 @@ async def hug(ctx, members: commands.Greedy[discord.Member], *, reason="being ad
 @bot.command(name='bonk', brief='Bonk naughty person!')  # interaction command - bonk someone. gifs are random!
 @commands.cooldown(1, 5, commands.BucketType.user)
 async def bonk(ctx, members: commands.Greedy[discord.Member], *, reason="bad!"):
+    if str(ctx.message.author.id) in str(members):
+        await ctx.send("You can't bonk yourself, derp!")
+        return
+    else:
     await functions.interactions(ctx, members, reason, "bonk", "how mean", "bonked")
     await functions.logging(ctx, "bonk", bot)
 
