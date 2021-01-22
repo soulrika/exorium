@@ -928,7 +928,6 @@ async def say(ctx, *, sentence):
         pass
     e = discord.Embed(color=config.color)
     e.description = sentence
-    e.set_footer(text=f"from user {ctx.author}")
     await ctx.send(embed=e)
     await functions.logging(ctx, "say", bot)
 
