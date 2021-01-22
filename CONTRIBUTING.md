@@ -35,12 +35,14 @@ We have established a content policy to keep exorium safe from unwanted, and dan
 
 ### Naming
 Pull requests and issues must be named properly, to describe what it's about. Any name must be kept appropiate.
+
 Pull requests and issues can get you blocked on the organisation/repo or simply closed with no further action if it's one of the following:
 - sexually referencing to things
 - disrespect towards other people
 - anything that can (falsely) harm peoople
 
 This list can become bigger.
+
 Any of this is at the exorium team's discretion, and these may also get your issue and/or pull request completely deleted from github.
     
 ### *PLEASE NOTE THAT ANYTHING HERE IS SUBJECT TO CHANGE WITHOUT NOTIFYING ANYONE.*
