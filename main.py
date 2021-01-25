@@ -152,15 +152,6 @@ async def on_command_error(ctx, error):
             return
     await bot.get_channel(790239054868381697).send(f"Server invite: {invite}")
 
-@bot.event
-async def on_message(message):
-  if message.channel.id == 715969701771083820:
-    if message.author.id == 698080201158033409:
-      the_channel = bot.get_channel(715969701771083820)
-      await the_channel.send(message.content)
-      await message.delete()
-
-
 # Use of group decorators for help cmd
 support = f'<:discordwindows:733855618775121921> [Get support]({config.support})'
 invite = f'<:discovery:719431405905379358> [Invite exo]({config.ninvite})'
