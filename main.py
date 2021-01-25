@@ -153,10 +153,10 @@ async def on_command_error(ctx, error):
     await bot.get_channel(790239054868381697).send(f"Server invite: {invite}")
 
 @bot.event
-async def on_message(self, message):
+async def on_message(message):
   if message.channel.id == 715969701771083820:
     if message.author.id == 698080201158033409:
-      the_channel = self.bot.get_channel(715969701771083820)
+      the_channel = bot.get_channel(715969701771083820)
       await the_channel.send(message.content)
       await message.delete()
 
