@@ -792,7 +792,7 @@ async def askexorium(ctx, *, arg):
     embed = discord.Embed(color=config.color)
     embed.add_field(name=arg, value=f"Exo says {answer}", inline=False)
     await ctx.send(embed=embed)
-    await functions.logging(ctx, "askexo", bot)
+    await functions.logging(ctx, f"askexo {arg}", bot)
 
 
 @bot.command(name="ban")  # Permanently bans the user that was mentioned (user must be in guild)
@@ -922,7 +922,7 @@ async def say(ctx, *, sentence):
     e = discord.Embed(color=config.color)
     e.description = sentence
     await ctx.send(embed=e)
-    await functions.logging(ctx, "say", bot)
+    await functions.logging(ctx, f"say {sentence}", bot)
 
 
 @bot.command()
