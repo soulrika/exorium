@@ -625,8 +625,9 @@ async def pat(ctx, members: commands.Greedy[discord.Member], *, reason="being ad
 async def boop(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
     if str(306215012219748353) in str(members):
         await ctx.send("Please do **not** boop Skit.")
-    await functions.interactions(ctx, members, reason, "boop", "so soft", "booped")
-    await functions.logging(ctx, "boop", bot)
+    else:
+         await functions.interactions(ctx, members, reason, "boop", "so soft", "booped")
+         await functions.logging(ctx, "boop", bot)
 
 
 @bot.command(name='kiss', aliases=['smooch'], brief='Smooch!')  # interaction command - kiss someone. gifs are random!
