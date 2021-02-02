@@ -20,7 +20,7 @@ class info(commands.Cog, name="Info"):
 
     @commands.command(brief="test command")
     async def respond(self, ctx):
-        await ctx.end("success")
+        await ctx.send("success")
 
     @commands.command(name="shutdown", aliases=["logout"])
     async def jsk_shutdown(self, ctx: commands.Context):
