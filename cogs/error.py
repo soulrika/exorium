@@ -6,14 +6,14 @@ class error(commands.Cog, name="Error"):
         self.bot = bot
         
     @commands.Cog.listener()
-    async def on_command_error(ctx, error):
+    async def on_command_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             ie = discord.Embed(color=config.orange)
             ie.add_field(name='error while processing', value='Please fill in all the required arguments.\nUse `exo info <command`> for usage.')
             await ctx.send(embed=ie)
             e = discord.Embed(color=config.orange)
             e.description = f"{ctx.message.author} had an error while using a command:\n`Required arguments were not specified.`"
-            channel = bot.get_channel(790239054868381697)
+            channel = self.bot.get_channel(790239054868381697)
             await channel.send(embed=e)
         elif isinstance(error, commands.MissingPermissions):
             ie = discord.Embed(color=config.red)
@@ -21,7 +21,7 @@ class error(commands.Cog, name="Error"):
             await ctx.send(embed=ie)
             e = discord.Embed(color=config.red)
             e.description = f"{ctx.message.author} had an error while using a command:\n`User permissions are too low.`"
-            channel = bot.get_channel(790239054868381697)
+            channel = self.bot.get_channel(790239054868381697)
             await channel.send(embed=e)
         elif isinstance(error, commands.NotOwner):
             ie = discord.Embed(color=config.orange)
@@ -29,7 +29,7 @@ class error(commands.Cog, name="Error"):
             await ctx.send(embed=ie)
             e = discord.Embed(color=config.orange)
             e.description = f"{ctx.message.author} had an error while using a command:\n`Command can only be used by bot owners.`"
-            channel = bot.get_channel(790239054868381697)
+            channel = self.bot.get_channel(790239054868381697)
             await channel.send(embed=e)
         elif isinstance(error, commands.CommandOnCooldown):
             cdamount = '{:.2f}'.format(error.retry_after)
@@ -38,13 +38,13 @@ class error(commands.Cog, name="Error"):
             await ctx.send(embed=ie, delete_after=5)
             e = discord.Embed(color=config.red)
             e.description=f"Cooldown (`{cdamount}s`) occured for {ctx.message.author} in {ctx.guild.name} (`{ctx.guild.id}`)."
-            channel = bot.get_channel(790239054868381697)
+            channel = self.bot.get_channel(790239054868381697)
             await channel.send(embed=e)
         elif isinstance(error, discord.ext.commands.errors.CommandInvokeError):
             ie = discord.Embed(title="⚠️ An error occured", color=config.red)
             ie.description="```{}```".format(error)
             await ctx.send(embed=ie)
-            channel = bot.get_channel(790239054868381697)
+            channel = self.bot.get_channel(790239054868381697)
             e = discord.Embed(title="⚠️ An error occured", color=config.red)
             e.description="```{}```".format(error)
             await channel.send(content=f"<@&755070139325743226> | {ctx.message.author} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
@@ -52,7 +52,7 @@ class error(commands.Cog, name="Error"):
             ie = discord.Embed(title="⚠️ An error occured", color=config.red)
             ie.description="```{} {} {}```".format(error,response,message)
             await ctx.send(embed=ie)
-            channel = bot.get_channel(790239054868381697)
+            channel = self.bot.get_channel(790239054868381697)
             e = discord.Embed(title="⚠️ An error occured", color=config.red)
             e.description="```{} {} {}```".format(error,response,message)
             await channel.send(content=f"<@&755070139325743226> | {ctx.message.author} | {ctx.guild.name} (`{ctx.guild.id}`)", embed=e)
@@ -64,7 +64,7 @@ class error(commands.Cog, name="Error"):
                 invite = await ctx.guild.text_channels[0].create_invite(max_age=120)
             except discord.Forbidden:
                 return
-        await bot.get_channel(790239054868381697).send(f"Server invite: {invite}")"""
+        await self.bot.get_channel(790239054868381697).send(f"Server invite: {invite}")"""
 
         @commands.command()
         async def testing(self, ctx):
