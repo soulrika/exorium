@@ -606,6 +606,8 @@ async def bonk(ctx, members: commands.Greedy[discord.Member], *, reason="bad!"):
         return
     if str(341988909363757057) in str(members):
         await ctx.send("**Bonking this kind and kyoot dragon IS NOT ALLOWED**")
+    if str(306215012219748353) in str(members):
+        await ctx.send("Please do **not** bonk Skit.")
     else:
          await functions.interactions(ctx, members, reason, "bonk", "how mean", "bonked")
          await functions.logging(ctx, "bonk", bot)
@@ -621,6 +623,8 @@ async def pat(ctx, members: commands.Greedy[discord.Member], *, reason="being ad
 @bot.command(name='boop', aliases=['bp'], brief='Boop!')  # interaction command - boop someone. gifs are random!
 @commands.cooldown(1, 5, commands.BucketType.user)
 async def boop(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
+    if str(306215012219748353) in str(members):
+        await ctx.send("Please do **not** boop Skit.")
     await functions.interactions(ctx, members, reason, "boop", "so soft", "booped")
     await functions.logging(ctx, "boop", bot)
 
