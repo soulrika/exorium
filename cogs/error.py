@@ -68,7 +68,7 @@ class error(commands.Cog, name="Error"):
 
     @commands.command()
     async def testing(self, ctx):
-        e = embed(color=config.color)
+        e = discord.Embed(color=config.color)
         e.description = f"Test passed successfully"
         await ctx.send(embed=e)
         
