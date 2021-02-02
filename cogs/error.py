@@ -15,7 +15,7 @@ class error(commands.Cog, name="Error"):
             e.description = f"{ctx.message.author} had an error while using a command:\n`Required arguments were not specified.`"
             channel = self.bot.get_channel(790239054868381697)
             await channel.send(embed=e)
-         if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingPermissions):
             ie = discord.Embed(color=config.red)
             ie.add_field(name='error while processing', value='You do not have the sufficient permissions.')
             await ctx.send(embed=ie)
