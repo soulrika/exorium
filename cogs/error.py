@@ -11,11 +11,6 @@ class error(commands.Cog, name="Error"):
             await ctx.send('You are missing required arguments')
         else:
             await ctx.send(embed=discord.Embed(title="An error occured", description=str(error))
-
-    @commands.command()
-    async def testing(self, ctx, *, sentence):
-        await ctx.send(sentence)
-
         
 def setup(bot):
     bot.add_cog(error(bot))
