@@ -6,8 +6,8 @@ class error(commands.Cog, name="Error"):
         self.bot = bot
         
     @commands.Cog.listener()
-    async def on_command_error(self, ctx, err):
-        if isinstance(err, commands.MissingRequiredArguments):
+    async def on_command_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArguments):
             await ctx.send('You are missing required arguments')
 
     @commands.command()
