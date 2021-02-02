@@ -13,10 +13,8 @@ class error(commands.Cog, name="Error"):
             await ctx.send(embed=discord.Embed(title="An error occured", description=str(error))
 
     @commands.command()
-    async def testing(self, ctx, *sentence):
-        e = discord.Embed(color=config.color)
-        e.description = f"Test passed successfully with `{sentence}`"
-        await ctx.send(embed=e)
+    async def testing(self, ctx, *, sentence):
+        await ctx.send(sentence)
 
         
 def setup(bot):
