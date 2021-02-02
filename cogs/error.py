@@ -10,7 +10,6 @@ class error(commands.Cog, name="Error"):
         if isinstance(err, commands.MissingRequiredArguments):
             return await ctx.send('You are missing required arguments')
 
-
     @commands.command()
     async def testing(self, ctx):
         e = discord.Embed(color=config.color)
