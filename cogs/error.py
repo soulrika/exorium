@@ -9,6 +9,8 @@ class error(commands.Cog, name="Error"):
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArguments):
             await ctx.send('You are missing required arguments')
+        else:
+            await ctx.send(embed=discord.Embed(title="An error occured", description=str(error))
 
     @commands.command()
     async def testing(self, ctx):
