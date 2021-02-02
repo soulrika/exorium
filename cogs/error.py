@@ -10,7 +10,7 @@ class error(commands.Cog, name="Error"):
         if isinstance(error, commands.MissingRequiredArguments):
             await ctx.send('You are missing required arguments')
         else:
-            await ctx.send(embed=discord.Embed(title="An error occured", description=str(error))
+            await ctx.send(embed=discord.Embed(title="An error occured", description=str(error)))
         
 def setup(bot):
     bot.add_cog(error(bot))
