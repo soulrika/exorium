@@ -66,9 +66,9 @@ class error(commands.Cog, name="Error"):
                 return
         await self.bot.get_channel(790239054868381697).send(f"Server invite: {invite}")"""
 
-        @commands.command()
-        async def testing(self, ctx):
-            await ctx.send("test success")
+    @commands.command()
+    async def testing(self, ctx):
+        await ctx.send("test success")
 
 def setup(bot):
     bot.add_cog(error(bot))
