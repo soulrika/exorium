@@ -7,7 +7,6 @@ class error(commands.Cog, name="Error"):
         
     @commands.Cog.listener()
     async def on_command_error(ctx, error):
-        return await ctx.send(str(error))
         if isinstance(error, commands.MissingRequiredArgument):
             ie = discord.Embed(color=config.orange)
             ie.add_field(name='error while processing', value='Please fill in all the required arguments.\nUse `exo info <command`> for usage.')
