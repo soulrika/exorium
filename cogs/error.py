@@ -8,14 +8,15 @@ class error(commands.Cog, name="Error"):
     @commands.Cog.listener()
     async def on_command_error(self, ctx, err):
         if isinstance(err, commands.MissingRequiredArguments):
-            return await ctx.send('You are missing required arguments')
+            await ctx.send('You are missing required arguments')
+            return
 
     @commands.command()
     async def testing(self, ctx):
         e = discord.Embed(color=config.color)
         e.description = f"Test passed successfully"
         await ctx.send(embed=e)
-        return
+
         
 def setup(bot):
     bot.add_cog(error(bot))
