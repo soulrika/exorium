@@ -68,7 +68,9 @@ class error(commands.Cog, name="Error"):
 
     @commands.command()
     async def testing(self, ctx):
-        await ctx.send("test success")
-
+        e = embed(color=config.cowolor)
+        e.description = f"Test passed successfully"
+        await ctx.send(embed=e)
+        
 def setup(bot):
     bot.add_cog(error(bot))
