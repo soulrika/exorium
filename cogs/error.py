@@ -7,6 +7,8 @@ class error(commands.Cog, name="Error"):
         
     @commands.Cog.listener()
     async def on_command_error(self, ctx, err):
+        if isinstance(err, commands.MissingRequiredArguments):
+            return await ctx.send('You are missing required arguments')
 
 
     @commands.command()
