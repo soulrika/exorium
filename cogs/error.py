@@ -5,7 +5,7 @@ class error(commands.Cog, name="Error"):
     def __init__(self, bot):
         self.bot = bot
         
-    @bot.event
+    @commands.Cog.listener()
     async def on_command_error(ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             ie = discord.Embed(color=config.orange)
