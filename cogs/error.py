@@ -15,6 +15,7 @@ class error(commands.Cog, name="Error"):
         e = discord.Embed(color=config.color)
         e.description = f"Test passed successfully"
         await ctx.send(embed=e)
+        return
         
 def setup(bot):
     bot.add_cog(error(bot))
