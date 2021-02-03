@@ -625,6 +625,8 @@ async def pat(ctx, members: commands.Greedy[discord.Member], *, reason="being ad
 async def boop(ctx, members: commands.Greedy[discord.Member], *, reason="being adorable"):
     if str(306215012219748353) in str(members):
         await ctx.send("Please do **not** boop Skit.")
+    if str(501727746179858432) in str(members):
+        await ctx.send("Please do **not** boop Hascii.")
     else:
          await functions.interactions(ctx, members, reason, "boop", "so soft", "booped")
          await functions.logging(ctx, "boop", bot)
