@@ -12,7 +12,7 @@ database = mydb.cursor()
 database.execute("CREATE TABLE IF NOT EXISTS warnings (id INT AUTO_INCREMENT PRIMARY KEY, user VARCHAR(255), reason VARCHAR(255), serverid VARCHAR(255))")
 database.execute("CREATE TABLE IF NOT EXISTS suggestions (id INT AUTO_INCREMENT PRIMARY KEY, user VARCHAR(255), suggestion VARCHAR(255), approved VARCHAR(255), messageid VARCHAR(255))")
 logger = logging.getLogger('discord')
-intents = discord.intents.none()
+#intents = discord.intents.none()
 
 startTime = datetime.now().timestamp()
 
