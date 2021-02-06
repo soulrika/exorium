@@ -4,13 +4,7 @@ from discord.ext import commands
 class info(commands.Cog, name="Info"):
     def __init__(self, bot):
         self.bot = bot
-
-    @commands.Cog.listener()
-    async def on_command_error(self, ctx, error):
-        if isinstance(error, discord.ext.commands.errors.CommandInvokeError):
-            ie = discord.Embed(title="⚠️ An error occured", color=config.red)
-            ie.description="```{}```".format(error)
-            await ctx.send(embed=ie)
+    
     
     @commands.command(brief="Bot's latency to discord")
     async def ping(self, ctx):
@@ -24,6 +18,21 @@ class info(commands.Cog, name="Info"):
                 else:
                     discord_ms = "fucking dead"
                 await ctx.send(f"\U0001f3d3 Pong   |   {discord_ms}")# You can use :ping_pong: instead of \U0001f3d3
+
+    
+    @commands.command(brief="The invites for exorium")
+    async def invite(self, ctx):
+        e = discord.Embed(color=config.color)
+        e.description = f"""
+[needed permissions (recommended)](https://discord.com/api/oauth2/authorize?client_id=620990340630970425&permissions=335932630&scope=bot)
+
+[admin permissions](https://discord.com/api/oauth2/authorize?client_id=620990340630970425&permissions=8&scope=bot)
+
+[no permissions](https://discord.com/api/oauth2/authorize?client_id=620990340630970425&permissions=0&scope=bot)
+"""
+        await ctx.send(embed=e)
+
+
 
     @commands.command(brief="test command")
     async def respond(self, ctx, *, args):
