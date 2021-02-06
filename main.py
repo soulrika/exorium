@@ -606,7 +606,7 @@ async def bonk(ctx, members: commands.Greedy[discord.Member], *, reason="bad!"):
         return
     if str(341988909363757057) in str(members):
         await ctx.send("**Bonking this kind and kyoot dragon IS NOT ALLOWED**")
-    if str(306215012219748353) in str(members):
+    if str(306215012219748353, 699686304388087858) in str(members):
         await ctx.send("Please do **not** bonk Skit.")
     else:
          await functions.interactions(ctx, members, reason, "bonk", "how mean", "bonked")
