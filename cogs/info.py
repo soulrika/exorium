@@ -12,8 +12,6 @@ class info(commands.Cog, name="Info"):
             ie.description="```{}```".format(error)
             await ctx.send(embed=ie)
     
-
-
     @commands.command(brief="Bot's latency to discord")
     async def ping(self, ctx):
         """ See bot's latency to discord """
@@ -29,7 +27,7 @@ class info(commands.Cog, name="Info"):
 
     @commands.command(brief="test command")
     async def respond(self, ctx, *, args):
-        e = discord.Embed(color=config.colour)
+        e = discord.Embed(color=config.color)
         e.description = f"{args}"
         e.set_footer(text=f"by {ctx.message.author}")
         await ctx.send(embed=e)
