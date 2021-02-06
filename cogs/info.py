@@ -8,9 +8,9 @@ class info(commands.Cog, name="Info"):
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error, discord.ext.commands.errors.CommandInvokeError):
-        ie = discord.Embed(title="⚠️ An error occured", color=config.red)
-        ie.description="```{}```".format(error)
-        await ctx.send(embed=ie)
+            ie = discord.Embed(title="⚠️ An error occured", color=config.red)
+            ie.description="```{}```".format(error)
+            await ctx.send(embed=ie)
     
 
 
