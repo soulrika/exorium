@@ -608,7 +608,7 @@ async def bonk(ctx, members: commands.Greedy[discord.Member], *, reason="bad!"):
         await ctx.send("**Bonking this kind and kyoot dragon IS NOT ALLOWED**")
     if str(306215012219748353) in str(members):
         await ctx.send("Please do **not** bonk Skit.")
-    if str(str(699686304388087858) in str(members):
+    if str(699686304388087858) in str(members):
         await ctx.send("Please do **not** bonk Fenny")
     else:
          await functions.interactions(ctx, members, reason, "bonk", "how mean", "bonked")
@@ -629,7 +629,7 @@ async def boop(ctx, members: commands.Greedy[discord.Member], *, reason="being a
         await ctx.send("Please do **not** boop Skit.")
     if str(501727746179858432) in str(members):
         await ctx.send("Please do **not** boop Hascii.")
-    if str(str(699686304388087858) in str(members):
+    if str(699686304388087858) in str(members):
         await ctx.send("Please do **not** bonk Fenny")
     else:
          await functions.interactions(ctx, members, reason, "boop", "so soft", "booped")
