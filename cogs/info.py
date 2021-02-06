@@ -29,9 +29,13 @@ class info(commands.Cog, name="Info"):
 
     @commands.command(brief="test command")
     async def respond(self, ctx, *, args):
-        await ctx.send(f"{args}")
+        e = discord.Embed(color=config.colour)
+        e.description = f"{args}"
+        e.set_footer(text=f"by {ctx.message.author}")
+        await ctx.send(embed=e)
 
     @commands.command(name="shutdown", aliases=["logout"])
+    @commands.is_owner()
     async def jsk_shutdown(self, ctx: commands.Context):
         """
         Logs this bot out.
