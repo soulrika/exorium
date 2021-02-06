@@ -20,7 +20,7 @@ bot = commands.Bot(command_prefix=get_prefix, case_insensitive=True, allowed_men
 @bot.event
 async def on_ready():
     activity = discord.Streaming(name='BluewyFurGames', url='https://www.youtube.com/channel/UCNOBvM7xoUr-QB0wJOOY_Vg')
-    await bot.change_presence(status=discord.Status_dnd, activity=activity)
+    await bot.change_presence(status=discord.Status_online, activity=activity)
 
 for extension in config.extensions:
     try:
