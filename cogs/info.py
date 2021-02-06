@@ -19,8 +19,8 @@ class info(commands.Cog, name="Info"):
                 await ctx.send(f"\U0001f3d3 Pong   |   {discord_ms}")# You can use :ping_pong: instead of \U0001f3d3
 
     @commands.command(brief="test command")
-    async def respond(self, ctx):
-        await ctx.send("success")
+    async def respond(self, ctx, *args):
+        await ctx.send(args)
 
     @commands.command(name="shutdown", aliases=["logout"])
     async def jsk_shutdown(self, ctx: commands.Context):
