@@ -17,7 +17,7 @@ def get_prefix(bot, message):
 
 bot = commands.Bot(command_prefix=get_prefix, case_insensitive=True, allowed_mentions=discord.AllowedMentions.none(), max_messages=10000)
 
-@bot.event()
+@bot.event
 async def on_ready():
     activity = discord.Streaming(name='BluewyFurGames', url='https://www.youtube.com/channel/UCNOBvM7xoUr-QB0wJOOY_Vg')
     await bot.change_presence(status=discord.Status_dnd, activity=activity)
