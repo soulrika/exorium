@@ -19,7 +19,7 @@ bot = commands.Bot(command_prefix=get_prefix, case_insensitive=True, allowed_men
 
 @commands.Cog.listener()
 async def on_ready():
-    activity = discord.ActivityType.watching(name='BluewyFurGames')
+    activity = activity=discord.Activity(type=discord.ActivityType.watching, name="a movie")
     await bot.change_presence(status=discord.Status_online, activity=activity)
 
 for extension in config.extensions:
