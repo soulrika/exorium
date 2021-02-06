@@ -34,6 +34,18 @@ class info(commands.Cog, name="Info"):
         await ctx.send(embed=e)
 
 
+    @commands.command(brief="the exorium links")
+    async def links(self, ctx):
+        await ctx.send('You can choose the following links: `support` | `repo`\nYou have 10 seconds to respond.')
+        if message.content from ctx.message.author == support:
+             await ctx.send('test1')
+        if message.content from ctx.message.author == repo:
+            await ctx.send('test2')
+        else:
+            await ctx.send('invalid syntax, command timed out')
+        asyncio.sleep(10)
+        await ctx.send('You have waited too long, command timed out.')
+        
 
     @commands.command(brief="test command")
     async def respond(self, ctx, *, args):
