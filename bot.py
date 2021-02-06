@@ -27,4 +27,9 @@ for extension in config.extensions:
         tbe = "".join(tb) + ""
         print(f'[WARNING] Could not load extension {extension}: {tbe}')
 
+    @commands.Cog.listener()
+    async def on_command_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArguments):
+            await ctx.send('You are missing required arguments')
+
 bot.run(config.token)
