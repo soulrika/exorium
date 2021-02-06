@@ -5,6 +5,12 @@ class info(commands.Cog, name="Info"):
     def __init__(self, bot):
         self.bot = bot
 
+    @commands.Cog.listener()
+    async def on_command_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArguments):
+            await ctx.send('You are missing required arguments')
+
+
     @commands.command(brief="Bot's latency to discord")
     async def ping(self, ctx):
         """ See bot's latency to discord """
