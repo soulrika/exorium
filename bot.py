@@ -20,7 +20,7 @@ bot = commands.Bot(
     case_insensitive=True, 
     allowed_mentions=discord.AllowedMentions.none(), 
     max_messages=10000,
-    intents=discord.intents.all(),
+    intents=discord.Intents.all(),
     status=discord.Status.online,
     activity=discord.Activity(type=discord.ActivityType.playing, name='sp!help'),
     description="A very gay and annoying beta bot"
