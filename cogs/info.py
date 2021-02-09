@@ -51,5 +51,13 @@ class info(commands.Cog, name="Info"):
         await ctx.send("Logging out now")
         await ctx.bot.logout()
 
+    @commands.Cog.listener()
+    async def on_command_error(self, ctx, error):
+        if isinstance(error, commands.CommandNotFound):
+            pass
+        else:
+            embed = discord.Embed(description=str(error), color=discord.Color.red())
+            await ctx.send(embed=embed)
+
 def setup(bot):
     bot.add_cog(info(bot))
