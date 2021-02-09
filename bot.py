@@ -15,7 +15,15 @@ def get_prefix(bot, message):
 #  bot = commands.Bot(command_prefix=get_prefix, case_insensitive=True,
 #  allowed_mentions=discord.AllowedMentions(roles=False, users=False, everyone=False))
 
-bot = commands.Bot(command_prefix=get_prefix, case_insensitive=True, allowed_mentions=discord.AllowedMentions.none(), max_messages=10000)
+bot = commands.Bot(
+    command_prefix=get_prefix,
+    case_insensitive=True, 
+    allowed_mentions=discord.AllowedMentions.none(), 
+    max_messages=10000,
+    intents=discord.intents.all(),
+    status=discord.Status.online,
+    activity=discord.Activity(type=discord.ActivityType.playing, name='sp!help')
+)
 
 @commands.Cog.listener()
 async def on_ready():
