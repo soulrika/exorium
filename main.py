@@ -6,6 +6,7 @@ from outsources import functions, util
 from requests.auth import HTTPBasicAuth
 from datetime import datetime
 import asyncio, re, psutil, platform
+import statcord
 
 mydb = config.DBdata
 database = mydb.cursor()
@@ -1232,6 +1233,13 @@ async def digest(ctx):
         await botmsg.delete()
         await ctx.send("Got it!")
 
+key = config.statcordkey
+api = statcord.Client(bot,key)
+api.start_loop()
+          
+@bot.event
+async def on_command(ctx):
+    api.command_run(ctx)
 
 async def api():
     while True:
