@@ -792,12 +792,14 @@ async def randomchoice(ctx, *args):
 
 
 @bot.command(name="info")  # Gives information about the mentioned command
-async def info(ctx, arg):
-    embed = discord.Embed(title=arg, color=config.color)
-    embed.add_field(name="Information", value=getattr(CommandInfo, arg), inline=False)
-    embed.add_field(name="Syntax", value=getattr(CommandSyntax, arg), inline=False)
-    embed.set_footer(text="Do exo help for all available commands.")
-    await ctx.send(embed=embed)
+async def info(ctx):
+    await ctx.send('The info command is currently not complete and also broken. Please bear with us as we fix this after converting to cogs.')
+    # add arg back to (ctx): when fixed
+    #embed = discord.Embed(title=arg, color=config.color)
+    #embed.add_field(name="Information", value=getattr(CommandInfo, arg), inline=False)
+    #embed.add_field(name="Syntax", value=getattr(CommandSyntax, arg), inline=False)
+    #embed.set_footer(text="Do exo help for all available commands.")
+    #await ctx.send(embed=embed)
     await functions.logging(ctx, "info", bot)
 
 
