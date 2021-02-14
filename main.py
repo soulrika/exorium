@@ -16,7 +16,7 @@ logger = logging.getLogger('discord')
 
 startTime = datetime.now().timestamp()
 
-bot = commands.Bot(command_prefix=["exo ", "Exo ", "e!", "alexa "], case_insensitive=True)  # sets the bot prefix
+bot = commands.Bot(command_prefix=commands.when_mentioned_or('exo '), case_insensitive=True)  # sets the bot prefix
 bot.remove_command('help')  # removes the default discord.py help command
 
 
