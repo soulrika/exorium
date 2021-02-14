@@ -251,7 +251,6 @@ __**Commands**__
 `convert` - converts emotes to a downloadable image (through URL)
 `info` - shows information about the specified emote
 """
-        e.set_footer(text=f"Command executed by {ctx.message.author}")
         await ctx.send(embed=e)
         await functions.logging(ctx, "emote", bot)
         
