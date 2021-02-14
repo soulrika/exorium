@@ -213,7 +213,7 @@ async def utils(ctx):
     await functions.logging(ctx, "help utils", bot)
 
 
-@help.command()
+@help.command(aliases="bot", "exorium")
 async def exo(ctx):
     e = discord.Embed(title='Bot commands', description="All the commands directly related to exorium itself", color=config.color)
     e.add_field(name='Commands', value="```askexo, invite, links, ping, stats, suggest```", inline=False)
