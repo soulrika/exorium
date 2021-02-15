@@ -843,20 +843,14 @@ async def ban(ctx, member: discord.Member, *, reason=None):
 @bot.command(name='unban')  # Unbans user with a given ID
 @commands.has_permissions(ban_members=True)
 async def unban(ctx, *, username:str):
-    try:
-        banlist = await ctx.guild.bans()
-    except discord.errors.Forbidden:
-        await ctx.send('I do not have access to the ban list. Please give me the `ban_members` permission and run the command again.')
-        return
-    user = None
-    for ban in banlist:
-        if ban.user.name == username:
-            user = ban.user
-    if user is None:
-        await ctx.send(f'This user is not banned on {ctx.guild.name}')
-        return
-    await ctx.guild.unban(user)
-    await ctx.send(f'{user} was successfully unbanned.')
+    ban_list = await ctx.guild.bans()
+    onlist = discord.utils.find(lambda u: str(u.user.name) == username, ban_list)
+    if onlist = None:
+        await ctx.send('This user is not banned.')
+    else:
+        await ctx.guild.unban()
+        await ctx.send(f'{username} was unbanned successfully.')
+        
 
 
 @bot.command(name="kick")  # Kicks the mentioned user from the guild
