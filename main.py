@@ -842,9 +842,9 @@ async def ban(ctx, member: discord.Member, *, reason=None):
 
 @bot.command(name='unban')  # Unbans user with a given ID
 @commands.has_permissions(ban_members=True)
-async def unban(ctx, *, username:str):
+async def unban(ctx, *, member: discord.Member):
     ban_list = await ctx.guild.bans()
-    onlist = discord.utils.find(lambda u: str(u.user.name) == username, ban_list)
+    onlist = discord.utils.find(lambda u: str(u.user.name) == member, ban_list)
     if not onlist:
         await ctx.send('This user is not banned.')
     else:
