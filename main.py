@@ -985,6 +985,8 @@ async def purge(ctx, amount=0):
     if amount <= 1500:
         await ctx.channel.purge(limit=amount + 1, check=ducks_pin_message_check)
         await ctx.send(f'{ctx.author} deleted **{amount}** messages using the purge command.')
+        asyncio.sleep(5)
+        await ctx.message.delete()
         await functions.logging(ctx, f"purge ({amount})", bot)
     if amount >= 1500:
         await ctx.send("You can only purge 1500 messages at a time.")
