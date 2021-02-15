@@ -837,7 +837,7 @@ async def ban(ctx, member: discord.Member, *, reason=None):
         await ctx.send(embed=embed)
         await functions.logging(ctx, "ban", bot)
     except Exception as e:
-        await ctx.send(e)            
+        await ctx.send(f"```py\n{e}\n```")            
 
 
 @bot.command(name='unban')  # Unbans user with a given ID
