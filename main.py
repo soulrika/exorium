@@ -848,8 +848,8 @@ async def unban(ctx, *, member: discord.Member):
     if not onlist:
         await ctx.send('This user is not banned.')
     else:
-        await ctx.guild.unban()
-        await ctx.send(f'{username} was unbanned successfully.')
+        await ctx.guild.unban(member)
+        await ctx.send(f'{member} was unbanned successfully.')
         
 
 
