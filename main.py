@@ -27,7 +27,7 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=activity)
     print('\n-= exorium has started successfully =-\n')
     e = discord.Embed(description=f"exorium has started successfully", color=config.color)
-    user = bot.get_user(698080201158033409)
+    user = await bot.fetch_user(698080201158033409)
     await user.send(embed=e)
     
 bot.load_extension('jishaku')
