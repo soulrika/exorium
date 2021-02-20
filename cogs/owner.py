@@ -1,4 +1,4 @@
-  import discord, config
+import discord, config
 from discord.ext import commands
 
 class owner(commands.Cog, name="Owner"):
