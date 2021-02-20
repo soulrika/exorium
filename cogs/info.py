@@ -42,6 +42,16 @@ class info(commands.Cog, name="Info"):
         await ctx.send(embed=e)
 
 
+    @commands.command(brief="Our privacy policy")
+    async def privacy(self, ctx):
+        e = discord.Embed(color=config.color)
+        e.description = f"""
+You can read our privacy policy [here](https://github.com/ThePawKingdom/exorium/blob/master/privacy%20policy.md).
+Want your data removed or have a question? Send an email to bluewyechache@gmail.com.
+"""
+        await ctx.send(embed=e)
+
+
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.CommandNotFound):
