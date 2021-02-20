@@ -63,6 +63,19 @@ You can get help in the following ways:
         await ctx.send(embed=e)
 
 
+    @commands.command(brief="exo related links")
+    async def links(self, ctx):
+        e = discord.Embed(color=config.color)
+        e.description = f"""
+- [statuspage](https://exorium.statuspage.io/)
+Displays downtime, issues and outages.
+- [bot lists](https://linktr.ee/exorium)
+Links to all botlists exorium is on
+- [GitHub repository](https://github.com/ThePawKingdom/exorium)
+The open source code for exorium
+"""
+        await ctx.send(embed=e)
+
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.CommandNotFound):
