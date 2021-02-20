@@ -38,7 +38,7 @@ class info(commands.Cog, name="Info"):
     async def respond(self, ctx, *, args):
         e = discord.Embed(color=config.color)
         e.description = f"{args}"
-        e.set_author(name={ctx.message.author}, icon_url=user.avatar_url)
+        e.set_author(name={ctx.message.author}, icon_url=ctx.author.avatar_url)
         await ctx.send(embed=e)
 
 
