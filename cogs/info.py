@@ -41,15 +41,6 @@ class info(commands.Cog, name="Info"):
         e.set_footer(text=f"by {ctx.message.author}")
         await ctx.send(embed=e)
 
-    @commands.command(name="shutdown", aliases=["logout"])
-    @commands.is_owner()
-    async def jsk_shutdown(self, ctx: commands.Context):
-        """
-        Logs this bot out.
-        """
-
-        await ctx.send("Logging out now")
-        await ctx.bot.logout()
 
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
