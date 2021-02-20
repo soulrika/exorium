@@ -52,6 +52,16 @@ Want your data removed or got questions? mail to `bluewyechache@gmail.com`.
         await ctx.send(embed=e)
 
 
+    @commands.command(brief="Get support")
+    e = discord.Embed(color=config.color)
+    e.description = f"""
+You can get help in the following ways:
+- Send a mail to `bluewyechache@gmail.com`
+- [Join the support server](https://discord.gg/CEHkNky)
+"""
+    await ctx.send(embed=e)
+
+
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.CommandNotFound):
