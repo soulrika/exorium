@@ -54,13 +54,13 @@ Want your data removed or got questions? mail to `bluewyechache@gmail.com`.
 
     @commands.command(brief="Get support")
     async def support(self, ctx):
-    e = discord.Embed(color=config.color)
-    e.description = f"""
+        e = discord.Embed(color=config.color)
+        e.description = f"""
 You can get help in the following ways:
 - Send a mail to `bluewyechache@gmail.com`
 - [Join the support server](https://discord.gg/CEHkNky)
 """
-    await ctx.send(embed=e)
+        await ctx.send(embed=e)
 
 
     @commands.Cog.listener()
