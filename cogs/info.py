@@ -1,4 +1,5 @@
-import discord, config, time, aiohttp
+import discord, config, time, aiohttp, psutil, platform
+from collections import Counter
 from discord.ext import commands
 
 class info(commands.Cog, name="Info"):
@@ -76,6 +77,8 @@ The open source code for exorium
 """
         await ctx.send(embed=e)
 
+
+    
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.CommandNotFound):
