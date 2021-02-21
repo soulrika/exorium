@@ -133,7 +133,7 @@ __**System**__
         e.add_field(name="__**Generic information**__",
                     value="test")
         e.set_author(name=f"{gu.name} information", icon_url=gu.icon_url)
-        e.set_footer(text=gu.id)
+        e.set_footer(text=f"Guild ID: {gu.id}")
         await ctx.send(embed=e)
 
 
