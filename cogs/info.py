@@ -78,7 +78,7 @@ The open source code for exorium
         await ctx.send(embed=e)
 
 
-    @commands.command(brief="exorium statistics", aliases="stats")
+    @commands.command(brief="exorium statistics", aliases=["stats"])
     async def statistics(self, ctx):
         print(startTime)
         print(datetime.now().timestamp())
