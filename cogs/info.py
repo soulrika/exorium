@@ -143,6 +143,8 @@ __**System**__
         e.set_author(name=f"{gu.name} information", icon_url=gu.icon_url)
         e.set_footer(text=f"Guild ID: {gu.id}")
         e.set_thumbnail(url=gu.icon_url)
+        if gu.banner == true:
+            e.set_image(url=gu.banner_url)
         await ctx.send(embed=e)
 
 
