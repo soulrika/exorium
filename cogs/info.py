@@ -7,8 +7,6 @@ class info(commands.Cog, name="Info"):
     def __init__(self, bot):
         self.bot = bot
     
-    startTime = datetime.now().timestamp()
-    
     @commands.command(brief="Bot's latency to discord")
     async def ping(self, ctx):
         """ See bot's latency to discord """
@@ -82,6 +80,7 @@ The open source code for exorium
 
     @commands.command(brief="exorium statistics", aliases=["stats"])
     async def statistics(self, ctx):
+        startTime = datetime.now().timestamp()
         print(startTime)
         print(datetime.now().timestamp())
         uptime = datetime.now().timestamp() - startTime
