@@ -64,5 +64,15 @@ class utility(commands.Cog, name="Utility"):
         await ctx.send(embed=embed)
 
 
+    @commands.command(brief="See someone's av", aliases=["av"])
+    async def avatar(self, ctx, *, user: discord.Member = None):
+        if not user:
+            user = ctx.author
+        e = discord.Embed(color=config.color)
+        e.set_author(name=f"avatar of {user}", icon_url=user.avatar_url)
+        e.set_image(url=user.avatar_url)
+        await ctx.send(embed=e)
+    
+    
 def setup(bot):
     bot.add_cog(utility(bot))
