@@ -110,28 +110,7 @@ __**System**__
     @commands.command(brief="See a server's info", aliases=["si", "sinfo"])
     async def serverinfo(self, ctx):
         gu = ctx.guild
-        
-        features = {
-            "VIP_REGIONS": "VIP Voice Servers",
-            "VANITY_URL": "Vanity Invite",
-            "INVITE_SPLASH": "Invite Splash",
-            "VERIFIED": "Verified",
-            "PARTNERED": "Partnered",
-            "MORE_EMOJI": "More Emoji",
-            "DISCOVERABLE": "Server Discovery",
-            "FEATURABLE": "Featurable",
-            "COMMUNITY": "Community server",
-            "COMMERCE": "Commerce",
-            "PUBLIC": "Public",
-            "NEWS": "News Channels",
-            "BANNER": "Banner",
-            "ANIMATED_ICON": "Animated Icon",
-            "PUBLIC_DISABLED": "Public Disabled",
-            "MEMBER_VERIFICATION_GATE_ENABLED": "Member verification gate",
-            "WELCOME_SCREEN_ENABLED": "Welcome Screen",
-            "ENABLED_DISCOVERABLE_BEFORE": "Discoverable before",
-            "PREVIEW_ENABLED": "Preview"
-        }
+        features = "\n".join(gu.features).lower().replace('_', ' ').title()
         
         if gu.mfa_level == 0:
             mfa = "Optional"
