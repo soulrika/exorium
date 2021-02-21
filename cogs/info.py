@@ -130,12 +130,10 @@ __**System**__
             "PREVIEW_ENABLED": "Preview"
         }
         e = discord.Embed(color=config.color)
-        e.description = f"""
-**Guild members:**
-humans: `{len(gu.humans)}`
-bots: `{len(gu.bots)}`
-"""
+        e.add_field(name="__**Generic information**__",
+                    value="test")
         e.set_author(name=f"{gu.name} information", icon_url=gu.icon_url)
+        e.set_footer(text=gu.id)
         await ctx.send(embed=e)
 
 
