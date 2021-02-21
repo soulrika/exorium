@@ -80,20 +80,20 @@ The open source code for exorium
 
     @commands.command(brief="exorium statistics", aliases="stats")
     async def statistics(self, ctx):
-    print(startTime)
-    print(datetime.now().timestamp())
-    uptime = datetime.now().timestamp() - startTime
-    channel_types = Counter(type(c) for c in self.bot.get_all_channels())
-    voice = channel_types[discord.channel.VoiceChannel]
-    text = channel_types[discord.channel.TextChannel]
-    lastboot = str((datetime.utcfromtimestamp(uptime).strftime('%H hour(s), %M minute(s) and %S second(s)')))
-    cpu_per = psutil.cpu_percent()
-    cores = psutil.cpu_count()
-    memory = psutil.virtual_memory().total >> 20
-    mem_usage = psutil.virtual_memory().used >> 20
-    storage_free = psutil.disk_usage('/').free >> 30
-    e = discord.Embed(title="exorium statistics", color=config.color)
-    e.description = f"""
+        print(startTime)
+        print(datetime.now().timestamp())
+        uptime = datetime.now().timestamp() - startTime
+        channel_types = Counter(type(c) for c in bot.get_all_channels())
+        voice = channel_types[discord.channel.VoiceChannel]
+        text = channel_types[discord.channel.TextChannel]
+        lastboot = str((datetime.utcfromtimestamp(uptime).strftime('%H hour(s), %M minute(s) and %S second(s)')))
+        cpu_per = psutil.cpu_percent()
+        cores = psutil.cpu_count()
+        memory = psutil.virtual_memory().total >> 20
+        mem_usage = psutil.virtual_memory().used >> 20
+        storage_free = psutil.disk_usage('/').free >> 30
+        e = discord.Embed(title="exorium statistics", color=config.color)
+        e.description = f"""
 __**About exorium**__
 **Developers:** [Bluewy]({config.bluewy}) & [Toothless]({config.toothy})\n**Library:** [Discord.py {discord.__version__}](https://github.com/Rapptz/discord.py) <:python:758139554670313493>\n**Last boot:** {lastboot}
     
@@ -102,7 +102,7 @@ __**statistics**__
 __**System**__
 **Hosting OS:** `{platform.platform()}`\n**Cores:** `{cores}`\n**CPU:** `{cpu_per}%`\n**RAM:** `{mem_usage}/{memory} MB`\n**Storage:** `{storage_free} GB free`
 """
-    await ctx.send(embed=e)
+        await ctx.send(embed=e)
         
 
     @commands.Cog.listener()
