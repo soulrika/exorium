@@ -133,7 +133,7 @@ __**System**__
         e.description = f"""
 **Guild members:**
 humans: `{len(gu.humans)}`
-bots: `{len(gu.bots)}
+bots: `{len(gu.bots)}`
 """
         e.set_author(name=gu.name, icon_url=gu.icon_url)
         await ctx.send(embed=e)
