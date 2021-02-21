@@ -84,7 +84,7 @@ The open source code for exorium
         print(startTime)
         print(datetime.now().timestamp())
         uptime = datetime.now().timestamp() - startTime
-        channel_types = Counter(type(c) for c in bot.get_all_channels())
+        channel_types = Counter(type(c) for c in self.bot.get_all_channels())
         voice = channel_types[discord.channel.VoiceChannel]
         text = channel_types[discord.channel.TextChannel]
         lastboot = str((datetime.utcfromtimestamp(uptime).strftime('%H hour(s), %M minute(s) and %S second(s)')))
