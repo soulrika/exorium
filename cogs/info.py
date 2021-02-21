@@ -2,6 +2,7 @@ import discord, config, time, aiohttp, psutil, platform
 from collections import Counter
 from discord.ext import commands
 from datetime import datetime
+from utils import default
 
 class info(commands.Cog, name="Info"):
     def __init__(self, bot):
