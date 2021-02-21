@@ -110,6 +110,7 @@ __**System**__
     @commands.command(brief="See a server's info", aliases=["si", "sinfo"])
     async def serverinfo(self, ctx):
         gu = ctx.guild
+        
         features = {
             "VIP_REGIONS": "VIP Voice Servers",
             "VANITY_URL": "Vanity Invite",
@@ -130,9 +131,15 @@ __**System**__
             "WELCOME_SCREEN_ENABLED": "Welcome Screen",
             "PREVIEW_ENABLED": "Preview"
         }
+        
+        if gu.mfa_level == 0:
+            mfa = "Optional"
+        else:
+            mfa = "Required"
+
         e = discord.Embed(color=config.color)
         e.add_field(name="__**Generic information**__",
-                    value=f"**Owner:** {gu.owner}\n**Owner ID:**\n`{gu.owner.id}`\nCreated: {default.date(ctx.guild.created_at)}")
+                    value=f"**Owner:** {gu.owner}\n**Owner ID:**\n`{gu.owner.id}`\n**Created:** {default.date(ctx.guild.created_at)}\n**Region:** {str(gu.region)}\n**MFA:**{mfa}")
         e.set_author(name=f"{gu.name} information", icon_url=gu.icon_url)
         e.set_footer(text=f"Guild ID: {gu.id}")
         await ctx.send(embed=e)
