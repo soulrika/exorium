@@ -1,4 +1,5 @@
-import discord, config
+import discord, config, json, requests, random
+import 
 from discord.ext import commands
 
 class utility(commands.Cog, name="Utility"):
