@@ -135,7 +135,7 @@ __**System**__
 humans: `{len(gu.humans)}`
 bots: `{len(gu.bots)}`
 """
-        e.set_author(name=f"gu.name information", icon_url=gu.icon_url)
+        e.set_author(name=f"{gu.name} information", icon_url=gu.icon_url)
         await ctx.send(embed=e)
 
 
