@@ -132,10 +132,10 @@ __**System**__
         e = discord.Embed(title="Server info", color=config.color)
         e.description = f"""
 **Guild members:**
-humans: `{guild.humans}`
-bots: `{guild.bots}
+humans: `{gu.humans}`
+bots: `{gu.bots}
 """
-        e.set_author(name=guild.name, icon_url=guild.icon_url)
+        e.set_author(name=gu.name, icon_url=gu.icon_url)
         await ctx.send(embed=e)
 
 
