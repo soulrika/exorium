@@ -518,6 +518,7 @@ async def serverinfo(ctx):
         "PUBLIC_DISABLED": "Public Disabled",
         "MEMBER_VERIFICATION_GATE_ENABLED": "Member verification gate",
         "WELCOME_SCREEN_ENABLED": "Welcome Screen",
+        'ENABLED_DISCOVERABLE_BEFORE': "Discoverable before",
         "PREVIEW_ENABLED": "Preview"
     }
     embed = discord.Embed(color=config.color)
