@@ -261,10 +261,9 @@ async def convert(ctx, emoji: discord.PartialEmoji):
     try:
         await ctx.send(emoji.url)
         await functions.logging(ctx, "emote convert", bot)
-    else:
-         except Exception as e:
-                e = discord.Embed(description=e, color=config.red)
-                await ctx.send(embed=e)
+    except Exception as e:
+        e = discord.Embed(description=e, color=config.red)
+        await ctx.send(embed=e)
     
 @emote.command()
 async def info(ctx, emoji: discord.Emoji):
