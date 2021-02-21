@@ -142,6 +142,7 @@ __**System**__
                     value=f"**Owner:** {gu.owner}\n**Owner ID:**\n`{gu.owner.id}`\n**Created:** {default.date(ctx.guild.created_at)}\n**Region:** {str(gu.region)}\n**MFA: **{mfa}")
         e.set_author(name=f"{gu.name} information", icon_url=gu.icon_url)
         e.set_footer(text=f"Guild ID: {gu.id}")
+        e.set_thumbnail(url=gu.icon_url)
         await ctx.send(embed=e)
 
 
