@@ -106,6 +106,39 @@ __**System**__
         await ctx.send(embed=e)
         
 
+    @commands.command(brief="See a server's info", aliases=["si", "sinfo"])
+    async def serverinfo(self, ctx):
+        gu = ctx.guild
+        features = {
+            "VIP_REGIONS": "VIP Voice Servers",
+            "VANITY_URL": "Vanity Invite",
+            "INVITE_SPLASH": "Invite Splash",
+            "VERIFIED": "Verified",
+            "PARTNERED": "Partnered",
+            "MORE_EMOJI": "More Emoji",
+            "DISCOVERABLE": "Server Discovery",
+            "FEATURABLE": "Featurable",
+            "COMMUNITY": "Community server",
+            "COMMERCE": "Commerce",
+            "PUBLIC": "Public",
+            "NEWS": "News Channels",
+            "BANNER": "Banner",
+            "ANIMATED_ICON": "Animated Icon",
+            "PUBLIC_DISABLED": "Public Disabled",
+            "MEMBER_VERIFICATION_GATE_ENABLED": "Member verification gate",
+            "WELCOME_SCREEN_ENABLED": "Welcome Screen",
+            "PREVIEW_ENABLED": "Preview"
+        }
+        e = discord.Embed(title="Server info", color=config.color)
+        e.description = f"""
+**Guild members:**
+humans: `{guild.humans}`
+bots: `{guild.bots}
+"""
+        e.set_author(name=guild.name, icon_url=guild.icon_url)
+        await ctx.send(embed=e)
+
+
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.CommandNotFound):
