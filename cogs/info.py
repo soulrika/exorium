@@ -7,6 +7,7 @@ class info(commands.Cog, name="Info"):
     def __init__(self, bot):
         self.bot = bot
     
+    startTime = datetime.now().timestamp()
     
     @commands.command(brief="Bot's latency to discord")
     async def ping(self, ctx):
