@@ -137,8 +137,11 @@ __**System**__
     async def userinfo(self, ctx, *, user: discord.Member = None):
         if not user:
             user = ctx.author
-        roles = ''
-        await ctx.send('test')
+        e = discord.Embed(config.color)
+        e.set_author(name=user.name, icon_url=user.avatar_url)
+        e.description = f"test"
+        e.set_thumbnail(url=user.avatar_url)
+        await ctx.send(embed=e)
         
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
