@@ -184,8 +184,13 @@ __**System**__
         else:
             bh = "No"
 
+        if user.public_flags.early_supporter == True:
+            es = "Yes"
+        else:
+            es = "No"
+
         e.add_field(name="__**Public flags**__",
-                    value=f"**Discord staff:** {staff}\n**Discord partner:** {partner}\n**Bug hunter:** {bh}\n**Hypesquad:** {hs}", inline=True)
+                    value=f"**Discord staff:** {staff}\n**Discord partner:** {partner}\n**Early supporter:** {es}\n**Bug hunter:** {bh}\n**Hypesquad:** {hs}", inline=True)
         e.set_thumbnail(url=user.avatar_url)
         await ctx.send(embed=e)
         
