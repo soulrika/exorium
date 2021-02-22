@@ -165,12 +165,9 @@ __**System**__
 
         if user.public_flags.hypesquad_balance == True:
             hs = "Balance"
-        if user.public_flags.hypesquad_brilliance == True:
-            hs = "Brilliance"
-        if user.public_flags.hypesquad_bravery == True:
-            hs = "Bravery"
         else:
             hs = "None"
+
         e.add_field(name="__**Public flags**__",
                     value=f"**Discord staff:** {staff}\n**Hypesquad:** {hs}", inline=True)
         e.set_thumbnail(url=user.avatar_url)
