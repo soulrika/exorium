@@ -148,7 +148,7 @@ __**System**__
         else:
             bot = "No"
             
-        if verified_bot == True:
+        if user.public_flags.verified_bot == True:
             botv = "Yes"
         else:
             botv = "No"
