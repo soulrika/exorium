@@ -138,17 +138,17 @@ __**System**__
         if not user:
             user = ctx.author
         
-        if user.is_on_mobile() == True:
+        if user.is_on_mobile():
             appl = "On mobile"
         else:
             appl = "On desktop/website"
     
-        if user.bot == True:
+        if user.bot:
             bot = "Yes"
         else:
             bot = "No"
             
-        if user.public_flags.verified_bot == True:
+        if user.public_flags.verified_bot:
             botv = "Yes"
         else:
             botv = "No"
@@ -158,33 +158,33 @@ __**System**__
         e.add_field(name="__**Generic information**__",
                     value=f"**Username:** {user}\n**User ID:** {user.id}\n**Created:** {default.date(user.created_at)}\n**Joined:** {default.date(user.joined_at)}\n**Avatar URL:** [Click here]({user.avatar_url})\n**Application:** {appl}\n**Bot:** {bot} (verified: {botv})", inline=True)
         
-        if user.public_flags.staff == True:
+        if user.public_flags.staff:
             staff = "Yes"
         else:
             staff = "No"
 
-        if user.public_flags.hypesquad_balance == True:
+        if user.public_flags.hypesquad_balance:
             hs = "Balance"
-        elif user.public_flags.hypesquad_brilliance == True:
+        elif user.public_flags.hypesquad_brilliance:
             hs = "Brilliance"
-        elif user.public_flags.hypesquad_bravery == True:
+        elif user.public_flags.hypesquad_bravery:
             hs = "Bravery"
-        elif user.public_flags.hypesquad == False:
+        elif user.public_flags.hypesquad:
             hs = "None"
 
-        if user.public_flags.partner == True:
+        if user.public_flags.partner:
             partner = "Yes"
         else:
             partner = "No"
 
-        if user.public_flags.bug_hunter == True:
+        if user.public_flags.bug_hunter:
             bh = "Yes (1)"
-        elif user.public_flags.bug_hunter_level_2 == True:
+        elif user.public_flags.bug_hunter_level_2:
             bh = "Yes (2)"
         else:
             bh = "No"
 
-        if user.public_flags.early_supporter == True:
+        if user.public_flags.early_supporter:
             es = "Yes"
         else:
             es = "No"
