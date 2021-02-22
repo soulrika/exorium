@@ -104,7 +104,7 @@ __**statistics**__
 __**System**__
 **Hosting OS:** `{platform.platform()}`\n**Cores:** `{cores}`\n**CPU:** `{cpu_per}%`\n**RAM:** `{mem_usage}/{memory} MB`\n**Storage:** `{storage_free} GB free`
 """
-        e.set_image(url="https://cdn.bluewy.xyz/PYRYwd")
+        e.set_image(url=config.banner)
         await ctx.send(embed=e)
         
 
