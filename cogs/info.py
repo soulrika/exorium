@@ -124,6 +124,8 @@ __**System**__
                     value=features, inline=True)
         e.add_field(name="__**Server members**__",
                     value=f"**Humans:** {len(gu.bots)}\n**Bots:** {len(gu.humans)}", inline=False)
+        e.add_field(name="__**Server channels**__",
+                    value=f"**Text:** {len(gu.text_channels)}\n**Voice:** {len(gu.voice_channels)}", inline=True)
         e.set_author(name=f"{gu.name} information", icon_url=gu.icon_url)
         e.set_footer(text=f"Guild ID: {gu.id}")
         e.set_thumbnail(url=gu.icon_url)
