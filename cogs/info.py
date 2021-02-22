@@ -165,7 +165,11 @@ __**System**__
 
         if user.public_flags.hypesquad_balance == True:
             hs = "Balance"
-        else:
+        elif user.public_flags.hypesquad_brilliance == True:
+            hs = "Brilliance"
+        elif user.public_flags.hypesquad_bravery == True:
+            hs = "Bravery"
+        elif:
             hs = "None"
 
         e.add_field(name="__**Public flags**__",
