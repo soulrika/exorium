@@ -153,7 +153,7 @@ __**System**__
         else:
             botv = "No"
 
-        if user.public_flags == 0:
+        if len(user.public_flags) == 0:
             flags = None
 
         e = discord.Embed(color=config.color)
