@@ -111,7 +111,8 @@ __**System**__
     async def serverinfo(self, ctx):
         gu = ctx.guild
         features = ", ".join(gu.features).lower().replace('_', ' ').title()
-        
+        if len(features) == 0:
+            features = None
         if gu.mfa_level == 0:
             mfa = "Optional"
         else:
@@ -122,8 +123,8 @@ __**System**__
                     value=f"**Owner:** {gu.owner}\n**Owner ID:**\n`{gu.owner.id}`\n**Created:** {default.date(ctx.guild.created_at)}\n**Region:** {str(gu.region)}\n**MFA: **{mfa}\n**Verification:** {str(ctx.guild.verification_level).capitalize()}", inline=True)
         e.add_field(name="__**Others**__",
                     value=f"**Humans:** {len(gu.bots)} ({len(gu.members)} total)\n**Bots:** {len(gu.humans)} ({len(gu.members)} total)\n**Text:** {len(gu.text_channels)} channels\n**Voice:** {len(gu.voice_channels)} channels", inline=True)
-        e.add_field(name="__**Server features**__",
-                    value=features, inline=False)
+        if features != None:
+            e.add_field(name="__**Server features**__", value=features, inline=False)
         e.set_author(name=f"{gu.name} information", icon_url=gu.icon_url)
         e.set_footer(text=f"Guild ID: {gu.id}")
         e.set_thumbnail(url=gu.icon_url)
