@@ -141,7 +141,7 @@ __**System**__
         if user.is_on_mobile() == True:
             appl = "On mobile"
         else:
-            if desktop_status == True:
+            if user.desktop_status == True:
                 appl = "Desktop"
             else: 
                 appl = "Website"
