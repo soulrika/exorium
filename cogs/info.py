@@ -163,11 +163,11 @@ __**System**__
         else:
             staff = "No"
 
-        if user.public_flags.hypesquad.balance == True:
+        if user.public_flags.hypesquad_balance == True:
             hs = "Balance"
-        if user.public_flags.hypesquad.brilliance == True:
+        if user.public_flags.hypesquad_brilliance == True:
             hs = "Brilliance"
-        if user.public_flags.hypesquad.bravery == True:
+        if user.public_flags.hypesquad_bravery == True:
             hs = "Bravery"
         else:
             hs = "None"
