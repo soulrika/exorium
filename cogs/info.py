@@ -172,8 +172,13 @@ __**System**__
         elif user.public_flags.hypesquad == False:
             hs = "None"
 
+        if user.public_flags.partner == True:
+            partner = "Yes"
+        else:
+            partner = "No"
+
         e.add_field(name="__**Public flags**__",
-                    value=f"**Discord staff:** {staff}\n**Hypesquad:** {hs}", inline=True)
+                    value=f"**Discord staff:** {staff}\n**Discord partner:** {partner}\n**Hypesquad:** {hs}", inline=True)
         e.set_thumbnail(url=user.avatar_url)
         await ctx.send(embed=e)
         
