@@ -119,7 +119,7 @@ __**System**__
 
         e = discord.Embed(color=config.color)
         e.add_field(name="__**Generic information**__",
-                    value=f"**Owner:** {gu.owner}\n**Owner ID:**\n`{gu.owner.id}`\n**Created:** {default.date(ctx.guild.created_at)}\n**Region:** {str(gu.region)}\n**MFA: **{mfa}", inline=True)
+                    value=f"**Owner:** {gu.owner}\n**Owner ID:**\n`{gu.owner.id}`\n**Created:** {default.date(ctx.guild.created_at)}\n**Region:** {str(gu.region)}\n**MFA: **{mfa}\n**Verification:** {str(ctx.guild.verification_level).capitalize()}", inline=True)
         e.add_field(name="__**Server features**__",
                     value=features, inline=True)
         e.set_author(name=f"{gu.name} information", icon_url=gu.icon_url)
