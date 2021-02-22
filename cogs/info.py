@@ -209,7 +209,7 @@ __**System**__
             uroles = [f"{', '.join(uroles[:10])} (+{len(usercheck.roles) - 11})"]
         
         e.add_field(name="__**Roles**__",
-                    value=f"({len(user.roles) - 1}) **" + ", ".join(uroles), inline=False)
+                    value=f"**({len(user.roles) - 1}) **" + ", ".join(uroles), inline=False)
         e.set_thumbnail(url=user.avatar_url)
         await ctx.send(embed=e)
         
