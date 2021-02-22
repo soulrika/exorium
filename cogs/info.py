@@ -196,6 +196,20 @@ __**System**__
 
         e.add_field(name="__**Public flags**__",
                     value=f"**Discord staff:** {staff}\n**Discord partner:** {partner}\n**Early supporter:** {es}\n**Bug hunter:** {bh}\n**Hypesquad:** {hs}\n**Flag value:** {value}", inline=True)
+        
+        uroles = []
+        for role in user.roles:
+            if role.is_default():
+                continue
+            uroles.append(role.mention)
+            
+        uroles.reverse()
+        
+        if len(uroles) > 10:
+            uroles = [f"{', '.join(uroles[:10])} (+{len(usercheck.roles) - 11})"]
+        
+        e.add_field(name="__**Roles**__",
+                    value=f"({len(user.roles) - 1}) **" + ", ".join(uroles), inline=False)
         e.set_thumbnail(url=user.avatar_url)
         await ctx.send(embed=e)
         
