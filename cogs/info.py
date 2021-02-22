@@ -146,7 +146,7 @@ __**System**__
         e = discord.Embed(color=config.color)
         e.set_author(name=user.name, icon_url=user.avatar_url)
         e.add_field(name="__**Generic information**__",
-                    value=f"**Username:** {user}\n**User ID:** {user.id}\n**Created:** {default.date(user.created_at)}\n**Avatar URL: [Click here]({user.avatar_url})\n**Application:** {appl}", inline=False)
+                    value=f"**Username:** {user}\n**User ID:** {user.id}\n**Created:** {default.date(user.created_at)}\n**Avatar URL:** [Click here]({user.avatar_url})\n**Application:** {appl}", inline=False)
         e.set_thumbnail(url=user.avatar_url)
         await ctx.send(embed=e)
         
