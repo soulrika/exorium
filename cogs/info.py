@@ -164,7 +164,7 @@ __**System**__
             staff = "No"
 
         e.add_field(name="__**Public flags**__",
-                    value=f"**Discord staff:** {staff}\n**Hypesquad:** {ctx.author.public_flags.hypesquad", inline=True)
+                    value=f"**Discord staff:** {staff}\n**Hypesquad:** {ctx.author.public_flags.hypesquad}", inline=True)
         e.set_thumbnail(url=user.avatar_url)
         await ctx.send(embed=e)
         
