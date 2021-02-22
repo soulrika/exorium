@@ -189,8 +189,13 @@ __**System**__
         else:
             es = "No"
 
+        if user.public_flags.value == 0:
+            value = "None"
+        else:
+            value = user.public_flags.value
+
         e.add_field(name="__**Public flags**__",
-                    value=f"**Discord staff:** {staff}\n**Discord partner:** {partner}\n**Early supporter:** {es}\n**Bug hunter:** {bh}\n**Hypesquad:** {hs}", inline=True)
+                    value=f"**Discord staff:** {staff}\n**Discord partner:** {partner}\n**Early supporter:** {es}\n**Bug hunter:** {bh}\n**Hypesquad:** {hs}\n**Flag value:** {value}", inline=True)
         e.set_thumbnail(url=user.avatar_url)
         await ctx.send(embed=e)
         
