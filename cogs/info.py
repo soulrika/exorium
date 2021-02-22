@@ -160,7 +160,7 @@ __**System**__
                     value=f"**Username:** {user}\n**User ID:** {user.id}\n**Created:** {default.date(user.created_at)}\n**Joined:** {default.date(user.joined_at)}\n**Avatar URL:** [Click here]({user.avatar_url})\n**Application:** {appl}\n**Bot:** {bot} (verified: {botv})", inline=False)
         if user.public_flags == True:
             e.add_field(name="__**Public flags**__",
-                        value=f"**Discord staff:** {ctx.author.public_flags.staff}"
+                        value=f"**Discord staff:** {ctx.author.public_flags.staff}")
         e.set_thumbnail(url=user.avatar_url)
         await ctx.send(embed=e)
         
