@@ -139,7 +139,8 @@ __**System**__
             user = ctx.author
         e = discord.Embed(color=config.color)
         e.set_author(name=user.name, icon_url=user.avatar_url)
-        e.description = f"test"
+        e.add_field(name="__**Generic information**__",
+                    value=f"**Username:** {user}\n**User ID:** {user.id}\n**Created:** {default.date(user.created_at)}", inline=False)
         e.set_thumbnail(url=user.avatar_url)
         await ctx.send(embed=e)
         
