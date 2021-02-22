@@ -104,6 +104,7 @@ __**statistics**__
 __**System**__
 **Hosting OS:** `{platform.platform()}`\n**Cores:** `{cores}`\n**CPU:** `{cpu_per}%`\n**RAM:** `{mem_usage}/{memory} MB`\n**Storage:** `{storage_free} GB free`
 """
+        e.set_image(url="https://cdn.bluewy.xyz/PYRYwd")
         await ctx.send(embed=e)
         
 
@@ -131,6 +132,9 @@ __**System**__
         await ctx.send(embed=e)
 
 
+    @commands.command(brief="See a user's info")
+    async def userinfo(self, ctx):
+        
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.CommandNotFound):
