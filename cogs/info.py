@@ -141,7 +141,10 @@ __**System**__
         if user.is_on_mobile() == True:
             appl = "On mobile"
         else:
-            appl = "Desktop or website"
+            if desktop_status == True:
+                appl = "Desktop"
+            else: 
+                appl = "Website"
     
         e = discord.Embed(color=config.color)
         e.set_author(name=user.name, icon_url=user.avatar_url)
