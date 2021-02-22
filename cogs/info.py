@@ -163,8 +163,16 @@ __**System**__
         else:
             staff = "No"
 
+        if user.public_flags.hypesquad.balance == True:
+            hs = "Balance"
+        if user.public_flags.hypesquad.brilliance == True:
+            hs = "Brilliance"
+        if user.public_flags.hypesquad.bravery == True:
+            hs = "Bravery"
+        else:
+            hs = "None"
         e.add_field(name="__**Public flags**__",
-                    value=f"**Discord staff:** {staff}\n**Hypesquad:** {ctx.author.public_flags.hypesquad}", inline=True)
+                    value=f"**Discord staff:** {staff}\n**Hypesquad:** {hs}", inline=True)
         e.set_thumbnail(url=user.avatar_url)
         await ctx.send(embed=e)
         
