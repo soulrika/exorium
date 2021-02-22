@@ -177,8 +177,15 @@ __**System**__
         else:
             partner = "No"
 
+        if user.public_flags.bug_hunter == True:
+            bh = "Yes (1)"
+        elif user.public_flags.bug_hunter_level_2 == True:
+            bh = "Yes (2)"
+        else:
+            bh = "No"
+
         e.add_field(name="__**Public flags**__",
-                    value=f"**Discord staff:** {staff}\n**Discord partner:** {partner}\n**Hypesquad:** {hs}", inline=True)
+                    value=f"**Discord staff:** {staff}\n**Discord partner:** {partner}\n**Bug hunter:** {bh}\n**Hypesquad:** {hs}", inline=True)
         e.set_thumbnail(url=user.avatar_url)
         await ctx.send(embed=e)
         
