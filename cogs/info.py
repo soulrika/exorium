@@ -137,7 +137,7 @@ __**System**__
     async def userinfo(self, ctx, *, user: discord.Member = None):
         if not user:
             user = ctx.author
-        e = discord.Embed(config.color)
+        e = discord.Embed(color=config.color)
         e.set_author(name=user.name, icon_url=user.avatar_url)
         e.description = f"test"
         e.set_thumbnail(url=user.avatar_url)
