@@ -169,7 +169,7 @@ __**System**__
             hs = "Brilliance"
         elif user.public_flags.hypesquad_bravery == True:
             hs = "Bravery"
-        elif user.public_flags.hypesquad == None:
+        elif user.public_flags.hypesquad == False:
             hs = "None"
 
         e.add_field(name="__**Public flags**__",
