@@ -148,7 +148,7 @@ __**System**__
         else:
             bot = "No"
             
-        if user.verified_bot == True:
+        if verified_bot == True:
             botv = "Yes"
         else:
             botv = "No"
