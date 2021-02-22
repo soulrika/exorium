@@ -123,7 +123,7 @@ __**System**__
         e.add_field(name="__**Server features**__",
                     value=features, inline=True)
         e.add_field(name="__**Server members**__",
-                    value=f"**Humans:** {len(gu.bots)}\n**Bots:** {len(gu.humans)}", inline=False)
+                    value=f"**Humans:** {len(gu.bots)}\n**Bots:** {len(gu.humans)}", inline=True)
         e.add_field(name="__**Server channels**__",
                     value=f"**Text:** {len(gu.text_channels)}\n**Voice:** {len(gu.voice_channels)}", inline=True)
         e.set_author(name=f"{gu.name} information", icon_url=gu.icon_url)
