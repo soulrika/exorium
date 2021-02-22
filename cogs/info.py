@@ -143,7 +143,7 @@ __**System**__
         else:
             appl = "On desktop/website"
     
-        if user.bot = True:
+        if user.bot == True:
             bot = "Yes"
         else:
             bot = "No"
